@@ -1,6 +1,6 @@
-import FallenRobot.modules.sql.blacklistusers_sql as sql
-from FallenRobot import ALLOW_EXCL
-from FallenRobot import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
+import Naomi.modules.sql.blacklistusers_sql as sql
+from Naomi import ALLOW_EXCL
+from Naomi import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
 
 from telegram import Update
 from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
