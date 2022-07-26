@@ -4,7 +4,7 @@ from typing import Union
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, BigInteger
 
-from FallenRobot.modules.sql import SESSION, BASE
+from Naomi.modules.sql import BASE, SESSION
 
 
 class ChatAccessConnectionSettings(BASE):
