@@ -2,12 +2,11 @@ import threading
 
 from sqlalchemy import String, Column, BigInteger, UnicodeText
 
-from FallenRobot.modules.sql import SESSION, BASE
+from Naomi.modules.sql import SESSION, BASE
 
 DEF_COUNT = 1
 DEF_LIMIT = 0
 DEF_OBJ = (None, DEF_COUNT, DEF_LIMIT)
-
 
 class FloodControl(BASE):
     __tablename__ = "antiflood"
