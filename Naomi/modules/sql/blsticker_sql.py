@@ -1,6 +1,6 @@
 import threading
 
-from FallenRobot.modules.sql import BASE, SESSION
+from Naomi.modules.sql import BASE, SESSION
 from sqlalchemy import Column, BigInteger, String, UnicodeText, distinct, func
 
 
