@@ -4,7 +4,7 @@ from functools import wraps
 
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
-from FallenRobot import LOGGER, pbot as app
+from Naomi import LOGGER, pbot as app
 
 
 def split_limits(text):
