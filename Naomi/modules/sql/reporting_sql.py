@@ -1,7 +1,7 @@
 import threading
 from typing import Union
 
-from FallenRobot.modules.sql import BASE, SESSION
+from Naomi.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, BigInteger, String
 
 
