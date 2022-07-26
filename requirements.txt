@@ -60,4 +60,5 @@ yt_dlp
 pendulum
 nudepy
 telegram==0.0.1
+nekos.py
 
