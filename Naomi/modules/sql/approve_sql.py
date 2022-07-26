@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, BigInteger, func, distinct
 
-from FallenRobot.modules.sql import BASE, SESSION
+from Naomi.modules.sql import BASE, SESSION
 
 
 class Approvals(BASE):
