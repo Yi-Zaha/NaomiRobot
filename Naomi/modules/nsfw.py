@@ -1,7 +1,7 @@
 import os
 import html
 import requests
-from nekos import nekos
+from nekos
 from PIL import Image
 from telegram import ParseMode
 from FallenRobot import dispatcher, updater
@@ -73,18 +73,6 @@ def list_nsfw_chats(update: Update, context: CallbackContext):
         except RetryAfter as e:
             sleep(e.retry_after)
     update.effective_message.reply_text(text, parse_mode="HTML")
-@run_async
-def img(target: str):
-    possible = [
-        'feet', 'yuri', 'trap', 'futanari', 'hololewd', 'lewdkemo',
-        'solog', 'feetg', 'cum', 'erokemo', 'les', 'wallpaper', 'lewdk',
-        'ngif', 'tickle', 'lewd', 'feed', 'gecg', 'eroyuri', 'eron',
-        'cum_jpg', 'bj', 'nsfw_neko_gif', 'solo', 'kemonomimi', 'nsfw_avatar',
-        'gasm', 'poke', 'anal', 'slap', 'hentai', 'avatar', 'erofeet', 'holo',
-        'keta', 'blowjob', 'pussy', 'tits', 'holoero', 'lizard', 'pussy_jpg',
-        'pwankg', 'classic', 'kuni', 'waifu', 'pat', '8ball', 'kiss', 'femdom',
-        'neko', 'spank', 'cuddle', 'erok', 'fox_girl', 'boobs', 'random_hentai_gif',
-        'smallboobs', 'hug', 'ero', 'smug', 'goose', 'baka', 'woof']
 @run_async
 def neko(update, context):
     msg = update.effective_message
