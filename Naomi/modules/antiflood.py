@@ -4,15 +4,15 @@ import re
 
 from telegram import Message, Chat, Update, User, ChatPermissions
 
-from FallenRobot import TIGERS, WOLVES, dispatcher
-from FallenRobot.modules.helper_funcs.chat_status import (
+from Naomi import TIGERS, WOLVES, dispatcher
+from Naomi.modules.helper_funcs.chat_status import (
     bot_admin,
     is_user_admin,
     user_admin,
     user_admin_no_reply,
 )
-from FallenRobot.modules.log_channel import loggable
-from FallenRobot.modules.sql import antiflood_sql as sql
+from Naomi.modules.log_channel import loggable
+from Naomi.modules.sql import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -400,26 +400,7 @@ def __chat_settings__(chat_id, user_id):
         return "Antiflood has been set to`{}`.".format(limit)
 
 
-__help__ = """
-*Antiflood* allows you to take action on users that send more than x messages in a row. Exceeding the set flood \
-will result in restricting that user.
- This will mute users if they send more than 10 messages in a row, bots are ignored.
 
- ❍ /flood*:* Get the current flood control setting
-• *Admins only:*
- ❍ /setflood <int/'no'/'off'>*:* enables or disables flood control
- *Example:* `/setflood 10`
- ❍ /setfloodmode <ban/kick/mute/tban/tmute> <value>*:* Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
-• *Note:*
- • Value must be filled for tban and tmute!!
- It can be:
- `5m` = 5 minutes
- `6h` = 6 hours
- `3d` = 3 days
- `1w` = 1 week
- """
-
-__mod_name__ = "Aɴᴛɪ-Fʟᴏᴏᴅ"
 
 FLOOD_BAN_HANDLER = MessageHandler(
     Filters.all & ~Filters.status_update & Filters.group, check_flood
