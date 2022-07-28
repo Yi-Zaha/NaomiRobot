@@ -7,14 +7,14 @@ from telegram import ParseMode, TelegramError, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 from telegram.utils.helpers import mention_html
 
-from FallenRobot import DEMONS, DEV_USERS, DRAGONS, OWNER_ID, TIGERS, WOLVES, dispatcher
-from FallenRobot.modules.helper_funcs.chat_status import (
+from Naomi import DEMONS, DEV_USERS, DRAGONS, OWNER_ID, TIGERS, WOLVES, dispatcher
+from Naomi.modules.helper_funcs.chat_status import (
     dev_plus,
     sudo_plus,
     whitelist_plus,
 )
-from FallenRobot.modules.helper_funcs.extraction import extract_user
-from FallenRobot.modules.log_channel import gloggable
+from Naomi.modules.helper_funcs.extraction import extract_user
+from Naomi.modules.log_channel import gloggable
 
 ELEVATED_USERS_FILE = os.path.join(os.getcwd(), "DaisyX/elevated_users.json")
 
@@ -760,7 +760,7 @@ dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
-__mod_name__ = "Disasters"
+__mod_name__ = "🌪 Disasters 🌪"
 __handlers__ = [
     SUDO_HANDLER,
     SUPPORT_HANDLER,
