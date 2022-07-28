@@ -1,4 +1,4 @@
-from FallenRobot import telethn as tbot
+from Naomi import telethn as tbot
 import os
 import re
 import bs4
