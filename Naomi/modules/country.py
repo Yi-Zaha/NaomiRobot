@@ -5,8 +5,8 @@ from telethon.utils import get_input_location
 import flag
 import html, os
 from countryinfo import CountryInfo
-from FallenRobot import telethn as borg
-from FallenRobot.events import register
+from Naomi import telethn as borg
+from Naomi.events import register
 
 
 @register(pattern="^/country (.*)")
