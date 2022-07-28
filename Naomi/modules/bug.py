@@ -8,13 +8,13 @@ from pyrogram.types import (
     Message,
 )
 
-from FallenRobot import pbot as Client
-from FallenRobot import (
+from Naomi import pbot as Client
+from Naomi import (
     OWNER_ID as owner_id,
     OWNER_USERNAME as owner_usn,
     SUPPORT_CHAT as log,
 )
-from FallenRobot.utils.errors import capture_err
+from Naomi.utils.errors import capture_err
 
 
 def content(msg: Message) -> [None, str]:
