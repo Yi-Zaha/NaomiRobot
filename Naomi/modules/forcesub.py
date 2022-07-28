@@ -10,9 +10,9 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 )
 from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
 
-from FallenRobot import DRAGONS as SUDO_USERS
-from FallenRobot import pbot
-from FallenRobot.modules.sql import forceSubscribe_sql as sql
+from Naomi import DRAGONS as SUDO_USERS
+from Naomi import pbot
+from Naomi.modules.sql import forceSubscribe_sql as sql
 
 
 logging.basicConfig(level=logging.INFO)
@@ -201,4 +201,4 @@ __help__ = """
 
   ❍ /fsub clear *:* To unmute all members who are muted by me for not joining the channel.
 """
-__mod_name__ = "Fᴏʀᴄᴇ-Sᴜʙ"
+__mod_name__ = "🔪 Force-Sub 🔪"
