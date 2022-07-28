@@ -1,6 +1,6 @@
-from FallenRobot import dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.alternate import typing_action
+from Naomi import dispatcher
+from Naomi.modules.disable import DisableAbleCommandHandler
+from Naomi.modules.helper_funcs.alternate import typing_action
 from telegram import ParseMode
 from telegram.ext import run_async
 
@@ -486,7 +486,7 @@ __help__ = """
  ❍ /latin *:* Change the text into latin text.
  ❍ /lined *:* Change the text into lined text.
  """
-__mod_name__ = "Fᴏɴᴛ Eᴅɪᴛᴏʀ"
+__mod_name__ = "➰ Font Styles ➰"
 
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
 BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
