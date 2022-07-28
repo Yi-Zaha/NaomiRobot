@@ -1,17 +1,17 @@
 import os
 import html
 import requests
-from nekos
+import nekos
 from PIL import Image
 from telegram import ParseMode
-from FallenRobot import dispatcher, updater
-import FallenRobot.modules.sql.nsfw_sql as sql
-from FallenRobot.modules.log_channel import gloggable
+from Naomi import dispatcher, updater
+import Naomi.modules.sql.nsfw_sql as sql
+from Naomi.modules.log_channel import gloggable
 from telegram import Message, Chat, Update, Bot, MessageEntity
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.ext import CommandHandler, run_async, CallbackContext
-from FallenRobot.modules.helper_funcs.filters import CustomFilters
-from FallenRobot.modules.helper_funcs.chat_status import user_admin
+from Naomi.modules.helper_funcs.filters import CustomFilters
+from Naomi.modules.helper_funcs.chat_status import user_admin
 from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
 @run_async
@@ -866,6 +866,10 @@ __help__ = """
  - /smug: Sends Random Smug GIFs.
  - /baka: Sends Random Baka Shout GIFs.
  - /dva: Sends Random D.VA source Images.
+ 
+ *⚠️ Note ⚠️ :*
+ Only *lewd* cmds are not because of mudule problem.
+ just know that bot's code don't have any problem.
 """
 
-__mod_name__ = "NSFW"
+__mod_name__ = "🔞 NSFW 🔞"
