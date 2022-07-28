@@ -10,7 +10,6 @@ from FallenRobot.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
 from FallenRobot.utils.filter_groups import nsfw_detect_group
 from FallenRobot.modules.helper_funcs.chat_status import user_admin
 
-__mod_name__ = "Anti-NSFW​"
 
 async def get_file_id_from_message(message):
     file_id = None
@@ -146,7 +145,7 @@ async def nsfw_scan_command(_, message):
 async def nsfw_enable_disable(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "Usage: /antinsfw [on | off]"
+            "/antinsfw [on | off]"
         )
         return
     status = message.text.split(None, 1)[1].strip()
@@ -160,12 +159,3 @@ async def nsfw_enable_disable(_, message):
         await message.reply_text("Disabled AntiNSFW System.")
     else:
         await message.reply_text("`Unknown Suffix, Use /antinsfw [enable|disable]`")
-        
-__mod_name__ = "Anti-NSFW"
-__help__ = """
-*I can protect your chat from porn/adult content spammers*
-*Admin commands:*
-❍ /antinsfw on/enable*:*Turn on to protection from  NSFW content.
-❍ /approve*:* Allow NSFW content in group/chat
-❍ /nsfwscan*:*Scan adult content in chat 
-"""
