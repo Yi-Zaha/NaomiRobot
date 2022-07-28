@@ -11,9 +11,9 @@ from io import BytesIO
 from requests import get
 from telethon.tl.types import InputMessagesFilterPhotos
 
-from FallenRobot import OWNER_ID
-from FallenRobot.events import register
-from FallenRobot import telethn
+from Naomi import OWNER_ID
+from Naomi.events import register
+from Naomi import telethn
 from PIL import Image, ImageDraw, ImageFont
 
 
@@ -297,7 +297,7 @@ async def lego(event):
         await event.reply(f"ғʟᴏᴏᴅᴡᴀɪᴛ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @Naomi_Robot")
 
 
-__mod_name__ = "Lᴏɢᴏ​"
+__mod_name__ = "🌇 Lᴏɢᴏ 🌇"
 
 __help__ = """
 Fallen Robot can create some beautiful and attractive logo for your profile pics.
