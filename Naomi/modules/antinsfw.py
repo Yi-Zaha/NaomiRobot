@@ -2,13 +2,13 @@ from os import remove
 
 from pyrogram import filters
 
-from FallenRobot import BOT_USERNAME as bn
-from FallenRobot import pbot, arq
-from FallenRobot.utils.errors import capture_err
-from FallenRobot.utils.permissions import adminsOnly
-from FallenRobot.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
-from FallenRobot.utils.filter_groups import nsfw_detect_group
-from FallenRobot.modules.helper_funcs.chat_status import user_admin
+from Naomi import BOT_USERNAME as bn
+from Naomi import pbot, arq
+from Naomi.utils.errors import capture_err
+from Naomi.utils.permissions import adminsOnly
+from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
+from Naomi.utils.filter_groups import nsfw_detect_group
+from Naomi.modules.helper_funcs.chat_status import user_admin
 
 
 async def get_file_id_from_message(message):
