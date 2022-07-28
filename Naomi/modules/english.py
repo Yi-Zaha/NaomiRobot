@@ -1,7 +1,7 @@
-from FallenRobot import telethn as tbot
+from Naomi import telethn as tbot
 import json
 import requests
-from FallenRobot.events import register
+from Naomi.events import register
 from telethon import *
 from telethon.tl import functions
 import os
@@ -88,4 +88,4 @@ __help__ = """
  ❍ /antonyms <word>*:* Find the antonyms of a word
 """
 
-__mod_name__ = "Eɴɢʟɪsʜ"
+__mod_name__ = "🇱🇷 English 🇱🇷"
