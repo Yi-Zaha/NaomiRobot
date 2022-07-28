@@ -1,8 +1,8 @@
 import math
 
 import pynewtonmath as newton
-from FallenRobot import dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
+from Naomi import dispatcher
+from Naomi.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
 
@@ -136,7 +136,7 @@ To find the area under a function, send the request as c:d|f(x) where c is the s
 To compute fractions, enter expressions as numerator(over)denominator. For example, to process 2/4 you must send in your expression as 2(over)4. The result expression will be in standard math notation (1/2, 3/4).
 """
 
-__mod_name__ = "Mᴀᴛʜs"
+__mod_name__ = "🔢 Maths 🔢"
 
 SIMPLIFY_HANDLER = DisableAbleCommandHandler("math", simplify)
 FACTOR_HANDLER = DisableAbleCommandHandler("factor", factor)
