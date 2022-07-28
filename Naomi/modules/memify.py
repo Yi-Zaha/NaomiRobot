@@ -4,12 +4,12 @@ import textwrap
 
 import os
 
-from FallenRobot.events import register
+from Naomi.events import register
 
-from FallenRobot import LOGGER, TEMP_DOWNLOAD_DIRECTORY
+from Naomi import LOGGER, TEMP_DOWNLOAD_DIRECTORY
 
 
-from FallenRobot import telethn as bot
+from Naomi import telethn as bot
 
 
 Credit = "AnonymousBoy1025"
