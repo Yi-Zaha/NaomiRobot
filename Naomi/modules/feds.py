@@ -22,12 +22,12 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html, mention_markdown
 
-import FallenRobot.modules.sql.feds_sql as sql
-from FallenRobot import DRAGONS, EVENT_LOGS, LOGGER, OWNER_ID, TIGERS, WOLVES, dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.alternate import send_message
-from FallenRobot.modules.helper_funcs.chat_status import is_user_admin
-from FallenRobot.modules.helper_funcs.extraction import (
+import Naomi.modules.sql.feds_sql as sql
+from Naomi import DRAGONS, EVENT_LOGS, LOGGER, OWNER_ID, TIGERS, WOLVES, dispatcher
+from Naomi.modules.disable import DisableAbleCommandHandler
+from Naomi.modules.helper_funcs.alternate import send_message
+from Naomi.modules.helper_funcs.chat_status import is_user_admin
+from Naomi.modules.helper_funcs.extraction import (
     extract_unt_fedban,
     extract_user,
     extract_user_fban,
@@ -2367,7 +2367,7 @@ def fed_user_help(update: Update, context: CallbackContext):
     )
 
 
-__mod_name__ = "Federations"
+__mod_name__ = "🏴‍☠️ Federations 🏴‍☠️"
 
 __help__ = """
 Everything is fun, until a spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
