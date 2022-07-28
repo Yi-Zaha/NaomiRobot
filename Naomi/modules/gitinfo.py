@@ -1,8 +1,8 @@
 # © @AnonymousBoy1025
 import aiohttp
 from pyrogram import filters
-from FallenRobot import pbot
-from FallenRobot.pyrogramee.errors import capture_err
+from Naomi import pbot
+from Naomi.pyrogramee.errors import capture_err
 
 
 @pbot.on_message(filters.command("github"))
