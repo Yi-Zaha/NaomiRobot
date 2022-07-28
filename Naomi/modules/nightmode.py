@@ -1,4 +1,4 @@
-from FallenRobot.modules.sql.night_mode_sql import (
+from Naomi.modules.sql.night_mode_sql import (
     add_nightmode,
     rmnightmode,
     get_all_chat_id,
@@ -8,8 +8,8 @@ from telethon.tl.types import ChatBannedRights
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from telethon import functions
 from telethon import types
-from FallenRobot.events import register
-from FallenRobot import telethn as tbot
+from Naomi.events import register
+from Naomi import telethn as tbot
 import os
 
 
@@ -160,4 +160,4 @@ __help__ = """
 *Note:* Night Mode chats get Automatically closed at 12 am(IST) and Automatically openned at 6 am(IST) to Prevent Night Spams.
 """
 
-__mod_name__ = "Nɪɢʜᴛ​"
+__mod_name__ = "🌑 Night 🌑"
