@@ -1,6 +1,6 @@
-from FallenRobot.modules.helper_funcs.chat_status import user_admin
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot import dispatcher
+from Naomi.modules.helper_funcs.chat_status import user_admin
+from Naomi.modules.disable import DisableAbleCommandHandler
+from Naomi import dispatcher
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import ParseMode, Update
@@ -113,7 +113,7 @@ MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help)
 dispatcher.add_handler(ECHO_HANDLER)
 dispatcher.add_handler(MD_HELP_HANDLER)
 
-__mod_name__ = "Exᴛʀᴀs"
+__mod_name__ = "🐻 Extras 🐻"
 __command_list__ = ["id", "echo"]
 __handlers__ = [
     ECHO_HANDLER,
