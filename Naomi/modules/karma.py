@@ -3,10 +3,10 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
-from FallenRobot import pbot as app
-from FallenRobot.utils.errors import capture_err
-from FallenRobot.utils.permissions import adminsOnly
-from FallenRobot.helper_extra.dbfun import (
+from Naomi import pbot as app
+from Naomi.utils.errors import capture_err
+from Naomi.utils.permissions import adminsOnly
+from Naomi.helper_extra.dbfun import (
     alpha_to_int,
     get_karma,
     get_karmas,
