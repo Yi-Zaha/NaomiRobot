@@ -1,6 +1,6 @@
-from FallenRobot import pbot as app
-from FallenRobot.utils.errors import capture_err
-from FallenRobot.helper_extra.dbfun import get_couple, save_couple
+from Naomi import pbot as app
+from Naomi.utils.errors import capture_err
+from Naomi.helper_extra.dbfun import get_couple, save_couple
 from pyrogram import filters
 import random
 from datetime import datetime
@@ -80,4 +80,4 @@ Choose couples in your chat
  ❍ /couples *:* Choose 2 users and send their name as couples in your chat.
 """
 
-__mod_name__ = "Cᴏᴜᴘʟᴇ​"
+__mod_name__ = "👩‍❤️‍👨 Couples 👩‍❤️‍👨"
