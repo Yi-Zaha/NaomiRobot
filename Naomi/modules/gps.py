@@ -1,8 +1,8 @@
 import os
-from FallenRobot import telethn as tbot
+from Naomi import telethn as tbot
 from geopy.geocoders import Nominatim
-from FallenRobot.events import register
-from FallenRobot import *
+from Naomi.events import register
+from Naomi import *
 from telethon import *
 from telethon.tl import *
 
@@ -32,4 +32,4 @@ async def _(event):
         )
     except Exception as e:
         print(e)
-        await event.reply("I can't find that")
+        await event.reply("Can't able to find it")
