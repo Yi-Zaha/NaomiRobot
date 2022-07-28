@@ -1,8 +1,8 @@
 from pyrogram.types import Message
 from pyrogram import filters
-from FallenRobot import pbot
-from FallenRobot.utils.errors import capture_err
-from FallenRobot.utils.functions import make_carbon
+from Naomi import pbot
+from Naomi.utils.errors import capture_err
+from Naomi.utils.functions import make_carbon
 
 
 @pbot.on_message(filters.command("carbon"))
@@ -20,7 +20,7 @@ async def carbon_func(_, message):
     carbon.close()
 
 
-__mod_name__ = "Cᴀʀʙᴏɴ"
+__mod_name__ = "📃 Cᴀʀʙᴏɴ 📃"
 
 __help__ = """
 
