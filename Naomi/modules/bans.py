@@ -5,7 +5,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from FallenRobot import (
+from Naomi import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
@@ -15,8 +15,8 @@ from FallenRobot import (
     WOLVES,
     dispatcher,
 )
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.chat_status import (
+from Naomi.modules.disable import DisableAbleCommandHandler
+from Naomi.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     connection_status,
@@ -27,9 +27,9 @@ from FallenRobot.modules.helper_funcs.chat_status import (
     user_can_ban,
     can_delete,
 )
-from FallenRobot.modules.helper_funcs.extraction import extract_user_and_text
-from FallenRobot.modules.helper_funcs.string_handling import extract_time
-from FallenRobot.modules.log_channel import gloggable, loggable
+from Naomi.modules.helper_funcs.extraction import extract_user_and_text
+from Naomi.modules.helper_funcs.string_handling import extract_time
+from Naomi.modules.log_channel import gloggable, loggable
 
 
 @run_async
@@ -401,6 +401,7 @@ def selfunban(context: CallbackContext, update: Update) -> str:
 
 
 __help__ = """
+ *Ban Module Help:*
  ❍ /kickme*:* kicks the user who issued the command
 
 *Admins only:*
@@ -409,6 +410,8 @@ __help__ = """
  ❍ /tban <userhandle> x(m/h/d)*:* bans a user for `x` time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
  ❍ /unban <userhandle>*:* unbans a user. (via handle, or reply)
  ❍ /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
+ 
+ *Warn Module Help:*
  ❍ /warns <userhandle>*:* get a user's number, and reason, of warns.
  ❍ /warnlist*:* list of all current warning filters
  ❍ /warn <userhandle>*:* warn a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
@@ -435,7 +438,7 @@ dispatcher.add_handler(UNBAN_HANDLER)
 dispatcher.add_handler(ROAR_HANDLER)
 dispatcher.add_handler(KICKME_HANDLER)
 
-__mod_name__ = "Bᴀɴs​"
+__mod_name__ = "🚫 Bᴀɴs & Wᴀʀɴs 🚫"
 __handlers__ = [
     BAN_HANDLER,
     TEMPBAN_HANDLER,
