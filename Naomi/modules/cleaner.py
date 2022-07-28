@@ -1,14 +1,14 @@
 import html
 
-from FallenRobot import ALLOW_EXCL, CustomCommandHandler, dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.chat_status import (
+from Naomi import ALLOW_EXCL, CustomCommandHandler, dispatcher
+from Naomi.modules.disable import DisableAbleCommandHandler
+from Naomi.modules.helper_funcs.chat_status import (
     bot_can_delete,
     connection_status,
     dev_plus,
     user_admin,
 )
-from FallenRobot.modules.sql import cleaner_sql as sql
+from Naomi.modules.sql import cleaner_sql as sql
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
@@ -250,7 +250,7 @@ dispatcher.add_handler(REMOVE_CLEAN_BLUE_TEXT_GLOBAL_HANDLER)
 dispatcher.add_handler(LIST_CLEAN_BLUE_TEXT_HANDLER)
 dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, BLUE_TEXT_CLEAN_GROUP)
 
-__mod_name__ = "Bʟᴜᴇᴛᴇxᴛ"
+__mod_name__ = "🌊 Cleaner 🌊"
 __handlers__ = [
     SET_CLEAN_BLUE_TEXT_HANDLER,
     ADD_CLEAN_BLUE_TEXT_HANDLER,
