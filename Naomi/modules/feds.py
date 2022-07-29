@@ -32,7 +32,7 @@ from Naomi.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_fban,
 )
-from FallenRobot.modules.helper_funcs.string_handling import markdown_parser
+from Naomi.modules.helper_funcs.string_handling import markdown_parser
 
 FBAN_ERRORS = {
     "User is an administrator of the chat",
@@ -2367,7 +2367,7 @@ def fed_user_help(update: Update, context: CallbackContext):
     )
 
 
-__mod_name__ = "🏴‍☠️ Federations 🏴‍☠️"
+__mod_name__ = "ꜰᴇᴅꜱ"
 
 __help__ = """
 Everything is fun, until a spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
