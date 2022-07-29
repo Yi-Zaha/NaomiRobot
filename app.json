@@ -1,15 +1,14 @@
 {
-      "name": "Fallen Robot",
+      "name": "Naomi Robot",
       "description": "Telegram Group Management Bot.",
-      "logo": "https://telegra.ph/file/72e135da30a1a349f2844.jpg",
       "keywords": [
          "telegram",
          "sexy",
          "group",
          "manager",
-         "Fallen"
+         "Naomi"
       ],   
-   "repository": "https://github.com/AnonymousR1025/FallenRobot",
+   "repository": "https://github.com/Rajbhaiya/NaomiRobot",
    "addons": [
       {
          "options": {
