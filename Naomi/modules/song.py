@@ -6,7 +6,7 @@ import yt_dlp
 
 from pyrogram import filters
 from youtube_search import YoutubeSearch
-from FallenRobot import pbot, SUPPORT_CHAT
+from Naomi import pbot, SUPPORT_CHAT
 
 
 def time_to_seconds(time):
@@ -44,7 +44,7 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "**😴 sᴏɴɢ ɴᴏᴛ ғᴏᴜɴᴅ ᴏɴ ʏᴏᴜᴛᴜʙᴇ.**\n\n» ᴍᴀʏʙᴇ ᴛᴜɴᴇ ɢᴀʟᴛɪ ʟɪᴋʜᴀ ʜᴏ, ᴩᴀᴅʜᴀɪ - ʟɪᴋʜᴀɪ ᴛᴏʜ ᴋᴀʀᴛᴀ ɴᴀʜɪ ᴛᴜ !"
+            "**😴 sᴏɴɢ ɴᴏᴛ ғᴏᴜɴᴅ ᴏɴ ʏᴏᴜᴛᴜʙᴇ.**"
         )
         print(str(e))
         return
