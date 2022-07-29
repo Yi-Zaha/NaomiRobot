@@ -3,9 +3,9 @@ import re
 import html
 import random
 import requests
-from FallenRobot import dispatcher
+from Naomi import dispatcher
 from telegram import ParseMode, Update, Bot
-from FallenRobot.modules.disable import DisableAbleCommandHandler
+from Naomi.modules.disable import DisableAbleCommandHandler
 from telegram.ext import CallbackContext, run_async
 
 
@@ -34,4 +34,4 @@ __help__ = """
  ❍ /truth *:* Sends a random truth string.
  ❍ /dare *:* Sends a random dare string.
 """
-__mod_name__ = "Tʀᴜᴛʜ-Dᴀʀᴇ"
+__mod_name__ = "☠️ Truth & Dare 🙎"
