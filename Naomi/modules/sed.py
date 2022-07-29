@@ -2,9 +2,9 @@ import sre_constants
 
 import regex
 import telegram
-from FallenRobot import LOGGER, dispatcher
-from FallenRobot.modules.disable import DisableAbleMessageHandler
-from FallenRobot.modules.helper_funcs.regex_helper import infinite_loop_check
+from Naomi import LOGGER, dispatcher
+from Naomi.modules.disable import DisableAbleMessageHandler
+from Naomi.modules.helper_funcs.regex_helper import infinite_loop_check
 from telegram import Update
 from telegram.ext import CallbackContext, Filters, run_async
 
@@ -123,7 +123,7 @@ def sed(update: Update, context: CallbackContext):
             update.effective_message.reply_to_message.reply_text(text)
 
 
-__mod_name__ = "Sed/Regex"
+__mod_name__ = "🥲 Sed/Regex 🥲"
 
 SED_HANDLER = DisableAbleMessageHandler(
     Filters.regex(r"s([{}]).*?\1.*".format("".join(DELIMITERS))), sed, friendly="sed"
