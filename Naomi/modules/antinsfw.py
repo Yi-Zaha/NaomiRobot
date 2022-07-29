@@ -10,11 +10,12 @@ from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
 from Naomi.utils.filter_groups import nsfw_detect_group
 from Naomi.modules.helper_funcs.chat_status import user_admin
 
+__mod_name__ = "Anti-NSFW​"
 
 async def get_file_id_from_message(message):
     file_id = None
     if message.document:
-        if int(message.document.file_size) > 1:
+        if int(message.document.file_size) > 3145728:
             return
         mime_type = message.document.mime_type
         if mime_type != "image/png" and mime_type != "image/jpeg":
@@ -140,12 +141,13 @@ async def nsfw_scan_command(_, message):
 """
     )
 
-@pbot.on_message(filters.command("antinsfw"))
+
+@pbot.on_message(filters.command("antinsfw") & ~filters.private)
 @adminsOnly("can_change_info")
 async def nsfw_enable_disable(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "/antinsfw [on | off]"
+            "Usage: /antinsfw [on | off]"
         )
         return
     status = message.text.split(None, 1)[1].strip()
@@ -153,9 +155,13 @@ async def nsfw_enable_disable(_, message):
     chat_id = message.chat.id
     if status == "on":
         nsfw_on(chat_id)
-        await message.reply_text("Enabled AntiNSFW System. I will Delete Messages Containing Inappropriate Content.")
+        await message.reply_text(
+            "Enabled AntiNSFW System. I will Delete Messages Containing Inappropriate Content."
+        )
     elif status == "off":
         nsfw_off(chat_id)
         await message.reply_text("Disabled AntiNSFW System.")
     else:
-        await message.reply_text("`Unknown Suffix, Use /antinsfw [enable|disable]`")
+        await message.reply_text(
+            "`Unknown Suffix, Use /antinsfw [enable|disable]`"
+        )
