@@ -5,9 +5,9 @@ import zipfile
 from telethon import types
 from telethon.tl import functions
 
-from FallenRobot import TEMP_DOWNLOAD_DIRECTORY
-from FallenRobot import telethn as client
-from FallenRobot.events import register
+from Naomi import TEMP_DOWNLOAD_DIRECTORY
+from Naomi import telethn as client
+from Naomi.events import register
 
 
 async def is_register_admin(chat, user):
@@ -215,4 +215,4 @@ Hey I can convert files here..
  ❍ /unzip*:* reply to a telegram file to decompress it from the .zip format
 """
 
-__mod_name__ = "Zɪᴘᴘᴇʀ​"
+__mod_name__ = "🗃️ Rar ​🗃️"
