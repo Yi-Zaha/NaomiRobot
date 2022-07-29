@@ -1,4 +1,4 @@
-__mod_name__ = "Mᴜsɪᴄ"
+__mod_name__ = "🎵 Song & Video 🎬"
 
 __help__ = """
 ❍ /vsong <link of youtube video or name of song>*:* Uploads the video in it's best quality available.
