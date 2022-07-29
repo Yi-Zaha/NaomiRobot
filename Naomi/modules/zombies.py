@@ -6,7 +6,7 @@ from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins
 
-from FallenRobot import telethn, OWNER_ID, DEV_USERS, DRAGONS, DEMONS
+from Naomi import telethn, OWNER_ID, DEV_USERS, DRAGONS, DEMONS
 
 # =================== CONSTANT ===================
 
@@ -105,4 +105,4 @@ __help__ = """
 """
 
 
-__mod_name__ = "🧟 Zᴏᴍʙɪᴇ 🧟"
+__mod_name__ = "🧟 Zombie 🧟"
