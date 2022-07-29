@@ -23,10 +23,10 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import mention_html, escape_markdown
-from FallenRobot.modules.helper_funcs.string_handling import extract_time
-from FallenRobot.modules.connection import connected
-from FallenRobot.modules.helper_funcs.alternate import send_message
-from FallenRobot.modules.sql.approve_sql import is_approved
+from Naomi.modules.helper_funcs.string_handling import extract_time
+from Naomi.modules.connection import connected
+from Naomi.modules.helper_funcs.alternate import send_message
+from Naomi.modules.sql.approve_sql import is_approved
 
 FLOOD_GROUP = 3
 
