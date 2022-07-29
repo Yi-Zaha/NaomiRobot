@@ -1,5 +1,5 @@
-from FallenRobot.events import register
-from FallenRobot import telethn as tbot
+from Naomi.events import register
+from Naomi import telethn as tbot
 
 TMP_DOWNLOAD_DIRECTORY = "./"
 from telethon import events
@@ -92,4 +92,4 @@ I can upload files to Telegraph
  ❍ /tt :Get Telegraph Link of Replied Text
 """
 
-__mod_name__ = "T-Gʀᴀᴘʜ"
+__mod_name__ = "🪶 Telegraph 🪶"
