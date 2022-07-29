@@ -6,7 +6,7 @@ from telethon.tl.types import ChannelParticipantAdmin
 from telethon.tl.types import ChannelParticipantCreator
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.errors import UserNotParticipantError
-from FallenRobot import telethn as client
+from Naomi import telethn as client
 
 
 spam_chats = []
@@ -99,7 +99,7 @@ async def cancel_spam(event):
         return await event.respond("__Stopped Mention.__")
 
 
-__mod_name__ = "Tᴀɢ Aʟʟ​"
+__mod_name__ = "📢 Tag All 📢"
 __help__ = """
 ──「 Only for Admins 」──
 
