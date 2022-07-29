@@ -16,7 +16,7 @@ from Naomi.helper_extra.dbfun import (
     karma_on,
     update_karma,
 )
-from FallenRobot import arq
+from Naomi import arq
 
 regex_upvote = (
     r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|thankyou|love|pro|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍)$"
