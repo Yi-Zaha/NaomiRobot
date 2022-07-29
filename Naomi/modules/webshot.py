@@ -1,8 +1,8 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from FallenRobot import pbot as app
-from FallenRobot.utils.errors import capture_err
+from Naomi import pbot as app
+from Naomi.utils.errors import capture_err
 
 
 @app.on_message(filters.command("webss"))
