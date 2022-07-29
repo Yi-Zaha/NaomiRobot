@@ -275,12 +275,9 @@ LOVE_HANDLER = DisableAbleCommandHandler("love", love)
 HACK_HANDLER = DisableAbleCommandHandler("hack", hack)
 BOMBS_HANDLER = DisableAbleCommandHandler("bombs", bombs)
 MOONANIMATION_HANDLER = DisableAbleCommandHandler("moon", moonanimation)
-CLOCKANIMATION_HANDLER = DisableAbleCommandHandler(
-    "clock", clockanimation)
-BLOCKANIMATION_HANDLER = DisableAbleCommandHandler(
-    "block", blockanimation)
-EARTHANIMATION_HANDLER = DisableAbleCommandHandler(
-    "earth", earthanimationrun_)
+CLOCKANIMATION_HANDLER = DisableAbleCommandHandler("clock", clockanimation)
+BLOCKANIMATION_HANDLER = DisableAbleCommandHandler("block", blockanimation)
+EARTHANIMATION_HANDLER = DisableAbleCommandHandler("earth", earthanimation)
 dispatcher.add_handler(KILL_HANDLER)
 dispatcher.add_handler(LOVE_HANDLER)
 dispatcher.add_handler(HACK_HANDLER)
