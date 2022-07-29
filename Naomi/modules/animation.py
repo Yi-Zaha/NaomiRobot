@@ -270,20 +270,17 @@ def kill(update: Update, context: CallbackContext):
 
 
 
-KILL_HANDLER = DisableAbleCommandHandler("kill", kill, run_async=True)
-LOVE_HANDLER = DisableAbleCommandHandler("love", love, run_async=True)
-HACK_HANDLER = DisableAbleCommandHandler("hack", hack, run_async=True)
-BOMBS_HANDLER = DisableAbleCommandHandler("bombs", bombs, run_async=True)
-MOONANIMATION_HANDLER = DisableAbleCommandHandler("moon", moonanimation, run_async=True)
+KILL_HANDLER = DisableAbleCommandHandler("kill", kill)
+LOVE_HANDLER = DisableAbleCommandHandler("love", love)
+HACK_HANDLER = DisableAbleCommandHandler("hack", hack)
+BOMBS_HANDLER = DisableAbleCommandHandler("bombs", bombs)
+MOONANIMATION_HANDLER = DisableAbleCommandHandler("moon", moonanimation)
 CLOCKANIMATION_HANDLER = DisableAbleCommandHandler(
-    "clock", clockanimation, run_async=True
-)
+    "clock", clockanimation)
 BLOCKANIMATION_HANDLER = DisableAbleCommandHandler(
-    "block", blockanimation, run_async=True
-)
+    "block", blockanimation)
 EARTHANIMATION_HANDLER = DisableAbleCommandHandler(
-    "earth", earthanimation, run_async=True
-)
+    "earth", earthanimationrun_)
 dispatcher.add_handler(KILL_HANDLER)
 dispatcher.add_handler(LOVE_HANDLER)
 dispatcher.add_handler(HACK_HANDLER)
