@@ -293,7 +293,7 @@ dispatcher.add_handler(MOONANIMATION_HANDLER)
 dispatcher.add_handler(CLOCKANIMATION_HANDLER)
 dispatcher.add_handler(BLOCKANIMATION_HANDLER)
 
-__mod_name__ = "Animation"
+__mod_name__ = "🏮 Animation 🏮"
 __command_list__ = [
     "love",
     "hack",
@@ -313,3 +313,16 @@ __handlers__ = [
     EARTHANIMATION_HANDLER,
     BLOCKANIMATION_HANDLER,
     KILL_HANDLER,
+]
+__help__="""
+Here is the help for the Animation module:
+
+- /love ❣️
+- /hack 👨‍💻
+- /bombs 💣
+- /moon 🌖
+- /clock 🕑 
+- /earth 🌏
+- /kill 💀
+- /block🚫
+"""
