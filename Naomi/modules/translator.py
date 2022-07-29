@@ -14,8 +14,7 @@ def totranslate(update: Update, context: CallbackContext) -> None:
         message.reply_text(
             "Reply to messages or write messages from other languages ​​for translating into the intended language\n\n"
             "Example: `/tr en-hi` to translate from English to Hindi\n"
-            "Or use: `/tr en` for automatic detection and translating it into english.\n"
-            "Click here to see [List of available Language Codes](https://t.me/DevilsHeavenMF/148391).",
+            "Or use: `/tr en` for automatic detection and translating it into english.",
             parse_mode="markdown",
             disable_web_page_preview=True,
         )
