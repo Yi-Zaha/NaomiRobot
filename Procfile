@@ -1,2 +1,2 @@
-worker: python3 -m FallenRobot
-ps:scale worker=1
+worker: python3 -m Naomi
+ps:scale worker=8
