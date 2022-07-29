@@ -1,7 +1,7 @@
 import speedtest
-from FallenRobot import DEV_USERS, dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.chat_status import dev_plus
+from Naomi import DEV_USERS, dispatcher
+from Naomi.modules.disable import DisableAbleCommandHandler
+from Naomi.modules.helper_funcs.chat_status import dev_plus
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
 
@@ -15,12 +15,12 @@ def convert(speed):
 def speedtestxyz(update: Update, context: CallbackContext):
     buttons = [
         [
-            InlineKeyboardButton("ɪᴍᴀɢᴇ", callback_data="speedtest_image"),
-            InlineKeyboardButton("ᴛᴇxᴛ", callback_data="speedtest_text"),
+            InlineKeyboardButton("Image", callback_data="speedtest_image"),
+            InlineKeyboardButton("Text", callback_data="speedtest_text"),
         ]
     ]
     update.effective_message.reply_text(
-        "sᴩᴇᴇᴅᴛᴇsᴛ ᴍᴏᴅᴇ", reply_markup=InlineKeyboardMarkup(buttons)
+        "Test Mode", reply_markup=InlineKeyboardMarkup(buttons)
     )
 
 
@@ -34,7 +34,7 @@ def speedtestxyz_callback(update: Update, context: CallbackContext):
         speed.get_best_server()
         speed.download()
         speed.upload()
-        replymsg = "sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛ"
+        replymsg = "Test Results"
 
         if query.data == "speedtest_image":
             speedtest_image = speed.results.share()
@@ -48,7 +48,7 @@ def speedtestxyz_callback(update: Update, context: CallbackContext):
             replymsg += f"\nDownload: `{convert(result['download'])}Mb/s`\nUpload: `{convert(result['upload'])}Mb/s`\nPing: `{result['ping']}`"
             update.effective_message.edit_text(replymsg, parse_mode=ParseMode.MARKDOWN)
     else:
-        query.answer("You are required to join @DevilsHeavenMF to use this command.")
+        query.answer("You are required to join @naomi_supp to use this command.")
 
 
 SPEED_TEST_HANDLER = DisableAbleCommandHandler("speedtest", speedtestxyz)
@@ -59,10 +59,6 @@ SPEED_TEST_CALLBACKHANDLER = CallbackQueryHandler(
 dispatcher.add_handler(SPEED_TEST_HANDLER)
 dispatcher.add_handler(SPEED_TEST_CALLBACKHANDLER)
 
-__help__ = """
-» /speedtest *:* Runs a speedtest and check the server speed.
-"""
-
-__mod_name__ = "SᴘᴇᴇᴅTᴇsᴛ​"
+__mod_name__ = "Speed Test"
 __command_list__ = ["speedtest"]
 __handlers__ = [SPEED_TEST_HANDLER, SPEED_TEST_CALLBACKHANDLER]
