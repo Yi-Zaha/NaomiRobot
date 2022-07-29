@@ -317,12 +317,12 @@ __handlers__ = [
 __help__="""
 Here is the help for the Animation module:
 
-- /love ❣️
-- /hack 👨‍💻
-- /bombs 💣
-- /moon 🌖
-- /clock 🕑 
-- /earth 🌏
-- /kill 💀
-- /block🚫
+❍ /love ❣️
+❍ /hack 👨‍💻
+❍ /bombs 💣
+❍ /moon 🌖
+❍ /clock 🕑 
+❍ /earth 🌏
+❍ /kill 💀
+❍ /block🚫
 """
