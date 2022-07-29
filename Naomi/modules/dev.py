@@ -123,3 +123,4 @@ __help__="""
  ❍ /stats*:* Shows overall bot stats
  ❍ /getchats*:* Gets a list of group names the user has been seen in. Bot owner only
  ❍ /ginfo username/link/ID*:* Pulls info panel for entire group
+"""
