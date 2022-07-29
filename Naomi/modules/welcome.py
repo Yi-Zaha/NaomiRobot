@@ -5,9 +5,9 @@ import time
 from functools import partial
 from contextlib import suppress
 
-import FallenRobot.modules.sql.welcome_sql as sql
-import FallenRobot
-from FallenRobot import (
+import Naomi.modules.sql.welcome_sql as sql
+import Naomi
+from Naomi import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
@@ -18,18 +18,18 @@ from FallenRobot import (
     dispatcher,
     JOIN_LOGGER,
 )
-from FallenRobot.modules.helper_funcs.chat_status import (
+from Naomi.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     user_admin,
 )
-from FallenRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from FallenRobot.modules.helper_funcs.msg_types import get_welcome_type
-from FallenRobot.modules.helper_funcs.string_handling import (
+from Naomi.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from Naomi.modules.helper_funcs.msg_types import get_welcome_type
+from Naomi.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_parser,
 )
-from FallenRobot.modules.log_channel import loggable
-from FallenRobot.modules.sql.global_bans_sql import is_user_gbanned
+from Naomi.modules.log_channel import loggable
+from Naomi.modules.sql.global_bans_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
@@ -1133,7 +1133,7 @@ dispatcher.add_handler(CLEAN_SERVICE_HANDLER)
 dispatcher.add_handler(BUTTON_VERIFY_HANDLER)
 dispatcher.add_handler(WELCOME_MUTE_HELP)
 
-__mod_name__ = "Wᴇʟᴄᴏᴍᴇ"
+__mod_name__ = "🙏 Welcome 🙏"
 __command_list__ = []
 __handlers__ = [
     NEW_MEM_HANDLER,
