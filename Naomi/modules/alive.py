@@ -16,7 +16,7 @@ PHOTO = [
     "https://telegra.ph/file/4f66f78c620693de0bb42.jpg",
 ]
 
-@app.on_message(filters.command("start") & ~filters.group)
+@app.on_message(filters.command("start") & filters.group & ~filters.private)
 async def awake(event):
     TEXT = f"**ʜᴇʏ​ [{event.sender.first_name}](tg://user?id={event.sender.id}),\n\nɪ ᴀᴍ {dispatcher.bot.first_name}**\n━━━━━━━━━━━━━━━━━━━\n\n"
     TEXT += f"» **Owner :** [𝙺𝙰𝙶𝚄𝚃𝚂𝚄𝙲𝙷𝙸](https://t.me/{OWNER_USERNAME})** \n\n"
