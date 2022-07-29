@@ -12,10 +12,10 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import escape_markdown
 
-import FallenRobot.modules.sql.rules_sql as sql
-from FallenRobot import dispatcher
-from FallenRobot.modules.helper_funcs.chat_status import user_admin
-from FallenRobot.modules.helper_funcs.string_handling import markdown_parser
+import Naomi.modules.sql.rules_sql as sql
+from Naomi import dispatcher
+from Naomi.modules.helper_funcs.chat_status import user_admin
+from Naomi.modules.helper_funcs.string_handling import markdown_parser
 
 
 @run_async
@@ -125,7 +125,7 @@ __help__ = """
  ❍ /clearrules*:* clear the rules for this chat.
 """
 
-__mod_name__ = "Rules"
+__mod_name__ = "⚖️ Rules ⚖️"
 
 GET_RULES_HANDLER = CommandHandler("rules", get_rules, filters=Filters.group)
 SET_RULES_HANDLER = CommandHandler("setrules", set_rules, filters=Filters.group)
