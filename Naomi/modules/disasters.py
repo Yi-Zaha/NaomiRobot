@@ -656,12 +656,6 @@ Group admins/group owners do not need these commands.
  ❍ /ping*:* gets ping time of bot to telegram server
  ❍ /pingall*:* gets all listed ping times
 
-*Broadcast: (Bot owner only)*
-*Note:* This supports basic markdown
- ❍ /broadcastall*:* Broadcasts everywhere
- ❍ /broadcastusers*:* Broadcasts too all users
- ❍ /broadcastgroups*:* Broadcasts too all groups
-
 *Groups Info:*
  ❍ /groups*:* List the groups with Name, ID, members count as a txt
  ❍ /leave <ID>*:* Leave the group, ID must have hyphen
@@ -690,10 +684,6 @@ Group admins/group owners do not need these commands.
  ❍ /rmute*:* user group*:* Remote mute
  ❍ /runmute*:* user group*:* Remote un-mute
 
-*Windows self hosted only:*
- ❍ /reboot*:* Restarts the bots service
- ❍ /gitpull*:* Pulls the repo and then restarts the bots service
-
 *Chatbot:* 
  ❍ /listaichats*:* Lists the chats the chatmode is enabled in
  
@@ -715,19 +705,6 @@ Group admins/group owners do not need these commands.
 *Global Blue Text*
  ❍ /gignoreblue*:* <word>*:* Globally ignore bluetext cleaning of saved word across Anonymous Robot.
  ❍ /ungignoreblue*:* <word>*:* Remove said command from global cleaning list
-
-*Masha Core*
-*Owner only*
- ❍ /send*:* <module name>*:* Send module
- ❍ /install*:* <reply to a .py>*:* Install module 
-
-*Heroku Settings*
-*Owner only*
- ❍ /usage*:* Check your heroku dyno hours remaining.
- ❍ /see var <var>*:* Get your existing varibles, use it only on your private group!
- ❍ /set var <newvar> <vavariable>*:* Add new variable or update existing value variable.
- ❍ /del var <var>*:* Delete existing variable.
- ❍ /logs Get heroku dyno logs.
 """
 
 SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo)
