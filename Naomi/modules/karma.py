@@ -3,10 +3,10 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
-from RocksAlexaRobot import pbot as app, BOT_ID
-from RocksAlexaRobot.utils.errors import capture_err
-from RocksAlexaRobot.utils.permissions import adminsOnly
-from RocksAlexaRobot.function.dbfunctions import (
+from Naomi import pbot as app, BOT_ID
+from Naomi.utils.errors import capture_err
+from Naomi.utils.permissions import adminsOnly
+from Naomi.function.dbfunctions import (
     alpha_to_int,
     get_karma,
     get_karmas,
@@ -16,8 +16,8 @@ from RocksAlexaRobot.function.dbfunctions import (
     karma_on,
     update_karma,
 )      
-from RocksAlexaRobot.utils.filter_groups import karma_negative_group, karma_positive_group
-from RocksAlexaRobot import arq
+from Naomi.utils.filter_groups import karma_negative_group, karma_positive_group
+from Naomi import arq
 
 regex_upvote = r"^((?i)\+|\+\+|\+1|asad|ittu|thx|thanx|thanks|pro|cool|good|👍)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎|noob|weak)$"
