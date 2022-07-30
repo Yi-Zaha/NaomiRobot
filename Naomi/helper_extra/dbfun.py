@@ -1,13 +1,7 @@
-from Naomi import MONGO_DB_URI
 import codecs
 import pickle
 from typing import Dict, List, Union
-from pymongo import MongoClient
-
-client = MongoClient()
-client = MongoClient(MONGO_DB_URI)
-db = client["Naomi"]
-
+from Naomi.mongo import db
 # SOME THINGS ARE FUCKED UP HERE, LIKE TOGGLEABLES HAVE THEIR OWN COLLECTION
 # (SHOULD FIX IT WITH SOMETHING LIKE TOGGLEDB), MOST OF THE CODE IS BAD AF
 # AND NEEDS TO BE REWRITTEN, BUT I WON'T, AS IT WILL TAKE
