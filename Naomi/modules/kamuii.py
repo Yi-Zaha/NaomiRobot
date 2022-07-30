@@ -1,7 +1,7 @@
 import os
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from Naomi import ubot2
+from Naomi import pbot
 from Naomi.events import register
 from Naomi import telethn as tbot, TEMP_DOWNLOAD_DIRECTORY, SUPPORT_CHAT
 
@@ -24,7 +24,7 @@ async def _(fry):
         return
     chat = "@image_deepfrybot"
     message_id_to_reply = fry.message.reply_to_msg_id
-    async with ubot2.conversation(chat) as conv:
+    async with pbot.conversation(chat) as conv:
         try:
             msg = await conv.send_message(reply_message)
             if level:
@@ -37,14 +37,14 @@ async def _(fry):
             else:
                 response = await conv.get_response()
             """ - don't spam notif - """
-            await ubot2.send_read_acknowledge(conv.chat_id)
+            await pbot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await fry.reply(f"`Error, tell the problem on @{SUPPORT_CHAT}`")
             return
         if response.text.startswith("Forward"):
             await fry.edit(f"`Error, tell the problem on @{SUPPORT_CHAT}`")
         else:
-            downloaded_file_name = await ubot2.download_media(
+            downloaded_file_name = await pbot.download_media(
                 response.media,
                 TEMP_DOWNLOAD_DIRECTORY
             )
@@ -58,10 +58,10 @@ async def _(fry):
             try:
                 msg_level
             except NameError:
-                await ubot2.delete_messages(conv.chat_id,
+                await pbot.delete_messages(conv.chat_id,
                                                  [msg.id, response.id])
             else:
-                await ubot2.delete_messages(
+                await pbot.delete_messages(
                     conv.chat_id,
                     [msg.id, response.id, r.id, msg_level.id])
     await kntl.delete()
