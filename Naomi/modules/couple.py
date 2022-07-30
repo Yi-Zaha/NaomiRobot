@@ -29,7 +29,7 @@ today = str(dt()[0])
 tomorrow = str(dt_tom())
 
 
-@app.on_message(filters.command("couples"))
+@app.on_message(filters.command("couples") & ~filters.edited)
 @capture_err
 async def couple(_, message):
     if message.chat.type == "private":
@@ -65,7 +65,7 @@ __New couple of the day may be chosen at 12AM {tomorrow}__"""
             c2_id = int(is_selected["c2_id"])
             c1_name = (await app.get_users(c1_id)).first_name
             c2_name = (await app.get_users(c2_id)).first_name
-            couple_selection_message = f"""Couple of the day:
+            couple_selection_message = f"""**Couple of the day:**
 [{c1_name}](tg://openmessage?user_id={c1_id}) + [{c2_name}](tg://openmessage?user_id={c2_id}) = ❤️
 __New couple of the day may be chosen at 12AM {tomorrow}__"""
             await app.send_message(message.chat.id, text=couple_selection_message)
@@ -75,9 +75,9 @@ __New couple of the day may be chosen at 12AM {tomorrow}__"""
 
 
 __help__ = """
-Choose couples in your chat
-
- ❍ /couples *:* Choose 2 users and send their name as couples in your chat.
+Couple maker 😁
+*Only one command:*
+- `/couples`*:* make couples in your group
 """
 
-__mod_name__ = "👩‍❤️‍👨 Couples 👩‍❤️‍👨"
+__mod_name__ = "ᴄᴏᴜᴘʟᴇs"
