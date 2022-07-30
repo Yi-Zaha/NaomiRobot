@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import InputMediaPhoto, Message
 
 from Naomi import pbot, eor
-from Naomi.helper_extra.decorators.errors import capture_err
+from Naomi.utils.errors import capture_err
 from Naomi.utils.functions import get_file_id_from_message
 from Naomi.utils.http import get
 
