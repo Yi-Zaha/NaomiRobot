@@ -6,7 +6,7 @@ from Python_ARQ import ARQ
 from Naomi import pbot as app
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
-from Naomi.function.dbfunctions import (
+from Naomi.helper_extra.dbfun import (
     alpha_to_int,
     get_karma,
     get_karmas,
