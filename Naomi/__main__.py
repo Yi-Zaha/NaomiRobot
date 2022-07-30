@@ -232,7 +232,7 @@ def start(update: Update, context: CallbackContext):
                 [
                   [
                   InlineKeyboardButton(text="Support", url=f"t.me/naomi_supp"),
-                  InlineKeyboardButton(text="🐲 ʜᴇʟᴘ & ᴄᴍᴅs 🐲", callback_data="help_back"),
+                  InlineKeyboardButton(text="🐲 ʜᴇʟᴘ 🐲", url='t.me/naomi_robot?start=help'),
                   ]
                 ]
             ),
