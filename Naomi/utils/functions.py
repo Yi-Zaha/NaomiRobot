@@ -15,8 +15,8 @@ from pyrogram import enums
 from pyrogram.types import Message
 
 from Naomi import aiohttpsession as aiosession
-from nezuko.helper_extra.dbfun import start_restart_stage
-from nezuko.utils.http import get, post
+from Naomi.helper_extra.dbfun import start_restart_stage
+from Naomi.utils.http import get, post
 
 
 async def restart(m: Message):
