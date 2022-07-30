@@ -221,6 +221,22 @@ def start(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
+    else:
+        first_name = update.effective_user.first_name
+        update.effective_message.reply_photo(
+            START_IMG, caption= "*Hey {},*\n*Naomi is here*\n*Uptime* : {} ".format(
+             first_name,uptime
+            ),
+            parse_mode=ParseMode.MARKDOWN,
+        reply_markup=InlineKeyboardMarkup(
+                [
+                  [
+                  InlineKeyboardButton(text="Support", url=f"t.me/naomi_supp"),
+                  InlineKeyboardButton(text="🐲 ʜᴇʟᴘ & ᴄᴍᴅs 🐲", callback_data="help_back"),
+                  ]
+                ]
+            ),
+        )           
         
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
