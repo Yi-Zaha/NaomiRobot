@@ -4,12 +4,10 @@ from pyrogram import filters
 
 from Naomi import BOT_USERNAME as bn
 from Naomi import pbot, arq
-from Naomi.utils.adminperms import member_permissions
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
-from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
+from Naomi.ex_plugins.dbfunctions import is_nsfw_on, nsfw_off, nsfw_on
 from Naomi.utils.filter_groups import nsfw_detect_group
-from Naomi.modules.helper_funcs.chat_status import user_admin
 
 __mod_name__ = "Anti-NSFW​"
 
@@ -57,7 +55,6 @@ async def get_file_id_from_message(message):
     group=nsfw_detect_group,
 )
 @capture_err
-@members("can_post_messages")
 async def detect_nsfw(_, message):
     if not await is_nsfw_on(message.chat.id):
         return
@@ -100,7 +97,6 @@ __Use `/antinsfw off` to disable this.__
 
 @pbot.on_message(filters.command("nsfwscan"))
 @capture_err
-@members("can_post_messages")
 async def nsfw_scan_command(_, message):
     if not message.reply_to_message:
         await message.reply_text(
@@ -146,7 +142,6 @@ async def nsfw_scan_command(_, message):
 
 @pbot.on_message(filters.command("antinsfw"))
 @adminsOnly("can_change_info")
-@members("can_post_messages")
 async def nsfw_enable_disable(_, message):
     if len(message.command) != 2:
         await message.reply_text(
