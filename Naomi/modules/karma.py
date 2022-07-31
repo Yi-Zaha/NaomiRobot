@@ -31,7 +31,7 @@ regex_downvote = r"^(\-|\-\-|\-1|👎|noob|weak)$"
     & filters.reply
     & filters.regex(regex_upvote)
     & ~filters.via_bot
-    & ~filters.bot
+    & ~filters.bot,
     group=karma_positive_group,
 )
 @capture_err
