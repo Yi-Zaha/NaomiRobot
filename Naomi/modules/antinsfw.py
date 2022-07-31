@@ -54,10 +54,10 @@ async def get_file_id_from_message(message):
         | filters.animation
         | filters.video
     )
-    & ~filters.private,
     group=nsfw_detect_group,
 )
 @capture_err
+@members("can_post_messages")
 async def detect_nsfw(_, message):
     if not await is_nsfw_on(message.chat.id):
         return
@@ -100,6 +100,7 @@ __Use `/antinsfw off` to disable this.__
 
 @pbot.on_message(filters.command("nsfwscan"))
 @capture_err
+@members("can_post_messages")
 async def nsfw_scan_command(_, message):
     if not message.reply_to_message:
         await message.reply_text(
@@ -143,8 +144,9 @@ async def nsfw_scan_command(_, message):
     )
 
 
-@pbot.on_message(filters.command("antinsfw") & ~filters.private)
+@pbot.on_message(filters.command("antinsfw"))
 @adminsOnly("can_change_info")
+@members("can_post_messages")
 async def nsfw_enable_disable(_, message):
     if len(message.command) != 2:
         await message.reply_text(
