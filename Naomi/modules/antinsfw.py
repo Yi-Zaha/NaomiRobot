@@ -4,6 +4,7 @@ from pyrogram import filters
 
 from Naomi import BOT_USERNAME as bn
 from Naomi import pbot, arq
+from Naomi.utils.adminperms import member_permissions
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
 from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
