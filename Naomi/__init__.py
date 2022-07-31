@@ -4,6 +4,7 @@ import sys
 import time
 
 import telegram.ext as tg
+from inspect import getfullargspec
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
