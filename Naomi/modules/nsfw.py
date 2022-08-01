@@ -872,4 +872,4 @@ __help__ = """
  just know that bot's code don't have any problem.
 """
 
-__mod_name__ = "🇳ꜱꜰᴡ"
+__mod_name__ ="🇳ꜱꜰᴡ"
