@@ -62,4 +62,5 @@ nudepy
 telegram==0.0.1
 nekos.py
 envparse
+img2pdf
 
