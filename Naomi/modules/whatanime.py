@@ -1,122 +1,98 @@
-import os
-from asyncio import gather, get_running_loop
-from base64 import b64decode
-from io import BytesIO
-from random import randint
+import html
+import json
+import re
+import textwrap
+from io import BytesIO, StringIO
 
-import aiofiles
+import aiohttp
+import bs4
+import pendulum
 import requests
-from bs4 import BeautifulSoup
-from pyrogram import filters
-from pyrogram.types import InputMediaPhoto, Message
+from telethon.errors.rpcerrorlist import FilePartsInvalidError
+from telethon.tl.types import (
+    DocumentAttributeAnimated,
+    DocumentAttributeFilename,
+    MessageMediaDocument,
+)
+from telethon.utils import is_image, is_video
 
-from Naomi import pbot as app, eor
-from Naomi.utils.errors import capture_err
-from Naomi.utils.functions import get_file_id_from_message
-from Naomi.utils.http import get
-
-
-async def get_soup(url: str, headers):
-    html = await get(url, headers=headers)
-    return BeautifulSoup(html, "html.parser")
+from Naomi.events import register as tomori
 
 
-@app.on_message(filters.command("whatanime"))
-@capture_err
-async def reverse_image_search(client, message: Message):
-    if not message.reply_to_message:
-        return await eor(
-            message, text="Reply to a message to reverse search it."
-        )
-    reply = message.reply_to_message
-    if (
-        not reply.document
-        and not reply.photo
-        and not reply.sticker
-        and not reply.animation
-        and not reply.video
-    ):
-        return await eor(
-            message,
-            text="Reply to an image/document/sticker/animation to reverse search it.",
-        )
-    m = await eor(message, text="Searching...")
-    file_id = get_file_id_from_message(reply)
-    if not file_id:
-        return await m.edit("Can't reverse that")
-    image = await client.download_media(file_id, f"{randint(1000, 10000)}.jpg")
-    async with aiofiles.open(image, "rb") as f:
-        if image:
-            search_url = "http://www.google.com/searchbyimage/upload"
-            multipart = {
-                "encoded_image": (image, await f.read()),
-                "image_content": "",
-            }
 
-            def post_non_blocking():
-                return requests.post(
-                    search_url, files=multipart, allow_redirects=False
-                )
-
-            loop = get_running_loop()
-            response = await loop.run_in_executor(None, post_non_blocking)
-            location = response.headers.get("Location")
-            os.remove(image)
-        else:
-            return await m.edit("Something wrong happened.")
-    headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0"
-    }
-
-    try:
-        soup = await get_soup(location, headers=headers)
-        div = soup.find_all("div", {"class": "r5a77d"})[0]
-        text = div.find("a").text
-        text = f"**Result**: [{text}]({location})"
-    except Exception:
-        return await m.edit(
-            f"**Result**: [Link]({location})",
-            disable_web_page_preview=True,
-        )
-
-    # Pass if no images detected
-    try:
-        url = "https://google.com" + soup.find_all(
-            "a", {"class": "ekf0x hSQtef"}
-        )[0].get("href")
-
-        soup = await get_soup(url, headers=headers)
-
-        media = []
-        for img in soup.find_all("img"):
-            if len(media) == 2:
+@tomori(pattern="^/whatanime(.*)")
+async def whatanime(e):
+    media = e.media
+    if not media:
+        r = await e.get_reply_message()
+        media = getattr(r, "media", None)
+    if not media:
+        await e.reply("`Media required`")
+        return
+    ig = is_gif(media) or is_video(media)
+    if not is_image(media) and not ig:
+        await e.reply("`Media must be an image or gif or video`")
+        return
+    filename = "file.jpg"
+    if not ig and isinstance(media, MessageMediaDocument):
+        attribs = media.document.attributes
+        for i in attribs:
+            if isinstance(i, DocumentAttributeFilename):
+                filename = i.file_name
                 break
-
-            if img.get("src"):
-                img = img.get("src")
-                if "image/gif" in img:
-                    continue
-
-                img = BytesIO(b64decode(img))
-                img.name = "img.png"
-                media.append(img)
-            elif img.get("data-src"):
-                img = img.get("data-src")
-                media.append(img)
-
-        await message.reply_media_group(
-            [
-                InputMediaPhoto(
-                    i.photo.file_id,
-                    caption=text,
-                )
-                for i in messages
-            ]
+    cut = await e.reply("`Downloading image..`")
+    content = await e.client.download_media(media, bytes, thumb=-1 if ig else None)
+    await cut.edit("`Searching for result..`")
+    file = memory_file(filename, content)
+    async with aiohttp.ClientSession() as session:
+        url = "https://api.trace.moe/search?anilistInfo"
+        async with session.post(url, data={"image": file}) as raw_resp0:
+            resp0 = await raw_resp0.json()
+        js0 = resp0.get("result")
+        if not js0:
+            await cut.edit("`No results found.`")
+            return
+        js0 = js0[0]
+        text = f'<b>{html.escape(js0["anilist"]["title"]["romaji"])}'
+        if js0["anilist"]["title"]["native"]:
+            text += f' ({html.escape(js0["anilist"]["title"]["native"])})'
+        text += "</b>\n"
+        if js0["episode"]:
+            text += f'<b>Episode:</b> {html.escape(str(js0["episode"]))}\n'
+        percent = round(js0["similarity"] * 100, 2)
+        text += f"<b>Similarity:</b> {percent}%\n"
+        at = re.findall(r"t=(.+)&", js0["video"])[0]
+        dt = pendulum.from_timestamp(float(at))
+        text += f"<b>At:</b> {html.escape(dt.to_time_string())}"
+        await cut.edit(text, parse_mode="html")
+        dt0 = pendulum.from_timestamp(js0["from"])
+        dt1 = pendulum.from_timestamp(js0["to"])
+        ctext = (
+            f"{html.escape(dt0.to_time_string())} - {html.escape(dt1.to_time_string())}"
         )
-    except Exception:
-        pass
+        async with session.get(js0["video"]) as raw_resp1:
+            file = memory_file("preview.mp4", await raw_resp1.read())
+        try:
+            await e.reply(ctext, file=file, parse_mode="html")
+        except FilePartsInvalidError:
+            await e.reply("`Cannot send preview.`")
 
-    await m.edit(
-        text,
-        disable_web_page_preview=True,
-    )
+
+def memory_file(name=None, contents=None, *, _bytes=True):
+    if isinstance(contents, str) and _bytes:
+        contents = contents.encode()
+    file = BytesIO() if _bytes else StringIO()
+    if name:
+        file.name = name
+    if contents:
+        file.write(contents)
+        file.seek(0)
+    return file
+
+
+def is_gif(file):
+    # ngl this should be fixed, telethon.utils.is_gif but working
+    # lazy to go to github and make an issue kek
+    if not is_video(file):
+        return False
+    return DocumentAttributeAnimated() in getattr(file, "document", file).attributes
