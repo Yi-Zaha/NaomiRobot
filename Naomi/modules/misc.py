@@ -105,6 +105,7 @@ Output: `1.0 USD = 75.505 INR`
  ❍ /decrypt*:* Decrypts Previously Ecrypted Text
  ❍ /imdb <Movie name>*:* Get full info about a movie from [imdb.com](https://m.imdb.com)
  ❍ /write <text> *:* Writes the given text.
+ ❍ /pdf: convert a img into a pdf(img file must be in doc)
 """
 
 ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.group)
