@@ -7,7 +7,6 @@ from Naomi import pbot, dispatcher, SUPPORT_CHAT
 from bs4 import *
 from pyrogram import filters
 from PIL import Image
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 def get_text(message: Message) -> [None, str]:
@@ -46,9 +45,7 @@ async def wall(client, message):
         img = Image.open(io.BytesIO(requests.get(randc).content))
         fname = "Naomi.png"
         img.save(fname, "png")
-        caption = f"""
-✨ **ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})
-"""
+        caption = f"✨ **ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})"
         await m.delete()
         if os.path.exists(fname):
             os.remove(fname)
