@@ -6,4 +6,4 @@ __help__ = """
  ❍ /setdescription <description>*:* Sets new chat description in group.
 """
 
-__mod_name__ = "ɢʀᴏᴜᴘ ʜᴇʟᴘ"
+__mod_name__ ="ɢʀᴏᴜᴘ ʜᴇʟᴘ"
