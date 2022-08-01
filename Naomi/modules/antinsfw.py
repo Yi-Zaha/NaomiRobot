@@ -2,7 +2,7 @@ from os import remove
 
 from pyrogram import filters
 
-from Naomi import BOT_USERNAME as bn
+from Naomi import BOT_USERNAME as bn, BOT_ID
 from Naomi import pbot, arq
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
