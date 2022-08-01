@@ -85,7 +85,3 @@ async def img_to_pdf(_, message: Message):
         return await convert(message, messages, m, start_time)
 
     return await convert(message, [reply], m, start_time)
-__help__ ="""
-~ /pdf - convert imgs into pdf
-"""
-__mode_name__ = "ɪᴍɢ2ᴘᴅꜰ"
