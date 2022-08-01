@@ -2,10 +2,10 @@ from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
 from Naomi import pbot as app
-from Naomi import DEV_USERS
+from Naomi import DRAGONS, DEV_USERS, WOLVES, DEMONS, TIGERS
 from Naomi.utils.adminperms import member_permissions
 
-SUDO = DEV_USERS
+SUDO = DRAGONS, DEV_USERS, WOLVES, DEMONS, TIGERS
 
 
 async def authorised(func, subFunc2, client, message, *args, **kwargs):
@@ -62,7 +62,7 @@ def adminsOnly(permission):
 async def edit_or_reply(message, text, parse_mode="md"):
     if message.from_user.id:
         if message.reply_to_message:
-            kk = message.reply_to_message.id
+            kk = message.reply_to_message.message_id
             return await message.reply_text(
                 text, reply_to_message_id=kk, parse_mode=parse_mode
             )
