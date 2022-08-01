@@ -31,7 +31,7 @@ async def wall(client, message):
             message.chat.id, "😶 **ᴩʟᴇᴀsᴇ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ sᴇᴀʀᴄʜ ғᴏʀ ᴡᴀʟʟᴩᴀᴩᴇʀ !**"
         )
         return
-    m = await client.send_message(message.chat.id, "⚙️ **sᴇᴀʀᴄʜɪɴɢ ғᴏʀ ᴡᴀʟʟᴩᴀᴩᴇʀ...**")
+    m = await client.send_message(message.chat.id, "**sᴇᴀʀᴄʜɪɴɢ...**")
     try:
         text = get_text(message)
         LOGO_API = f"https://single-developers.up.railway.app/wallpaper?search={text}"
