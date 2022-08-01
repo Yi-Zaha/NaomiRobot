@@ -486,7 +486,7 @@ __help__ = """
  ❍ /latin *:* Change the text into latin text.
  ❍ /lined *:* Change the text into lined text.
  """
-__mod_name__ = "➰ Font Styles ➰"
+__mod_name__ = "ꜰᴏɴᴛ ᴄʜᴀɴɢᴇʀ"
 
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
 BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
