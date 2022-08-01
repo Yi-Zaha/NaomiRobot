@@ -297,7 +297,7 @@ async def lego(event):
         await event.reply(f"ғʟᴏᴏᴅᴡᴀɪᴛ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @Naomi_Robot")
 
 
-__mod_name__ = "ʟᴏɢᴏ ᴍᴀᴋᴇʀ"
+__mod_name__ ="ʟᴏɢᴏ ᴍᴀᴋᴇʀ"
 
 __help__ = """
 Naomi Robot can create some beautiful and attractive logo for your profile pics.
