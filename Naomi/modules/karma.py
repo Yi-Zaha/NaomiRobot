@@ -3,7 +3,7 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
-from Naomi import pbot as app, BOT ID
+from Naomi import pbot as app, BOT_ID
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
 from Naomi.helper_extra.dbfun import (
