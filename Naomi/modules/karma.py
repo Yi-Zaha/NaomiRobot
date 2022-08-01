@@ -3,7 +3,7 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
-from Naomi import pbot as app
+from Naomi import pbot as app, BOT ID
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
 from Naomi.helper_extra.dbfun import (
@@ -19,7 +19,7 @@ from Naomi.helper_extra.dbfun import (
 from Naomi.utils.filter_groups import karma_negative_group, karma_positive_group
 from Naomi import arq
 
-regex_upvote = r"^((?i)\+|\+\+|\+1|asad|ittu|thx|thanx|thanks|pro|cool|good|👍)$"
+regex_upvote = r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|pro|cool|good|👍)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎|noob|weak)$"
 
 
@@ -31,7 +31,7 @@ regex_downvote = r"^(\-|\-\-|\-1|👎|noob|weak)$"
     & filters.reply
     & filters.regex(regex_upvote)
     & ~filters.via_bot
-    & ~filters.bot,
+    & ~filters.bot
     group=karma_positive_group,
 )
 @capture_err
@@ -71,7 +71,7 @@ async def upvote(_, message):
     & filters.reply
     & filters.regex(regex_upvote)
     & ~filters.via_bot
-    & ~filters.bot,
+    & ~filters.bot
     group=karma_positive_group,
 )
 @capture_err
@@ -107,7 +107,7 @@ async def upvote(_, message):
     & filters.reply
     & filters.regex(regex_downvote)
     & ~filters.via_bot
-    & ~filters.bot,
+    & ~filters.bot
     group=karma_negative_group,
 )
 @capture_err
