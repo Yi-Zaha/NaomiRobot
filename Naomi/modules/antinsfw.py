@@ -52,6 +52,7 @@ async def get_file_id_from_message(message):
         | filters.animation
         | filters.video
     )
+    & ~filters.private,
     group=nsfw_detect_group,
 )
 @capture_err
