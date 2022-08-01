@@ -6,7 +6,7 @@ from Naomi import BOT_USERNAME as bn, BOT_ID
 from Naomi import pbot, arq
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
-from Naomi.ex_plugins.dbfunctions import is_nsfw_on, nsfw_off, nsfw_on
+from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
 from Naomi.utils.filter_groups import nsfw_detect_group
 
 __mod_name__ = "Anti-NSFW​"
