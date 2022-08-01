@@ -44,26 +44,12 @@ async def wall(client, message):
             .url
         )
         img = Image.open(io.BytesIO(requests.get(randc).content))
-        fname = "fallenrobot.png"
+        fname = "Naomi.png"
         img.save(fname, "png")
         caption = f"""
-💘 ᴡᴀʟʟᴩᴀᴩᴇʀ ɢᴇɴᴇʀᴀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 
-
 ✨ **ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})
-🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}
-❄ **ᴅᴏᴡɴʟᴏᴀᴅ :** `{murl}`
 """
         await m.delete()
-        await client.send_photo(
-            message.chat.id,
-            photo=murl,
-            caption=caption,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("• ʟɪɴᴋ •", url=f"{murl}")],
-                ]
-            ),
-        )
         if os.path.exists(fname):
             os.remove(fname)
     except Exception as e:
