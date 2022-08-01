@@ -9,7 +9,7 @@ from pyrogram.types import Message
 
 from Naomi import pbot as app
 from Naomi.utils.errors import capture_err
-from Naomi.services.sections import section
+from Naomi.helper_extra.secs import section
 
 
 async def convert(
