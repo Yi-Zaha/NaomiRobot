@@ -49,7 +49,7 @@ async def wall(client, message):
         await client.send_photo(
             message.chat.id,
             photo=murl,
-            caption=caption,        
+            caption=caption,)      
         await m.delete()
         if os.path.exists(fname):
             os.remove(fname)
