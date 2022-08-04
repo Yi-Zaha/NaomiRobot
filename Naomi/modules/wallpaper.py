@@ -33,11 +33,11 @@ async def wall(client, message):
     m = await client.send_message(message.chat.id, "**sᴇᴀʀᴄʜɪɴɢ...**")
     try:
         text = get_text(message)
-        LOGO_API = f"https://api.sdbots.tk/wallpaper?search={text}"
+        LOGO_API = f"https://single-developers.up.railway.app/wallpaper?search={text}"
         randc = LOGO_API
         murl = (
             requests.get(
-                f"https://api.sdbots.tk/wallpaper?search={text}"
+                f"https://single-developers.up.railway.app/wallpaper?search={text}"
             )
             .history[1]
             .url
