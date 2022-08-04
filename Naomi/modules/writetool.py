@@ -14,14 +14,14 @@ async def handwrite(_, message: Message):
             if len(message.command) < 3
             else message.text.split(None, 1)[1].replace(" ", "%20")
         )
-        m = await fallen.send_message(
+        m = await pbot.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**"
         )
         photo = "https://apis.xditya.me/write?text=" + name
         caption = f"""
 ✨ **ᴡʀɪᴛᴛᴇɴ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})
 """
-        await fallen.send_photo(
+        await pbot.send_photo(
             message.chat.id,
             photo=photo,
             caption=caption,)
@@ -29,12 +29,12 @@ async def handwrite(_, message: Message):
     else:
         lol = message.reply_to_message.text
         name = lol.split(None, 0)[0].replace(" ", "%20")
-        m = await fallen.send_message(
+        m = await pbot.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ..."
         )
         photo = "https://apis.xditya.me/write?text=" + name
         caption = f""" 💫**ᴡʀɪᴛᴛᴇɴ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})"""
-        await fallen.send_photo(
+        await pbot.send_photo(
             message.chat.id,
             photo=photo,
             caption=caption,
