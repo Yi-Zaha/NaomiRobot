@@ -62,4 +62,5 @@ telegram==0.0.1
 nekos.py
 envparse
 img2pdf
+git+https://github.com/trentm/python-markdown2
 
