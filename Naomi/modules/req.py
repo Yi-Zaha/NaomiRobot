@@ -31,7 +31,7 @@ from re import match, search
 
 
 """Connecting to Bot"""
-from FallenRobot import pbot as app
+from Naomi import pbot as app
 
 
 '''Connecting To Database'''
