@@ -223,7 +223,7 @@ def anime(update: Update, context: CallbackContext):
             .replace("</i>", "")
             .replace("<br>", "")
         )
-        msg += ➳ shorten(description, info)
+        msg += shorten(description, info)
         image = json.get("bannerImage", None)
         if trailer:
             buttons = [
