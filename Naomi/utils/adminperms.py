@@ -1,6 +1,6 @@
 import asyncio
 from pyrogram import filters
-from pyrogram.types import ChatPermissions, Message
+from pyrogram.types import ChatPermissions, Message, ChatMember
 from Naomi import pbot as app
 
 
