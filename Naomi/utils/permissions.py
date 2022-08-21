@@ -1,6 +1,6 @@
 from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
-from pyrogram.types import Message
+from pyrogram.types import Message, ChatMember, ChatPermissions
 from Naomi import pbot as app
 from Naomi import DRAGONS, DEV_USERS, WOLVES, DEMONS, TIGERS
 from Naomi.utils.adminperms import member_permissions
