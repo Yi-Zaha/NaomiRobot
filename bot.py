@@ -38,7 +38,6 @@ app = Client('RequestTrackerBot',
              api_id=API_ID,
              api_hash=API_HASH,
              bot_token=TOKEN,)
-)
 
 
 '''Connecting To Database'''
