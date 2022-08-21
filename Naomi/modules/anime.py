@@ -228,12 +228,12 @@ def anime(update: Update, context: CallbackContext):
         if trailer:
             buttons = [
                 [
-                    InlineKeyboardButton("More Info", url=info),
+                    InlineKeyboardButton("🔖 More Info 🔖", url=info),
                     InlineKeyboardButton("Trailer 🎬", url=trailer),
                 ]
             ]
         else:
-            buttons = [[InlineKeyboardButton("More Info", url=info)]]
+            buttons = [[InlineKeyboardButton("🔖 More Info 🔖", url=info)]]
         if image:
             try:
                 update.effective_message.reply_photo(
@@ -319,16 +319,16 @@ def manga(update: Update, context: CallbackContext):
             json.get("averageScore", False),
         )
         if title:
-            msg += f"*{title}*"
+            msg += f"➳*{title}*"
             if title_native:
-                msg += f"(`{title_native}`)"
+                msg += f"\n➳(`{title_native}`)"
         if start_date:
-            msg += f"\n*Start Date* - `{start_date}`"
+            msg += f"\n➳*Start Date* - `{start_date}`"
         if status:
-            msg += f"\n*Status* - `{status}`"
+            msg += f"\n➳*Status* - `{status}`"
         if score:
-            msg += f"\n*Score* - `{score}`"
-        msg += "\n*Genres* - "
+            msg += f"\n➳*Score* - `{score}`"
+        msg += "\n➳*Genres* - "
         for x in json.get("genres", []):
             msg += f"{x}, "
         msg = msg[:-2]
@@ -416,12 +416,12 @@ def user(update: Update, context: CallbackContext):
 
     caption += textwrap.dedent(
         f"""
-    *Username*: [{user['username']}]({user['url']})
-    *Gender*: `{user['gender']}`
-    *Birthday*: `{user_birthday_formatted}`
-    *Joined*: `{user_joined_date_formatted}`
-    *Days wasted watching anime*: `{user['anime_stats']['days_watched']}`
-    *Days wasted reading manga*: `{user['manga_stats']['days_read']}`
+    ➳*Username*: [{user['username']}]({user['url']})
+    ➳*Gender*: `{user['gender']}`
+    ➳*Birthday*: `{user_birthday_formatted}`
+    ➳*Joined*: `{user_joined_date_formatted}`
+    ➳*Days wasted watching anime*: `{user['anime_stats']['days_watched']}`
+    ➳*Days wasted reading manga*: `{user['manga_stats']['days_read']}`
     """
     )
 
@@ -625,4 +625,4 @@ __handlers__ = [
     BUTTON_HANDLER,
     AIRING_HANDLER,
 ]
-__mod_name__ = "ᴀɴɪᴍᴇ"
+__mod_name__ = "🇦ɴɪᴍᴇ"
