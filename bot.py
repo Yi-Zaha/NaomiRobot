@@ -1,5 +1,6 @@
 """Importing"""
 # Importing External Packages
+import aiohttp
 from pyrogram import (
     Client,
     filters
@@ -33,11 +34,10 @@ from re import match, search
 
 
 """Connecting to Bot"""
-app = Client(
-    session_name = "RequestTrackerBot",
-    api_id = Config.API_ID,
-    api_hash = Config.API_HASH,
-    bot_token = Config.TOKEN
+app = Client('RequestTrackerBot',
+             api_id=API_ID,
+             api_hash=API_HASH,
+             bot_token=TOKEN,)
 )
 
 
