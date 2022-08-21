@@ -90,6 +90,7 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
         except ValueError:  # If Ids are not integer type
             await msg.reply_text(
                 "<b>Group ID & Channel ID should be integer😡.</b>",
+                parse_mode = "html"
             )
         else:   # If Ids are integer type
             documents = collection_ID.find()
@@ -101,6 +102,7 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                 else:   # If group id found in database
                     await msg.reply_text(
                     "<b>Your Group ID already Added🤦.</b>",
+                    parse_mode = "html"
                     )
                     break
                 for record in document:
@@ -110,6 +112,7 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                         if document[record][0] == channelID:    #If channel id found in database
                             await msg.reply_text(
                                 "<b>Your Channel ID already Added🤦.</b>",
+                                parse_mode = "html"
                             )
                             break
             else:   # If group id & channel not found in db
@@ -118,26 +121,28 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                 except (PeerIdInvalid, ValueError):   # If given group id is invalid
                     await msg.reply_text(
                         "<b>Group ID is wrong😒.</b>",
+                        parse_mode = "html"
                     )
                 except UserNotParticipant:  # If bot is not in group
                     await msg.reply_text(
                         "<b>Add me in group and make me admin, then use /add.",
+                        parse_mode = "html"
                     )
-                    else:
-                        try:
-                            botSelfChannel = await bot.get_chat_member(int(channelID), 'me')
                         except (UserNotParticipant, ChannelPrivate):    # If bot not in channel
                             await msg.reply_text(
                                 "<b>Add me in Channel and make me admin, then use /add.</b>",
+                                parse_mode = "html"
                             )
                         except (ChatIdInvalid, ChannelInvalid): # If given channel id is invalid
                             await msg.reply_text(
                                 "<b>Channel ID is wrong😒.</b>",
+                                parse_mode = "html"
                             )
                         else:
                             if not (botSelfChannel.can_post_messages and botSelfChannel.can_edit_messages and botSelfChannel.can_delete_messages):  # If bot has not enough permissions
                                 await msg.reply_text(
                                     "<b>Make sure to give Permissions like Post Messages, Edit Messages & Delete Messages🥲.</b>",
+                                    parse_mode = "html"
                                 )
                             else:   # Adding Group ID, Channel ID & User ID in group
                                 collection_ID.insert_one(
@@ -147,13 +152,14 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                                 )
                                 await msg.reply_text(
                                     "<b>Your Group and Channel has now been added SuccessFully✌️🙂.</b>",
+                                    parse_mode = "html"
                                 )
     else:   # If command is invalid
         await msg.reply_text(
             "<b>Invalid Format😒\nSend Group ID & Channel ID in this format <code>/add GroupID ChannelID</code>.</b>",
+            parse_mode = "html"
         )
     return
-
 # /remove handler to remove group id & channel id from database
 @app.on_message(filters.private & filters.command("remove"))
 async def channelgroupRemover(bot:Update, msg:Message):
