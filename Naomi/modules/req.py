@@ -123,11 +123,6 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                     await msg.reply_text(
                         "<b>Add me in group and make me admin, then use /add.",
                     )
-                else:
-                    if botSelfGroup.status != "administrator":  # If bot is not admin in group
-                        await msg.reply_text(
-                            "<b>Make me admin in Group🥲, Then add use /add.</b>",
-                        )
                     else:   # If bot is admin in group
                         try:
                             botSelfChannel = await bot.get_chat_member(int(channelID), 'me')
