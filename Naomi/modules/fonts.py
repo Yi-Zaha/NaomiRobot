@@ -2,9 +2,10 @@ import os
 from Naomi.utils.fonts import Fonts
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from Naomi import pbot
 
 
-@Client.on_message(filters.command(["font", "fonts"]))
+@pbot.on_message(filters.command(["font", "fonts"]))
 async def style_buttons(c, m, cb=False):
     buttons = [
         [
@@ -53,7 +54,7 @@ async def style_buttons(c, m, cb=False):
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
 
 
-@Client.on_callback_query(filters.regex("^nxt"))
+@pbot.on_callback_query(filters.regex("^nxt"))
 async def nxt(c, m):
     if m.data == "nxt":
         buttons = [
@@ -103,7 +104,7 @@ async def nxt(c, m):
         await style_buttons(c, m, cb=True)
 
 
-@Client.on_callback_query(filters.regex("^style"))
+@pbot.on_callback_query(filters.regex("^style"))
 async def style(c, m):
     await m.answer()
     cmd, style = m.data.split("+")
