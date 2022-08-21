@@ -56,7 +56,7 @@ motor
 python-arq
 gpytranslate
 yt_dlp
-pendulum
+pendulum==1.3.1
 nudepy
 telegram==0.0.1
 nekos.py
