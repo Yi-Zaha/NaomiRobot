@@ -63,5 +63,5 @@ nekos.py
 envparse
 img2pdf
 git+https://github.com/trentm/python-markdown2
-git+https://github.com/AsmSafone/SafoneAPI
+fontTools
 
