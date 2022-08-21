@@ -8,7 +8,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import escape_markdown
 
-import Naomi.modules.fun_strings as fun_strings as fun
+import Naomi.modules.fun_strings as fun
 from Naomi import DEMONS, DRAGONS, dispatcher
 from Naomi.modules.disable import (
     DisableAbleCommandHandler,
