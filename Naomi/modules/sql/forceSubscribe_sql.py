@@ -1,10 +1,10 @@
-from sqlalchemy import Column, String, Numeric, Boolean
+from sqlalchemy import Column, String, BigInteger, Boolean
 from Naomi.modules.sql import BASE, SESSION
 
 
 class forceSubscribe(BASE):
     __tablename__ = "forceSubscribe"
-    chat_id = Column(Numeric, primary_key=True)
+    chat_id = Column(BigInteger, primary_key=True)
     channel = Column(String)
 
     def __init__(self, chat_id, channel):
