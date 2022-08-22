@@ -12,6 +12,7 @@ from Naomi.utils.filter_groups import nsfw_detect_group
 
 __mod_name__ = "Anti-NSFW​"
 
+
 async def get_file_id_from_message(message):
     file_id = None
     if message.document:
@@ -54,7 +55,7 @@ async def get_file_id_from_message(message):
         | filters.video
     )
     & ~filters.private,
-    group=nsfw_detect_group,
+    group=8,
 )
 @capture_err
 async def detect_nsfw(_, message):
@@ -84,14 +85,14 @@ async def detect_nsfw(_, message):
     await message.reply_text(
         f"""
 **NSFW Image Detected & Deleted Successfully!
-————————————————————————**
+————————————————————**
 **User:** {message.from_user.mention} [`{message.from_user.id}`]
 **Safe:** `{results.neutral} %`
 **Porn:** `{results.porn} %`
 **Adult:** `{results.sexy} %`
 **Hentai:** `{results.hentai} %`
 **Drawings:** `{results.drawings} %`
-**————————————————————————**
+**————————————————————**
 __Use `/antinsfw off` to disable this.__
 """
     )
@@ -114,13 +115,13 @@ async def nsfw_scan_command(_, message):
         and not reply.video
     ):
         await message.reply_text(
-            "`Reply to an image/document/sticker/animation to scan it.`"
+            "Reply to an image/document/sticker/animation to scan it."
         )
         return
     m = await message.reply_text("`Scanning...`")
     file_id = await get_file_id_from_message(reply)
     if not file_id:
-        return await m.edit("`Something wrong happened LOL`")
+        return await m.edit("`Something wrong happened...|")
     file = await pbot.download_media(file_id)
     try:
         results = await arq.nsfw_scan(file=file)
@@ -142,26 +143,22 @@ async def nsfw_scan_command(_, message):
     )
 
 
-@pbot.on_message(filters.command("antinsfw"))
+@pbot.on_message(filters.command(["antinsfw", f"antinsfw@{bn}"]) & ~filters.private)
 @adminsOnly("can_change_info")
 async def nsfw_enable_disable(_, message):
     if len(message.command) != 2:
-        await message.reply_text(
-            "Usage: /antinsfw [on | off]"
-        )
+        await message.reply_text("Usage: /antinsfw [on/off]")
         return
     status = message.text.split(None, 1)[1].strip()
     status = status.lower()
     chat_id = message.chat.id
-    if status == "on":
-        nsfw_on(chat_id)
+    if status == "on" or status == "yes":
+        await nsfw_on(chat_id)
         await message.reply_text(
             "Enabled AntiNSFW System. I will Delete Messages Containing Inappropriate Content."
         )
-    elif status == "off":
-        nsfw_off(chat_id)
+    elif status == "off" or status == "no":
+        await nsfw_off(chat_id)
         await message.reply_text("Disabled AntiNSFW System.")
     else:
-        await message.reply_text(
-            "`Unknown Suffix, Use /antinsfw [enable|disable]`"
-        )
+        await message.reply_text("Unknown Suffix, Use /antinsfw [on/off]")
