@@ -5,7 +5,7 @@ from Naomi.modules.sql import BASE, SESSION
 class forceSubscribe(BASE):
     __tablename__ = "forceSubscribe"
     chat_id = Column(String(14), primary_key=True)
-    channel = Column(String(14))
+    channel = Column(String(14), nullable=False)
 
     def __init__(self, chat_id, channel):
         self.chat_id = chat_id
