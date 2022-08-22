@@ -110,7 +110,7 @@ buttons = [
 FallenRobot_IMG = "https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg"
 
 HELP_STRINGS = f"""
-Naomi ʀᴏʙᴏᴛ *ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*\n*» ᴄʜᴇᴄᴋᴏᴜᴛ ᴀʟʟ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs*\n*» ᴀʟʟ ᴏꜰ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ / ᴏʀ !*\n*» ɪꜰ ʏᴏᴜ ɢᴏᴛ ᴀɴʏ ɪssᴜᴇ ᴏʀ ʙᴜɢ ɪɴ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ ᴘʟᴇᴀsᴇ ʀᴇᴘᴏʀᴛ ɪᴛ ᴛᴏ @{SUPPORT_CHAT}*\n\n*ㅤㅤㅤㅤㅤㅤ» ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ «*\n\n➲ /start : *ꜱᴛᴀʀᴛꜱ ᴍᴇ | ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴᴇ ɪᴛ​.*\n➲ /help  : *ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.*"""
+Help Module Of Naomi Robot\n\n➲ /start*:* ꜱᴛᴀʀᴛ ᴍᴇ.\n➲ /help*:* ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -195,7 +195,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="◁", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="↩️", callback_data="help_back")]]
                     ),
                 )
 
@@ -224,7 +224,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_photo(
-            START_IMG, caption= "*Hey {},*\n*Naomi is here*\n*Uptime* : {} ".format(
+            START_IMG, caption= "*Hey {},*\n*Naomi here, use /help to know my cmds*\n*Uptime* : {} ".format(
              first_name,uptime
             ),
             parse_mode=ParseMode.MARKDOWN,
@@ -320,7 +320,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="◁", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="↩️", callback_data="help_back")]]
                 ),
             )
 
@@ -398,7 +398,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                         )
                     ],
                     [
-                        InlineKeyboardButton(text="◁", callback_data="fallen_back"),
+                        InlineKeyboardButton(text="↩️", callback_data="fallen_back"),
                     ],
                 ]
             ),
@@ -419,7 +419,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="◁", callback_data="fallen_"),
+                        InlineKeyboardButton(text="↩️", callback_data="fallen_"),
                     ],
                 ]
             ),
@@ -519,7 +519,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="◁", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="↩️", callback_data="help_back")]]
             ),
         )
 
@@ -745,7 +745,7 @@ def main():
             dispatcher.bot.send_photo(
                 f"@{SUPPORT_CHAT}",
                 photo="https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg",
-                caption=f"System back online",
+                caption=f"Good to see ya master again",
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🐲 ʜᴇʟᴘ & ᴄᴍᴅs 🐲",url='t.me/naomi_robot?start=help')]]),
                 parse_mode=ParseMode.MARKDOWN,)
         except Unauthorized:
