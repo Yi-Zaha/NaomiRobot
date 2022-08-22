@@ -18,4 +18,4 @@ __help__="""
 ❍ /antinsfw off/disable*:* Allow NSFW content in group/chat
 ❍ /nsfwscan*:*Scan adult content in chat
 """
-__mod_name__ = "ᴀɴᴛɪ-ꜱᴇʀᴠɪᴄᴇꜱ"
+__mod_name__ = "🇦ɴᴛɪ-ꜱᴇʀᴠɪᴄᴇꜱ"
