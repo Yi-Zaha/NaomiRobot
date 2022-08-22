@@ -1,6 +1,7 @@
 from os import remove
 
 from pyrogram import filters
+from pyrogram.types import ChatPermissions, ChatMember
 
 from Naomi import BOT_USERNAME as bn, BOT_ID
 from Naomi import pbot, arq
