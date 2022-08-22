@@ -2367,7 +2367,7 @@ def fed_user_help(update: Update, context: CallbackContext):
     )
 
 
-__mod_name__ ="ꜰᴇᴅꜱ"
+__mod_name__ ="🇫ᴇᴅꜱ"
 __help__ = """
 Everything is fun, until a spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
 But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?\n
