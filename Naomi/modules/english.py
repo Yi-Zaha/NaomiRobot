@@ -88,4 +88,4 @@ __help__ = """
  ❍ /antonyms <word>*:* Find the antonyms of a word
 """
 
-__mod_name__ = "ᴇɴɢʟɪꜱʜ"
+__mod_name__ = "🇪ɴɢʟɪꜱʜ"
