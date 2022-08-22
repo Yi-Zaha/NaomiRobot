@@ -81,9 +81,8 @@ def get_readable_time(seconds: int) -> str:
 uptime = get_readable_time((time.time() - StartTime))
 
 
-PM_START_TEXT =
-f"*ʜᴇʏ* [👋](https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg) {}," 
-f"*⌥ ᴛʜɪ𝖘 ɪ𝖘* {}" 
+PM_START_TEXT =f"*ʜᴇʏ* [👋](https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg) {}," 
+"*⌥ ᴛʜɪ𝖘 ɪ𝖘* {}" 
 "➻ ᴛʜᴇ ᴍᴏ𝖘ᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴀɴᴅ ɪ ʜᴀᴠᴇ 𝖘ᴏᴍᴇ ᴀᴇ𝖘ᴏᴍᴇ ᴀɴᴅ ᴜ𝖘ᴇғᴜʟ ғᴇᴀᴛᴜʀᴇ𝖘."
 
 "⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥"
@@ -94,6 +93,7 @@ f"\n*〆ᴄʜᴀᴛs*  » {sql.num_chats()}"
 "⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥⌥"
 
 "⌥ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇ𝖘 ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅ𝖘."
+"""
 
 buttons = [
     [
