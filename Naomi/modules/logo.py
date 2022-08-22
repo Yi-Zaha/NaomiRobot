@@ -11,7 +11,7 @@ from io import BytesIO
 from requests import get
 from telethon.tl.types import InputMessagesFilterPhotos
 
-from Naomi import OWNER_ID
+from Naomi import OWNER_ID, SUPPORT_CHAT
 from Naomi.events import register
 from Naomi import telethn
 from PIL import Image, ImageDraw, ImageFont
@@ -255,10 +255,10 @@ async def lego(event):
     quew = event.pattern_match.group(1)
     if event.sender_id != OWNER_ID and not quew:
         await event.reply(
-            "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙʏ​ !`\n`Example /logo KAGUTSUCHI`"
+            "ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙʏ​ !\nExample : `/logo Zero Two`"
         )
         return
-    pesan = await event.reply("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ​...**")
+    pesan = await event.reply("**ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...**")
     try:
         text = event.pattern_match.group(1)
         randc = random.choice(LOGO_LINKS)
@@ -270,9 +270,9 @@ async def lego(event):
         shadowcolor = "blue"
         fnt = glob.glob("./FallenRobot/resources/fonts/*")
         randf = random.choice(fnt)
-        font = ImageFont.truetype(randf, 200)
+        font = ImageFont.truetype(randf, 120)
         w, h = draw.textsize(text, font=font)
-        h += int(h * 0.5)
+        h += int(h * 0.21)
         image_width, image_height = img.size
         draw.text(
             ((image_widthz - w) / 2, (image_heightz - h) / 2),
@@ -285,22 +285,21 @@ async def lego(event):
         draw.text(
             (x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black"
         )
-        fname = "fallen.png"
+        fname = "Naomi.png"
         img.save(fname, "png")
         await telethn.send_file(
-            event.chat_id, file=fname, caption=f"ʟᴏɢᴏ ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ [Naomi Robot](t.me/Naomi_Robot)"
+            event.chat_id, file=fname, caption=f"ʟᴏɢᴏ ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ [Naomi Robot](t.me/naomi_robot)"
         )
         await pesan.delete()
         if os.path.exists(fname):
             os.remove(fname)
     except Exception as e:
-        await event.reply(f"ғʟᴏᴏᴅᴡᴀɪᴛ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @Naomi_Robot")
+        await event.reply(f"ғʟᴏᴏᴅᴡᴀɪᴛ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @{SUPPORT_CHAT}")
 
 
-__mod_name__ ="ʟᴏɢᴏ ᴍᴀᴋᴇʀ"
+__mod_name__ = "Lᴏɢᴏ​"
 
 __help__ = """
-Naomi Robot can create some beautiful and attractive logo for your profile pics.
-
+I can create some beautiful and attractive logo for your profile pics.
 ❍ /logo (Text) *:* Create a logo of your given text with random view.
 """
