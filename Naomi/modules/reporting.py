@@ -3,10 +3,11 @@ from pyrogram.types import  Message
 from Naomi import pbot as app
 from Naomi.mongo.reportdb import Reporting
 from Naomi.utils.commands import command
-from Naomi.utils.custom_filters import admin_filter
-from button import Reports
+from Naomi.utils.permissions import adminsOnly
 
-@app.on_message(command("reports")  & admin_filter)
+
+@app.on_message(filters.command("reports") & ~filters.private))
+@adminsOnly("can_change_info")
 async def report_setting(_, m: Message):
     args = m.text.split()
     db = Reporting(m.chat.id)
@@ -38,7 +39,7 @@ Tochange this setting, try this command again, with one of the following args: `
 
 
 
-    
+  
 @app.on_message(
     (
             filters.command("report")
