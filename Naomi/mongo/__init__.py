@@ -28,7 +28,7 @@ federation = dbx['federation']
 nm = dbx['Nightmode']
 
 try:
-    client = MongoClient(DB_URI)
+    client = MongoClient(MONGO_DB_URI)
 except PyMongoError as f:
     exiter(1)
 main_db = client["maindb"]
