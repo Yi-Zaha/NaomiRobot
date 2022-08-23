@@ -12,7 +12,7 @@ from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboard
 
 from Naomi import DRAGONS as SUDO_USERS
 from Naomi import pbot
-from Naomi.modules.sql import forceSubscribe_sql as sql
+from Naomi.mongo import fsubdb as sql
 
 
 logging.basicConfig(level=logging.INFO)
