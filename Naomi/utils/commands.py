@@ -1,6 +1,5 @@
 from pyrogram import filters
 from typing import List, Union
-from config import Config
-
+COMMAND_PREFIXES = "/"
 def command(commands: Union[str, List[str]]):
-    return filters.command(commands, /)
+    return filters.command(commands, COMMAND_PREFIXES)
