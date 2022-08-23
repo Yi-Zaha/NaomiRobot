@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import  Message
 from Naomi import pbot as app
 from Naomi.mongo.reportdb import Reporting
-from Rose.utils.commands import command
+from Naomi.utils.commands import command
 from Naomi.utils.custom_filters import admin_filter
 from button import Reports
 
