@@ -258,7 +258,7 @@ async def lego(event):
             "ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙʏ​ !\nExample : `/logo Zerotwo`"
         )
         return
-    pesan = await event.reply("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ​...**")
+    pesan = await event.reply("**ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ​...**")
     try:
         text = event.pattern_match.group(1)
         randc = random.choice(LOGO_LINKS)
@@ -268,9 +268,9 @@ async def lego(event):
         pointsize = 500
         fillcolor = "black"
         shadowcolor = "blue"
-        fnt = glob.glob("./NaomiRobot/resources/fonts/*")
+        fnt = glob.glob("./Naomi/resources/fonts/*")
         randf = random.choice(fnt)
-        font = ImageFont.truetype(randf, 140)
+        font = ImageFont.truetype(randf, 120)
         w, h = draw.textsize(text, font=font)
         h += int(h * 0.21)
         image_width, image_height = img.size
