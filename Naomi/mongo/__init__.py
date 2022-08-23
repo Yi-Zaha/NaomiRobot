@@ -5,23 +5,7 @@ from Naomi import MONGO_DB_URI
 from Naomi import *
 import pymongo
 
-langdb = db.language
-chatsdb = db.chats
-nexaub_antif = db.nexa_mongodb
-antiservicedb = db.antiservice
-flooddb = db.flood_toggle
-usersdb = db.users
-restartdb = db.restart_stage
-chatb = db.chatbot
-kukib = db.kuki
-lunab = db.luna
-nightmod =db.nightmode2
-taggeddb = db.tagallert
-lockdb = db.lockdb1
-botlock = db.botlock
-afkusers = db.afkusers
-
-myapp = pymongo.MongoClient(MONGO_URL)
+myapp = pymongo.MongoClient(MONGO_DB_URI)
 dbx = myapp["AsyncIOMotorCursor"]
 
 federation = dbx['federation']
