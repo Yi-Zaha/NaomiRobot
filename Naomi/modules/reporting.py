@@ -32,7 +32,7 @@ def report_setting(update: Update, context: CallbackContext):
             if args[0] in ("yes", "on"):
                 sql.set_user_setting(chat.id, True)
                 msg.reply_text(
-                    "Turned on reporting! You'll be notified whenever anyone reports something."
+                    "Turned on reporting! You'll be notified whenever anyone reports something.",
                 )
 
             elif args[0] in ("no", "off"):
@@ -50,13 +50,13 @@ def report_setting(update: Update, context: CallbackContext):
                 sql.set_chat_setting(chat.id, True)
                 msg.reply_text(
                     "Turned on reporting! Admins who have turned on reports will be notified when /report "
-                    "or @admin is called."
+                    "or @admin is called.",
                 )
 
             elif args[0] in ("no", "off"):
                 sql.set_chat_setting(chat.id, False)
                 msg.reply_text(
-                    "Turned off reporting! No admins will be notified on /report or @admin."
+                    "Turned off reporting! No admins will be notified on /report or @admin.",
                 )
         else:
             msg.reply_text(
@@ -113,7 +113,7 @@ def report(update: Update, context: CallbackContext) -> str:
                     InlineKeyboardButton(
                         "➡ Message",
                         url=f"https://t.me/{chat.username}/{message.reply_to_message.message_id}",
-                    )
+                    ),
                 ],
                 [
                     InlineKeyboardButton(
@@ -129,7 +129,7 @@ def report(update: Update, context: CallbackContext) -> str:
                     InlineKeyboardButton(
                         "❎ Delete Message",
                         callback_data=f"report_{chat.id}=delete={reported_user.id}={message.reply_to_message.message_id}",
-                    )
+                    ),
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
@@ -151,7 +151,7 @@ def report(update: Update, context: CallbackContext) -> str:
                 try:
                     if not chat.type == Chat.SUPERGROUP:
                         bot.send_message(
-                            admin.user.id, msg + link, parse_mode=ParseMode.HTML
+                            admin.user.id, msg + link, parse_mode=ParseMode.HTML,
                         )
 
                         if should_forward:
@@ -163,7 +163,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                 message.forward(admin.user.id)
                     if not chat.username:
                         bot.send_message(
-                            admin.user.id, msg + link, parse_mode=ParseMode.HTML
+                            admin.user.id, msg + link, parse_mode=ParseMode.HTML,
                         )
 
                         if should_forward:
@@ -264,15 +264,13 @@ def buttons(update: Update, context: CallbackContext):
 
 
 __help__ = """
- ❍ /report <reason>*:* reply to a message to report it to admins.
- ❍ @admin*:* reply to a message to report it to admins.
+ • `/report <reason>`*:* reply to a message to report it to admins.
+ • `@admin`*:* reply to a message to report it to admins.
 *NOTE:* Neither of these will get triggered if used by admins.
-
 *Admins only:*
- ❍ /reports <on/off>*:* change report setting, or view current status.
+ • `/reports <on/off>`*:* change report setting, or view current status.
    • If done in pm, toggles your status.
    • If in group, toggles that groups's status.
- ❍ /bug *:* to report a bug to Devs.
 """
 
 SETTING_HANDLER = CommandHandler("reports", report_setting)
@@ -286,7 +284,7 @@ dispatcher.add_handler(SETTING_HANDLER)
 dispatcher.add_handler(REPORT_HANDLER, REPORT_GROUP)
 dispatcher.add_handler(ADMIN_REPORT_HANDLER, REPORT_GROUP)
 
-__mod_name__ ="ʀᴇᴘᴏʀᴛ"
+__mod_name__ = "Reporting"
 __handlers__ = [
     (REPORT_HANDLER, REPORT_GROUP),
     (ADMIN_REPORT_HANDLER, REPORT_GROUP),
