@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pyrogram.types import  Message
 from Naomi import pbot as app
-from Naomi.mongo.reportdb import Reporting
+from Naomi.mongo1.reportdb import Reporting
 from Naomi.utils.commands import command
 from Naomi.utils.permissions import adminsOnly
 
