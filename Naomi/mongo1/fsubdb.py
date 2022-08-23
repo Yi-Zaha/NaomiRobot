@@ -18,7 +18,7 @@ class fsubdatabase(MongoDB):
         with INSERTION_LOCK:
             return self.delete_one({"chat_id": chat_id})
     
-    def addchannel(self,chat_id : int, channel : int):
+    def add_channel(self,chat_id : int, channel : int):
         with INSERTION_LOCK:
             self.insert_one({
                 "chat_id":chat_id,
