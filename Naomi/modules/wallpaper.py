@@ -1,4 +1,3 @@
-
 import os
 import io
 import requests
@@ -29,10 +28,10 @@ async def wall(client, message):
     quew = get_text(message)
     if not quew:
         await client.send_message(
-            message.chat.id, "**ᴩʟᴇᴀsᴇ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ sᴇᴀʀᴄʜ ғᴏʀ ᴡᴀʟʟᴩᴀᴩᴇʀ !**"
+            message.chat.id, "😶 **ᴩʟᴇᴀsᴇ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ sᴇᴀʀᴄʜ ғᴏʀ ᴡᴀʟʟᴩᴀᴩᴇʀ !**"
         )
         return
-    m = await client.send_message(message.chat.id, "⚙**sᴇᴀʀᴄʜɪɴɢ...**")
+    m = await client.send_message(message.chat.id, "⚙️ **sᴇᴀʀᴄʜɪɴɢ ғᴏʀ ᴡᴀʟʟᴩᴀᴩᴇʀ...**")
     try:
         text = get_text(message)
         LOGO_API = f"https://single-developers.up.railway.app/wallpaper?search={text}"
@@ -45,16 +44,23 @@ async def wall(client, message):
             .url
         )
         img = Image.open(io.BytesIO(requests.get(randc).content))
-        fname = "Naomi.png"
+        fname = "fallenrobot.png"
         img.save(fname, "png")
         caption = f"""
-**By :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})
+💘 ᴡᴀʟʟᴩᴀᴩᴇʀ ɢᴇɴᴇʀᴀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 
+✨ **ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})
+❄ **ᴅᴏᴡɴʟᴏᴀᴅ :** `{murl}`
 """
         await m.delete()
         await client.send_photo(
             message.chat.id,
             photo=murl,
             caption=caption,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton("• ʟɪɴᴋ •", url=f"{murl}")],
+                ]
+            ),
         )
         if os.path.exists(fname):
             os.remove(fname)
