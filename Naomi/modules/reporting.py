@@ -70,3 +70,4 @@ __help__ = """
 **Admin commands:**
 - /reports `<yes/no/on/off>`: Enable/disable user reports.
 To report a user, simply reply to his message with @admin or /report;
+"""
