@@ -6,7 +6,7 @@ from Naomi.utils.commands import command
 from Naomi.utils.permissions import adminsOnly
 
 
-@app.on_message(filters.command("reports") & ~filters.private))
+@app.on_message(filters.command("reports") & ~filters.private)
 @adminsOnly("can_change_info")
 async def report_setting(_, m: Message):
     args = m.text.split()
