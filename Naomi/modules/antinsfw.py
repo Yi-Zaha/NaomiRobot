@@ -65,7 +65,8 @@ async def get_file_id_from_message(message):
     group=nsfw_detect_group,
 )
 @run_async
-async def antinsfw(_, message):
+@pbot.on_message(filters.command("antinsfw"))
+async def anti_nsfw(_, message):
     if not message.from_user:
         return
     file_id = await get_file_id_from_message(message)
@@ -105,7 +106,7 @@ __Use `/disable antinsfw` to disable this.__
 @run_async
 @pbot.on_message(filters.command("nsfwscan"))
 @capture_err
-async def nsfwscan(_, message):
+async def nsfw_scan(_, message):
     if not message.reply_to_message:
         await message.reply_text(
             "`Reply to an image/document/sticker/animation to scan it.`"
@@ -148,11 +149,11 @@ async def nsfwscan(_, message):
     )
 
 
-ANTINSFW_HANDLER = DisableAbleCommandHandler("antinsfw", antinsfw)
-NSFWSCAN_HANDLER = DisableAbleCommandHandler("nsfwscan", nsfwscan)
+ANTI_NSFW_HANDLER = DisableAbleCommandHandler("antinsfw", antinsfw)
+NSFW_SCAN_HANDLER = DisableAbleCommandHandler("nsfwscan", nsfwscan)
 
-dispatcher.add_handler(ANTINSFW_HANDLER)
-dispatcher.add_handler(NSFWSCAN_HANDLER)
+dispatcher.add_handler(ANTI_NSFW_HANDLER)
+dispatcher.add_handler(NSFW_SCAN_HANDLER)
 
 __command_list__ = [
     "antinsfw", "nsfwscan"]
@@ -160,5 +161,5 @@ __command_list__ = [
 __mod_name__ = "Antinsfw"
 
 __handlers__ = [
-    ANTINSFW_HANDLER,
-    NSFWSCAN_HANDLER,]
+    ANTI_NSFW_HANDLER,
+    NSFW_SCAN_HANDLER,]
