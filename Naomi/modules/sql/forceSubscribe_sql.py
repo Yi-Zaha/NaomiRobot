@@ -1,11 +1,11 @@
-from sqlalchemy import Column, String, BigInteger, Boolean, UnicodeText
-from Naomi.modules.sql import BASE, SESSION
+from sqlalchemy import Column, String, Numeric, Boolean
+from SiestaRobot.modules.sql import BASE, SESSION
 
 
 class forceSubscribe(BASE):
     __tablename__ = "forceSubscribe"
-    chat_id = Column(String(14), primary_key=True)
-    channel = Column(UnicodeText, primary_key=True)
+    chat_id = Column(Numeric, primary_key=True)
+    channel = Column(String)
 
     def __init__(self, chat_id, channel):
         self.chat_id = chat_id
