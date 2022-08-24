@@ -7,6 +7,7 @@ from Naomi import pbot, arq
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
 from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
+import Naomi.modules.sql import nsfw_sql
 from Naomi.utils.filter_groups import nsfw_detect_group
 from Naomi.modules.helper_funcs.chat_status import (
     bot_admin,
@@ -68,7 +69,7 @@ async def get_file_id_from_message(message):
 )
 @capture_err
 async def detect_nsfw(_, message):
-    if not await is_nsfw_on(message.chat.id):
+    if not await is_nsfw(message.chat.id):
         return
     if not message.from_user:
         return
@@ -163,12 +164,12 @@ async def nsfw_enable_disable(_, message):
     status = status.lower()
     chat_id = message.chat.id
     if status == "on":
-        nsfw_on(chat_id)
+        set_nsfw(chat_id)
         await message.reply_text(
             "Enabled AntiNSFW System. I will Delete Messages Containing Inappropriate Content."
         )
     elif status == "off":
-        nsfw_off(chat_id)
+        rem_nsfw(chat_id)
         await message.reply_text("Disabled AntiNSFW System.")
     else:
         await message.reply_text(
