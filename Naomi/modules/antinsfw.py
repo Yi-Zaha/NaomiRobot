@@ -64,9 +64,8 @@ async def get_file_id_from_message(message):
     group=nsfw_detect_group,
 )
 @run_async
-@pbot.on_message(filters.command("antinsfw"))
-@capture_err
-async def anti_nsfw(_, message):
+@user_admin
+async def antinsfw(_, message):
     if not message.from_user:
         return
     file_id = await get_file_id_from_message(message)
@@ -106,7 +105,7 @@ __Use `/disable antinsfw` to disable this.__
 @run_async
 @pbot.on_message(filters.command("nsfwscan"))
 @capture_err
-async def nsfw_scan_command(_, message):
+async def nsfwscan(_, message):
     if not message.reply_to_message:
         await message.reply_text(
             "`Reply to an image/document/sticker/animation to scan it.`"
