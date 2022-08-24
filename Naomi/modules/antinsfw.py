@@ -2,8 +2,16 @@ from os import remove
 
 from pyrogram import filters
 from pyrogram.types import ChatPermissions, ChatMember
-
-from Naomi import BOT_USERNAME as bn, BOT_ID
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+    run_async,
+)
+from Naomi.modules.disable import DisableAbleCommandHandler
+from Naomi import BOT_USERNAME as bn, BOT_ID, dispatcher
 from Naomi import pbot, arq
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
@@ -57,10 +65,9 @@ async def get_file_id_from_message(message):
     & ~filters.private,
     group=8,
 )
+@pbot.on_message(filters.command("antinsfw"))
 @capture_err
-async def detect_nsfw(_, message):
-    if not await is_nsfw_on(message.chat.id):
-        return
+async def antinsfw(_, message):
     if not message.from_user:
         return
     file_id = await get_file_id_from_message(message)
@@ -93,7 +100,7 @@ async def detect_nsfw(_, message):
 **Hentai:** `{results.hentai} %`
 **Drawings:** `{results.drawings} %`
 **————————————————————**
-__Use `/antinsfw off` to disable this.__
+__Use `/disable antinsfw` to disable this.__
 """
     )
 
@@ -143,22 +150,14 @@ async def nsfw_scan_command(_, message):
     )
 
 
-@pbot.on_message(filters.command(["antinsfw", f"antinsfw@{bn}"]) & ~filters.private)
-@adminsOnly("can_change_info")
-async def nsfw_enable_disable(_, message):
-    if len(message.command) != 2:
-        await message.reply_text("Usage: /antinsfw [on/off]")
-        return
-    status = message.text.split(None, 1)[1].strip()
-    status = status.lower()
-    chat_id = message.chat.id
-    if status == "on" or status == "yes":
-        await nsfw_on(chat_id)
-        await message.reply_text(
-            "Enabled AntiNSFW System. I will Delete Messages Containing Inappropriate Content."
-        )
-    elif status == "off" or status == "no":
-        await nsfw_off(chat_id)
-        await message.reply_text("Disabled AntiNSFW System.")
-    else:
-        await message.reply_text("Unknown Suffix, Use /antinsfw [on/off]")
+ANTINSFW_HANDLER = DisableAbleCommandHandler("antinsfw", antinsfw)
+
+dispatcher.add_handler(ANTINSFW_HANDLER)
+
+__command_list__ = [
+    "antinsfw",]
+
+__mod_name__ = "Antinsfw"
+
+__handlers__ = [
+    ANTINSFW_HANDLER,]
