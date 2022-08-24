@@ -8,6 +8,17 @@ from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
 from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
 from Naomi.utils.filter_groups import nsfw_detect_group
+from Naomi.modules.helper_funcs.chat_status import (
+    bot_admin,
+    can_restrict,
+    connection_status,
+    is_user_admin,
+    is_user_ban_protected,
+    is_user_in_chat,
+    user_admin,
+    user_can_ban,
+    can_delete,
+)
 
 __mod_name__ = "Anti-NSFW​"
 
