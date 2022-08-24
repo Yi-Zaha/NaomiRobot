@@ -10,7 +10,7 @@ from telegram.ext import (
     MessageHandler,
     run_async,
 )
-from SiestaRobot.utils.permissions import adminsOnly
+from Naomi.utils.permissions import adminsOnly
 from Naomi.modules.disable import DisableAbleCommandHandler
 from Naomi import BOT_USERNAME as bn, BOT_ID, dispatcher
 from Naomi import pbot, arq
