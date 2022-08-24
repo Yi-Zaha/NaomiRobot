@@ -4,7 +4,7 @@ from Naomi.modules.sql import BASE, SESSION
 
 class forceSubscribe(BASE):
     __tablename__ = "forceSubscribe"
-    chat_id = Column(Numeric, primary_key=True)
+    chat_id = Column(String(14), primary_key=True)
     channel = Column(String)
 
     def __init__(self, chat_id, channel):
@@ -29,7 +29,7 @@ def fs_settings(chat_id):
 
 
 def add_channel(chat_id, channel):
-    adder = SESSION.query(forceSubscribe).get(chat_id)
+    adder = SESSION.query(forceSubscribe).get(str(chat_id))
     if adder:
         adder.channel = channel
     else:
@@ -39,7 +39,7 @@ def add_channel(chat_id, channel):
 
 
 def disapprove(chat_id):
-    rem = SESSION.query(forceSubscribe).get(chat_id)
+    rem = SESSION.query(forceSubscribe).get(str(chat_id))
     if rem:
         SESSION.delete(rem)
         SESSION.commit()
