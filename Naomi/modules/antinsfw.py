@@ -14,8 +14,6 @@ from Naomi.modules.disable import DisableAbleCommandHandler
 from Naomi import BOT_USERNAME as bn, BOT_ID, dispatcher
 from Naomi import pbot, arq
 from Naomi.utils.errors import capture_err
-from Naomi.utils.permissions import adminsOnly
-from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
 from Naomi.utils.filter_groups import nsfw_detect_group
 
 __mod_name__ = "Anti-NSFW​"
@@ -63,11 +61,12 @@ async def get_file_id_from_message(message):
         | filters.video
     )
     & ~filters.private,
-    group=8,
+    group=nsfw_detect_group,
 )
+@run_async
 @pbot.on_message(filters.command("antinsfw"))
 @capture_err
-async def antinsfw(_, message):
+async def anti_nsfw(_, message):
     if not message.from_user:
         return
     file_id = await get_file_id_from_message(message)
@@ -104,7 +103,7 @@ __Use `/disable antinsfw` to disable this.__
 """
     )
 
-
+@run_async
 @pbot.on_message(filters.command("nsfwscan"))
 @capture_err
 async def nsfw_scan_command(_, message):
@@ -151,13 +150,16 @@ async def nsfw_scan_command(_, message):
 
 
 ANTINSFW_HANDLER = DisableAbleCommandHandler("antinsfw", antinsfw)
+NSFWSCAN_HANDLER = DisableAbleCommandHandler("nsfwscan", nsfwscan)
 
 dispatcher.add_handler(ANTINSFW_HANDLER)
+dispatcher.add_handler(NSFWSCAN_HANDLER)
 
 __command_list__ = [
-    "antinsfw",]
+    "antinsfw", "nsfwscan"]
 
 __mod_name__ = "Antinsfw"
 
 __handlers__ = [
-    ANTINSFW_HANDLER,]
+    ANTINSFW_HANDLER,
+    NSFWSCAN_HANDLER,]
