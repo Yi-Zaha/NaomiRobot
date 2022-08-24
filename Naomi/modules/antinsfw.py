@@ -1,24 +1,15 @@
 from os import remove
 
 from pyrogram import filters
-from pyrogram.types import ChatPermissions, ChatMember
-from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    Filters,
-    MessageHandler,
-    run_async,
-)
-from Naomi.utils.permissions import adminsOnly
-from Naomi.modules.disable import DisableAbleCommandHandler
-from Naomi import BOT_USERNAME as bn, BOT_ID, dispatcher
+
+from Naomi import BOT_USERNAME as bn
 from Naomi import pbot, arq
 from Naomi.utils.errors import capture_err
+from Naomi.utils.permissions import adminsOnly
+from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
 from Naomi.utils.filter_groups import nsfw_detect_group
 
 __mod_name__ = "Anti-NSFW​"
-
 
 async def get_file_id_from_message(message):
     file_id = None
@@ -64,9 +55,10 @@ async def get_file_id_from_message(message):
     & ~filters.private,
     group=nsfw_detect_group,
 )
-@run_async
-@pbot.on_message(filters.command("antinsfw"))
-async def antinsfw(_, message):
+@capture_err
+async def detect_nsfw(_, message):
+    if not await is_nsfw_on(message.chat.id):
+        return
     if not message.from_user:
         return
     file_id = await get_file_id_from_message(message)
@@ -91,22 +83,22 @@ async def antinsfw(_, message):
     await message.reply_text(
         f"""
 **NSFW Image Detected & Deleted Successfully!
-————————————————————**
+————————————————————————**
 **User:** {message.from_user.mention} [`{message.from_user.id}`]
 **Safe:** `{results.neutral} %`
 **Porn:** `{results.porn} %`
 **Adult:** `{results.sexy} %`
 **Hentai:** `{results.hentai} %`
 **Drawings:** `{results.drawings} %`
-**————————————————————**
-__Use `/disable antinsfw` to disable this.__
+**————————————————————————**
+__Use `/antinsfw off` to disable this.__
 """
     )
 
-@run_async
+
 @pbot.on_message(filters.command("nsfwscan"))
 @capture_err
-async def nsfwscan(_, message):
+async def nsfw_scan_command(_, message):
     if not message.reply_to_message:
         await message.reply_text(
             "`Reply to an image/document/sticker/animation to scan it.`"
@@ -121,13 +113,13 @@ async def nsfwscan(_, message):
         and not reply.video
     ):
         await message.reply_text(
-            "Reply to an image/document/sticker/animation to scan it."
+            "`Reply to an image/document/sticker/animation to scan it.`"
         )
         return
     m = await message.reply_text("`Scanning...`")
     file_id = await get_file_id_from_message(reply)
     if not file_id:
-        return await m.edit("`Something wrong happened...|")
+        return await m.edit("`Something wrong happened LOL`")
     file = await pbot.download_media(file_id)
     try:
         results = await arq.nsfw_scan(file=file)
@@ -149,17 +141,25 @@ async def nsfwscan(_, message):
     )
 
 
-ANTINSFW_HANDLER = DisableAbleCommandHandler("antinsfw", antinsfw)
-NSFWSCAN_HANDLER = DisableAbleCommandHandler("nsfwscan", nsfwscan)
-
-dispatcher.add_handler(ANTINSFW_HANDLER)
-dispatcher.add_handler(NSFWSCAN_HANDLER)
-
-__command_list__ = [
-    "antinsfw", "nsfwscan"]
-
-__mod_name__ = "Antinsfw"
-
-__handlers__ = [
-    ANTINSFW_HANDLER,
-    NSFWSCAN_HANDLER,]
+@pbot.on_message(filters.command("antinsfw") & ~filters.private)
+async def nsfw_enable_disable(_, message):
+    if len(message.command) != 2:
+        await message.reply_text(
+            "Usage: /antinsfw [on | off]"
+        )
+        return
+    status = message.text.split(None, 1)[1].strip()
+    status = status.lower()
+    chat_id = message.chat.id
+    if status == "on":
+        nsfw_on(chat_id)
+        await message.reply_text(
+            "Enabled AntiNSFW System. I will Delete Messages Containing Inappropriate Content."
+        )
+    elif status == "off":
+        nsfw_off(chat_id)
+        await message.reply_text("Disabled AntiNSFW System.")
+    else:
+        await message.reply_text(
+            "`Unknown Suffix, Use /antinsfw [enable|disable]`"
+        )
