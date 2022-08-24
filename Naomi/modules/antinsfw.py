@@ -10,6 +10,7 @@ from telegram.ext import (
     MessageHandler,
     run_async,
 )
+from SiestaRobot.utils.permissions import adminsOnly
 from Naomi.modules.disable import DisableAbleCommandHandler
 from Naomi import BOT_USERNAME as bn, BOT_ID, dispatcher
 from Naomi import pbot, arq
@@ -64,7 +65,6 @@ async def get_file_id_from_message(message):
     group=nsfw_detect_group,
 )
 @run_async
-@user_admin
 async def antinsfw(_, message):
     if not message.from_user:
         return
