@@ -76,7 +76,7 @@ def do(func, bot, update):
 
     os.chdir(os.getcwd())
     with open(
-        os.path.join(os.getcwd(), "FallenRobot/modules/helper_funcs/temp.txt"), "w"
+        os.path.join(os.getcwd(), "Naomi/modules/helper_funcs/temp.txt"), "w"
     ) as temp:
         temp.write(body)
 
