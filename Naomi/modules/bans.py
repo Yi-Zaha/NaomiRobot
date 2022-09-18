@@ -84,7 +84,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         else:
             message.reply_text("This user has immunity and cannot be banned.")
         return log_message
-    if message.text.startswith["/d", "/s"]:
+    if message.text.startswith("/d"):
         silent = True
         if not can_delete(chat, context.bot.id):
             return ""
@@ -424,7 +424,7 @@ be a sentence, encompass it with quotes, as such: `/addwarn "very angry" This is
  ❍ /strongwarn <on/yes/off/no>*:* If set to on, exceeding the warn limit will result in a ban. Else, will just punch
 """
 
-BAN_HANDLER = CommandHandler(["ban", "dban", "sban"], ban)
+BAN_HANDLER = CommandHandler(["ban", "dban"], ban)
 TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
 KICK_HANDLER = CommandHandler("kick", kick)
 UNBAN_HANDLER = CommandHandler("unban", unban)
