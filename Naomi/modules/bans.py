@@ -84,7 +84,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         else:
             message.reply_text("This user has immunity and cannot be banned.")
         return log_message
-    if message.text.startswith("/s"):
+    if message.text.startswith("/d", "/s"):
         silent = True
         if not can_delete(chat, context.bot.id):
             return ""
@@ -106,30 +106,7 @@ def ban(update: Update, context: CallbackContext) -> str:
             if message.reply_to_message:
                 message.reply_to_message.delete()
             message.delete()
-            return log
-    if message.text.startswith("/d"):
-        del = True
-        if not can_delete(chat, context.bot.id):
-            return ""
-    else:
-        del = False
-    log = (
-        f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#{'S' if del else ''}ʙᴀɴɴᴇᴅ\n"
-        f"<b>ʙᴀɴɴᴇᴅ ʙʏ:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-        f"<b>ᴜsᴇʀ:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
-    )
-    if reason:
-        log += "\n<b>ʀᴇᴀsᴏɴ:</b> {}".format(reason)
-
-    try:
-        chat.kick_member(user_id)
-
-        if del:
-            if message.reply_to_message:
-                message.reply_to_message.delete()
-            message.delete()
-            return log        
+            return log      
 
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         reply = (
