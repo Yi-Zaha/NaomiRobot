@@ -84,7 +84,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         else:
             message.reply_text("This user has immunity and cannot be banned.")
         return log_message
-    if message.text.startswith("/d", "/s"):
+    if message.text.startswith["/d", "/s"]:
         silent = True
         if not can_delete(chat, context.bot.id):
             return ""
