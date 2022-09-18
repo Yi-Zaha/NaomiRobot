@@ -424,7 +424,7 @@ be a sentence, encompass it with quotes, as such: `/addwarn "very angry" This is
  ❍ /strongwarn <on/yes/off/no>*:* If set to on, exceeding the warn limit will result in a ban. Else, will just punch
 """
 
-BAN_HANDLER = CommandHandler(["ban", "sban"], ban)
+BAN_HANDLER = CommandHandler(["ban", "dban", "sban"], ban)
 TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
 KICK_HANDLER = CommandHandler("kick", kick)
 UNBAN_HANDLER = CommandHandler("unban", unban)
