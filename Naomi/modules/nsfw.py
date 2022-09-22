@@ -3,7 +3,7 @@ import time
 import requests
 from pyrogram import filters
 import nekos
-from Shikimori.utils.hmfull.src import hmfull
+from Naomi.utils.hmfull.src import hmfull
 from Naomi import dispatcher, pbot, SUPPORT_CHAT
 import Naomi.modules.sql.nsfw_sql as sql
 from Naomi.modules.log_channel import gloggable
