@@ -9,7 +9,7 @@ import Naomi.modules.sql.nsfw_sql as sql
 from Naomi.modules.log_channel import gloggable
 from telegram import Update
 from telegram.error import BadRequest, RetryAfter, Unauthorized
-from telegram.ext import CommandHandler, CallbackContext
+from telegram.ext import CommandHandler, CallbackContext, run_async
 from Naomi.modules.helper_funcs.filters import CustomFilters
 from Naomi.modules.helper_funcs.chat_status import user_admin
 from telegram.utils.helpers import mention_html
