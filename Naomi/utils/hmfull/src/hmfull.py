@@ -1,5 +1,5 @@
-from Naomi.imports.hmfull.src import fetchAPI
-from Naomi.imports.hmfull.src import hmtai
+from Naomi.utils.hmfull.src import fetchAPI
+from Naomi.utils.hmfull.src import hmtai
 
 hmlinks = fetchAPI.HMrequest
 
