@@ -10,7 +10,7 @@ from janda.utils.parser import resolve
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import Update
-from telegram.ext import CallbackContext, CallbackQueryHandler
+from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
 from Naomi import pbot, dispatcher
 import Naomi.modules.sql.nsfw_sql as sql
 
