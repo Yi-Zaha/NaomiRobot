@@ -64,4 +64,5 @@ envparse
 img2pdf
 git+https://github.com/trentm/python-markdown2
 fontTools
+janda
 
