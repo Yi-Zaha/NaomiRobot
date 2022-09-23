@@ -119,10 +119,10 @@ def spank(update, context):
 
 ADD_NSFW_HANDLER = CommandHandler("addnsfw", add_nsfw)
 REMOVE_NSFW_HANDLER = CommandHandler("rmnsfw", rem_nsfw)
-NSFWWAIFU_HANDLER = CommandHandler(["nsfwwaifu", "nwaifu"])
+NSFWWAIFU_HANDLER = CommandHandler(["nsfwwaifu", "nwaifu"], nsfwwaifu)
 BLOWJOB_HANDLER = CommandHandler(["blowjob", "bj"], blowjob)
 TRAP_HANDLER = CommandHandler("trap", trap)
-NSFWNEKO_HANDLER = CommandHandler(["nsfwneko", "nneko"])
+NSFWNEKO_HANDLER = CommandHandler(["nsfwneko", "nneko"], nsfwneko)
 SPANK_HANDLER = CommandHandler("spank", spank)
 
 dispatcher.add_handler(ADD_NSFW_HANDLER)
