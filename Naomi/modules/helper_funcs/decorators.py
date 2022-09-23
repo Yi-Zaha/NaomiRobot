@@ -25,7 +25,6 @@ class NaomiHandler:
         admin_ok: bool = False,
         pass_args: bool = False,
         pass_chat_data: bool = False,
-        run_async: bool = True,
         can_disable: bool = True,
         group: Optional[Union[int]] = 40,
     ):
@@ -37,7 +36,6 @@ class NaomiHandler:
                             command,
                             func,
                             filters=filters,
-                            run_async=run_async,
                             pass_args=pass_args,
                             admin_ok=admin_ok,
                         ),
@@ -49,7 +47,6 @@ class NaomiHandler:
                             command,
                             func,
                             filters=filters,
-                            run_async=run_async,
                             pass_args=pass_args,
                         ),
                         group,
@@ -64,7 +61,6 @@ class NaomiHandler:
                             command,
                             func,
                             filters=filters,
-                            run_async=run_async,
                             pass_args=pass_args,
                             admin_ok=admin_ok,
                             pass_chat_data=pass_chat_data,
@@ -76,7 +72,6 @@ class NaomiHandler:
                             command,
                             func,
                             filters=filters,
-                            run_async=run_async,
                             pass_args=pass_args,
                             pass_chat_data=pass_chat_data,
                         )
@@ -93,7 +88,6 @@ class NaomiHandler:
         self,
         pattern: Optional[str] = None,
         can_disable: bool = True,
-        run_async: bool = True,
         group: Optional[Union[int]] = 60,
         friendly=None,
     ):
@@ -102,13 +96,13 @@ class NaomiHandler:
                 if can_disable:
                     self._dispatcher.add_handler(
                         DisableAbleMessageHandler(
-                            pattern, func, friendly=friendly, run_async=run_async
+                            pattern, func, friendly=friendly
                         ),
                         group,
                     )
                 else:
                     self._dispatcher.add_handler(
-                        MessageHandler(pattern, func, run_async=run_async), group
+                        MessageHandler(pattern, func), group
                     )
                 LOGGER.debug(
                     f"[NaomiCDM] Loaded filter pattern {pattern} for function {func.__name__} in group {group}"
@@ -117,12 +111,12 @@ class NaomiHandler:
                 if can_disable:
                     self._dispatcher.add_handler(
                         DisableAbleMessageHandler(
-                            pattern, func, friendly=friendly, run_async=run_async
+                            pattern, func, friendly=friendly
                         )
                     )
                 else:
                     self._dispatcher.add_handler(
-                        MessageHandler(pattern, func, run_async=run_async)
+                        MessageHandler(pattern, func)
                     )
                 LOGGER.debug(
                     f"[NaomiMSG] Loaded filter pattern {pattern} for function {func.__name__}"
@@ -132,11 +126,11 @@ class NaomiHandler:
 
         return _message
 
-    def callbackquery(self, pattern: str = None, run_async: bool = True):
+    def callbackquery(self, pattern: str = None):
         def _callbackquery(func):
             self._dispatcher.add_handler(
                 CallbackQueryHandler(
-                    pattern=pattern, callback=func, run_async=run_async
+                    pattern=pattern, callback=func
                 )
             )
             LOGGER.debug(
@@ -149,7 +143,6 @@ class NaomiHandler:
     def inlinequery(
         self,
         pattern: Optional[str] = None,
-        run_async: bool = True,
         pass_user_data: bool = True,
         pass_chat_data: bool = True,
         chat_types: List[str] = None,
@@ -159,7 +152,6 @@ class NaomiHandler:
                 InlineQueryHandler(
                     pattern=pattern,
                     callback=func,
-                    run_async=run_async,
                     pass_user_data=pass_user_data,
                     pass_chat_data=pass_chat_data,
                     chat_types=chat_types,
