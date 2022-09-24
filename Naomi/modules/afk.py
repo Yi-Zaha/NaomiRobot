@@ -41,7 +41,7 @@ def afk(update: Update, context: CallbackContext):
         update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
         time.sleep(5)
         try:
-            Shikimori.delete()
+            Naomi.delete()
         except BadRequest:
             pass
     except BadRequest:
@@ -75,8 +75,8 @@ def no_longer_afk(update: Update, context: CallbackContext):
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
             time.sleep(5)
-            try:
-            Shikimori.delete()
+        try:
+            Naomi.delete()
         except BadRequest:
             pass
     except BadRequest:
@@ -146,8 +146,8 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             )
             update.effective_message.reply_text(res, parse_mode="html")
             time.sleep(5)
-            try:
-            Shikimori.delete()
+        try:
+            Naomi.delete()
         except BadRequest:
             pass
     except BadRequest:
