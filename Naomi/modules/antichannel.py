@@ -1,4 +1,4 @@
-from telegram.ext.filters import BaseFilters
+from telegram.ext.filters import BaseFilter
 from Naomi.modules.helper_funcs.decorators import Naomicmd, Naomimsg
 from telegram import Update, message
 from telegram.ext import CallbackContext
