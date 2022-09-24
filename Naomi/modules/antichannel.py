@@ -1,4 +1,4 @@
-from telegram.ext.filters import BaseFilter
+from telegram.ext.filters import Filters
 from Naomi.modules.helper_funcs.decorators import Naomicmd, Naomimsg
 from telegram import Update, message
 from telegram.ext import CallbackContext
@@ -30,7 +30,7 @@ def set_antichannel(update: Update, context: CallbackContext):
         "Antichannel setting is currently {} in {}".format(antichannel_status(chat.id), html.escape(chat.title)))
 
 
-@Naomimsg(Filters.chat_type.groups, group=110)
+@Naomimsg(Filters.group, group=110)
 def eliminate_channel(update: Update, context: CallbackContext):
     message = update.effective_message
     chat = update.effective_chat
