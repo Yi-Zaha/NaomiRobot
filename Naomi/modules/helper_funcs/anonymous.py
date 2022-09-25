@@ -36,7 +36,7 @@ def user_admin(permission: AdminPerms):
             if update.effective_chat.type == 'private':
                 return func(update, context, *args, **kwargs)
             message = update.effective_message
-            is_anon = bool(update.effective_message.sender_chat)
+            is_anon = bool(update.effective_message.chat_id)
 
             if is_anon:
                 callback_id = f'anoncb/{message.chat.id}/{message.message_id}/{permission.value}'
