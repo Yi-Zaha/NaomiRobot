@@ -1,4 +1,5 @@
 import random, html
+import time
 
 from Naomi import dispatcher
 from Naomi.modules.disable import (
