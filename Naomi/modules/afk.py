@@ -125,8 +125,8 @@ def reply_afk(update: Update, context: CallbackContext):
                 time.sleep(5)
                 try:
                     Naomi.delete()
-                    except BadRequest:
-                        return
+                except BadRequest:
+                    return
             fst_name = chat.first_name
 
             check_afk(update, context, user_id, fst_name, userc_id)
