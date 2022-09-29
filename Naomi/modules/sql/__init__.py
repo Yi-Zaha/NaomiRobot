@@ -7,13 +7,19 @@ from Naomi import DB_URI
 if DB_URI and DB_URI.startswith("postgres://"):
     DB_URI = DB_URI.replace("postgres://", "postgresql://", 1)
 
-
 def start() -> scoped_session:
     engine = create_engine(DB_URI, client_encoding="utf8")
+    log.info("[PostgreSQL] Connecting to database......")
     BASE.metadata.bind = engine
     BASE.metadata.create_all(engine)
-    return scoped_session(sessionmaker(bind=engine, autoflush=True))
+    return scoped_session(sessionmaker(bind=engine, autoflush=False))
 
 
 BASE = declarative_base()
-SESSION = start()
+try:
+    SESSION = start()
+except Exception as e:
+    log.exception(f"[PostgreSQL] Failed to connect due to {e}")
+    exit()
+
+log.info("[PostgreSQL] Connection successful, session started.")
