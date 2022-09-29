@@ -45,7 +45,7 @@ def afk(update: Update, context: CallbackContext):
         except BadRequest:
             pass
     except BadRequest:
-         pass
+        pass
 
 
 @run_async
@@ -75,12 +75,13 @@ def no_longer_afk(update: Update, context: CallbackContext):
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
             time.sleep(5)
-        try:
-            Naomi.delete()
-        except BadRequest:
-            pass
-    except BadRequest:
-         pass
+            try:
+                Naomi.delete()
+                except BadRequest:
+                    pass
+                except Exception:
+                    return
+
 
 @run_async
 def reply_afk(update: Update, context: CallbackContext):
@@ -121,7 +122,11 @@ def reply_afk(update: Update, context: CallbackContext):
                 chat = bot.get_chat(user_id)
             except BadRequest:
                 print("Error: Could not fetch userid {} for AFK module".format(user_id))
-                return
+                time.sleep(5)
+                try:
+                    Naomi.delete()
+                    except BadRequest:
+                        return
             fst_name = chat.first_name
 
             check_afk(update, context, user_id, fst_name, userc_id)
@@ -145,13 +150,6 @@ def check_afk(update, context, user_id, fst_name, userc_id):
                 html.escape(fst_name), html.escape(user.reason)
             )
             update.effective_message.reply_text(res, parse_mode="html")
-            time.sleep(5)
-        try:
-            Naomi.delete()
-        except BadRequest:
-            pass
-    except BadRequest:
-         pass
 
 
 __help__ = """
@@ -173,7 +171,7 @@ dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
 dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
 dispatcher.add_handler(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
 
-__mod_name__ ="🇦ꜰᴋ"
+__mod_name__ = "Afk"
 __command_list__ = ["afk"]
 __handlers__ = [
     (AFK_HANDLER, AFK_GROUP),
