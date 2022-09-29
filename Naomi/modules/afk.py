@@ -76,11 +76,11 @@ def no_longer_afk(update: Update, context: CallbackContext):
             update.effective_message.reply_text(chosen_option.format(firstname))
             time.sleep(5)
             try:
-                Naomi.delete()
-                except BadRequest:
-                    pass
-                except Exception:
-                    return
+               Naomi.delete()
+            except BadRequest:
+                pass
+        except BadRequest:
+            pass
 
 
 @run_async
