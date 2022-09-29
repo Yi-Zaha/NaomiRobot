@@ -208,7 +208,7 @@ __help__ = """
  `/spank`
 """
 
-@pbot.on_message(filters.command('{n_query}'))
+@pbot.on_message(filters.command('nsfw'))
 async def ass(_, message):
     chat_id = message.chat.id
     nsfw_query = ("ass", "cum", "creampie", "manga", "blowjob", "bj", "boobjob", "vagina", "uniform", "foot", "femdom", "gangbang", "hentai", "incest", "ahegao", "neko", "gif", "ero", "cuckold", "orgy", "elves", "pantsu", "mobile", "glasses", "tentacles", "tentacle", "thighs", "yuri", "zettai", "masturbation", "public", "wallpaper", "nekolewd", "nekogif", "henti", "hass", "boobs", "paizuri", "hyuri", "hthigh", "midriff", "kitsune", "tentacle", "anal", "hanal", "hneko")
@@ -327,6 +327,6 @@ async def ass(_, message):
             url = res["url"]
             return await message.reply_photo(url)
         else:
-            return await message.reply_text(f"Usage: /`{n_query}`")
+            return await message.reply_text(f"Usage: /nsfw `{n_query}`")
     except:
         return await message.reply_text(f"ERROR!!! Contact @{SUPPORT_CHAT}")
