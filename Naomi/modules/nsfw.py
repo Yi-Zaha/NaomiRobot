@@ -155,7 +155,7 @@ __help__ = """
  `/bdsm`
  `/cum` 
  `/creampie` 
- `/manga`
+ `/doijin`
  `/blowjob`
  `/bj`
  `/boobjob`
@@ -226,7 +226,7 @@ async def ass(_, message):
                 res = hmfull.HMtai.nsfw.cum()
             elif query == "creampie":
                 res = hmfull.HMtai.nsfw.creampie()
-            elif query == "manga":
+            elif query == "doujin":
                 res = hmfull.HMtai.nsfw.manga()
             elif query == "blowjob" or query =="bj":
                 res = hmfull.HMtai.nsfw.blowjob()
