@@ -225,9 +225,7 @@ async def ass(_, message):
             elif query == "cum":
                 res = hmfull.HMtai.nsfw.cum()
             elif query == "creampie":
-                res = hmfull.HMtai.nsfw.creampie()
-            elif query == "doujin":
-                res = hmfull.HMtai.nsfw.manga()
+                res = hmfull.HMtai.nsfw.creampie() 
             elif query == "blowjob" or query =="bj":
                 res = hmfull.HMtai.nsfw.blowjob()
             elif query == "boobjob":
