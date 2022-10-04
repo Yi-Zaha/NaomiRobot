@@ -25,7 +25,7 @@ async def sauce(_, message):
     try:
         nh = Nhentai()
         code = message.text.split(None, 1)[1]
-        code = int(code)
+        code = code
         nh = Nhentai()
         code = message.text.split(None, 1)[1]
         data = await nh.get(code)
