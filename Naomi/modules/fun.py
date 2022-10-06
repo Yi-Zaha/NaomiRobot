@@ -37,93 +37,6 @@ def runs(update, context):
     update.effective_message.reply_text(random.choice(fun.RUN_STRINGS))
 
 
-@run_async
-@typing_action
-def pat(update: Update, context: CallbackContext):
-    bot = context.bot
-    args = context.args
-    message = update.effective_message
-
-    reply_to = message.reply_to_message if message.reply_to_message else message
-
-    curr_user = html.escape(message.from_user.first_name)
-    user_id = extract_user(message, args)
-
-    if user_id:
-        patted_user = bot.get_chat(user_id)
-        user1 = curr_user
-        user2 = html.escape(patted_user.first_name)
-
-    else:
-        user1 = bot.first_name
-        user2 = curr_user
-
-    pat_type = random.choice(("Text", "Gif", "Sticker"))
-    if pat_type == "Gif":
-        try:
-            temp = random.choice(fun.PAT_GIFS)
-            reply_to.reply_animation(temp)
-        except BadRequest:
-            pat_type = "Text"
-
-    if pat_type == "Sticker":
-        try:
-            temp = random.choice(fun.PAT_STICKERS)
-            reply_to.reply_sticker(temp)
-        except BadRequest:
-            pat_type = "Text"
-
-    if pat_type == "Text":
-        temp = random.choice(fun.PAT_TEMPLATES)
-        reply = temp.format(user1=user1, user2=user2)
-        reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
-
-
-@run_async
-@typing_action
-def slap(update, context):
-    args = context.args
-    msg = update.effective_message
-
-    # reply to correct message
-    reply_text = (
-        msg.reply_to_message.reply_text if msg.reply_to_message else msg.reply_text
-    )
-
-    # get user who sent message
-    if msg.from_user.username:
-        curr_user = "@" + escape_markdown(msg.from_user.username)
-    else:
-        curr_user = "[{}](tg://user?id={})".format(
-            msg.from_user.first_name, msg.from_user.id
-        )
-
-    user_id = extract_user(update.effective_message, args)
-    if user_id:
-        slapped_user = context.bot.get_chat(user_id)
-        user1 = curr_user
-        if slapped_user.username:
-            user2 = "@" + escape_markdown(slapped_user.username)
-        else:
-            user2 = "[{}](tg://user?id={})".format(
-                slapped_user.first_name, slapped_user.id
-            )
-
-    # if no target found, bot targets the sender
-    else:
-        user1 = "[{}](tg://user?id={})".format(context.bot.first_name, context.bot.id)
-        user2 = curr_user
-
-    temp = random.choice(fun.SLAP_TEMPLATES)
-    item = random.choice(fun.ITEMS)
-    hit = random.choice(fun.HIT)
-    throw = random.choice(fun.THROW)
-
-    repl = temp.format(user1=user1, user2=user2, item=item, hits=hit, throws=throw)
-
-    reply_text(repl, parse_mode=ParseMode.MARKDOWN)
-
-
 # sanitize a user - by @saitamarobot
 @run_async
 @typing_action
@@ -140,51 +53,6 @@ def sanitize(update: Update, context: CallbackContext):
         else message.reply_animation
     )
     reply_animation(random.choice(fun.GIFS), caption=f"*Sanitizes {name}*")
-
-
-@run_async
-@typing_action
-def hug(update, context):
-    args = context.args
-    msg = update.effective_message  # type: Optional[Message]
-
-    # reply to correct message
-    reply_text = (
-        msg.reply_to_message.reply_text if msg.reply_to_message else msg.reply_text
-    )
-
-    # get user who sent message
-    if msg.from_user.username:
-        curr_user = "@" + escape_markdown(msg.from_user.username)
-    else:
-        curr_user = "[{}](tg://user?id={})".format(
-            msg.from_user.first_name, msg.from_user.id
-        )
-
-    user_id = extract_user(update.effective_message, args)
-    if user_id:
-        hugged_user = context.bot.get_chat(user_id)
-        user1 = curr_user
-        if hugged_user.username:
-            user2 = "@" + escape_markdown(hugged_user.username)
-        else:
-            user2 = "[{}](tg://user?id={})".format(
-                hugged_user.first_name, hugged_user.id
-            )
-
-    # if no target found, bot targets the sender
-    else:
-        user1 = "Awwh! [{}](tg://user?id={})".format(
-            context.bot.first_name, context.bot.id
-        )
-        user2 = curr_user
-
-    temp = random.choice(fun.HUG_TEMPLATES)
-    hug = random.choice(fun.HUG)
-
-    repl = temp.format(user1=user1, user2=user2, hug=hug)
-
-    reply_text(repl, parse_mode=ParseMode.MARKDOWN)
 
 
 @run_async
@@ -530,7 +398,6 @@ All regex filters can be disabled incase u don't want... like: `/disable goodnig
 __mod_name__ = "🇫un"
 
 
-PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
@@ -541,8 +408,6 @@ DECIDE_HANDLER = DisableAbleMessageHandler(
 )
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse, pass_args=True)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs, pass_args=True)
-SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
-HUG_HANDLER = DisableAbleCommandHandler("hug", hug)
 GBUN_HANDLER = CommandHandler("gbun", gbun)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 TABLE_HANDLER = DisableAbleCommandHandler("table", table)
@@ -564,7 +429,7 @@ GDNIGHT_HANDLER = DisableAbleMessageHandler(
 )
 
 
-dispatcher.add_handler(PAT_HANDLER)
+
 dispatcher.add_handler(SHOUT_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
@@ -574,8 +439,6 @@ dispatcher.add_handler(SHRUG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(ABUSE_HANDLER)
 dispatcher.add_handler(RUNS_HANDLER)
-dispatcher.add_handler(SLAP_HANDLER)
-dispatcher.add_handler(HUG_HANDLER)
 dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 dispatcher.add_handler(RECITE_HANDLER)
