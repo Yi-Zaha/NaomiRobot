@@ -3,7 +3,7 @@ import requests
 from Naomi import dispatcher
 from telegram.ext import CommandHandler
 import random
-import Naomi.strings.waifu_string as waifu_string
+import Naomi.utils.waifu_string as waifu_string
 
 url_sfw_1 = "https://api.waifu.pics/sfw/" 
 url_sfw_2 = "https://nekos.best/"
