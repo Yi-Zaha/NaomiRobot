@@ -183,7 +183,7 @@ __help__ = """
  `/zettai`
  `/masturbation`
  `/public`
- `/wallpaper`
+ `/wlewd`
  `/nekolewd`
  `/nekogif`
  `/henti`
@@ -207,7 +207,7 @@ __help__ = """
  `/nneko`
  `/spank`
 """
-nsfw_query = ["ass", "cum", "creampie", "doujin", "blowjob", "bj", "boobjob", "vagina", "uniform", "foot", "femdom", "gangbang", "hentai", "incest", "ahegao", "neko", "gif", "ero", "cuckold", "orgy", "elves", "pantsu", "mobile", "glasses", "tentacles", "tentacle", "thighs", "yuri", "zettai", "masturbation", "public", "wallpaper", "nekolewd", "nekogif", "henti", "hass", "boobs", "paizuri", "hyuri", "hthigh", "midriff", "kitsune", "tentacle", "anal", "hanal", "hneko"]
+nsfw_query = ["ass", "cum", "creampie", "doujin", "blowjob", "bj", "boobjob", "vagina", "uniform", "foot", "femdom", "gangbang", "hentai", "incest", "ahegao", "gif", "ero", "cuckold", "orgy", "elves", "pantsu", "mobile", "glasses", "tentacles", "tentacle", "thighs", "yuri", "zettai", "masturbation", "public", "wlewd", "nekolewd", "nekogif", "henti", "hass", "boobs", "paizuri", "hyuri", "hthigh", "midriff", "kitsune", "tentacle", "anal", "hanal", "hneko"]
 @pbot.on_message(filters.command(nsfw_query))
 async def ass(_, message):
     chat_id = message.chat.id
@@ -247,7 +247,7 @@ async def ass(_, message):
                 res = hmfull.HMtai.nsfw.incest()
             elif query == "ahegao":
                 res = hmfull.HMtai.nsfw.ahegao()
-            elif query == "neko":
+            elif query == "nekolewd":
                 res = hmfull.HMtai.nsfw.neko()
             elif query == "gif":
                 hmm = hmfull.HMtai.nsfw.gif()
@@ -279,10 +279,8 @@ async def ass(_, message):
                 res = hmfull.HMtai.nsfw.masturbation()
             elif query == "public":
                 res = hmfull.HMtai.nsfw.public()
-            elif query == "wallpaper":
+            elif query == "wlewd":
                 res = hmfull.Nekos.nsfw.wallpaper()
-            elif query == "nekolewd":
-                res = hmfull.NekoLove.nsfw.nekolewd()
             elif query == "nekogif":
                 hmm = hmfull.Nekos.nsfw.nekogif()
                 url = hmm["url"]
@@ -314,5 +312,7 @@ async def ass(_, message):
 
             url = res["url"]
             return await message.reply_photo(url)
+        else:
+            return await message.reply_text(f"Usage: /nsfw `{n_query}`")
     except:
         return await message.reply_text(f"ERROR!!! Contact @{SUPPORT_CHAT}")
