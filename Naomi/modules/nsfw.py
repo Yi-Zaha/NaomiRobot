@@ -214,6 +214,7 @@ async def ass(_, message):
     if not message.chat.type == "private":
         is_nsfw = sql.is_nsfw(chat_id)
         if not is_nsfw:
+            await message.reply_text("NSFW is not activated!!\n\nUse '/addnsfw' to activate NSFW commands.")
             return
     query = message.text.split(" ")[0].replace("/", "")
     query = query.lower()
@@ -312,7 +313,6 @@ async def ass(_, message):
 
             url = res["url"]
             return await message.reply_photo(url)
-        else:
-            return await message.reply_text(f"Usage: /nsfw `{n_query}`")
     except:
         return await message.reply_text(f"ERROR!!! Contact @{SUPPORT_CHAT}")
+
