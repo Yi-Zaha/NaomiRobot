@@ -205,7 +205,7 @@ def anime(update: Update, context: CallbackContext):
         for x in json["genres"]:
             msg += f"{x}, "
         msg = msg[:-2] + "`\n"
-        msg += "➳ *Studios*: `"
+        msg += "*➳ Studios*: `"
         for x in json["studios"]["nodes"]:
             msg += f"{x['name']}, "
         msg = msg[:-2] + "`\n"
