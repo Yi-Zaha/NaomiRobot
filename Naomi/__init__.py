@@ -148,7 +148,10 @@ else:
      WOLVES = get_user_list("elevated_users.json", "whitelists")
      URL = None
      INFOPIC = True
-
+     try:
+         BL_CHATS = set(int(x) for x in BL_CHATS or [])
+     except ValueError:
+         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
