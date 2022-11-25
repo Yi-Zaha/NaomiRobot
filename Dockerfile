@@ -69,7 +69,7 @@ RUN git clone https://github.com/Rajbhaiya/NaomiRobot /root/NaomiRobot
 WORKDIR /root/NaomiRobot
 
 #Copy config file to /root/NaomiRobot/Naomi
-COPY ./Naomi/sample_config.py ./Naomi/config.py* /root/NaomiRobot/Naomi/
+COPY ./Naomi/config.py ./Naomi/config.py* /root/NaomiRobot/Naomi/
 
 ENV PATH="/home/bot/bin:$PATH"
 
