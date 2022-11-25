@@ -160,7 +160,7 @@ else:
     INFOPIC = Config.INFOPIC
     ARQ_API_KEY = Config.ARQ_API_KEY
     ARQ_API_URL = Config.ARQ_API_URL
-
+    TEMP_DOWNLOAD_DIRECTORY = "./"
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
     except ValueError:
