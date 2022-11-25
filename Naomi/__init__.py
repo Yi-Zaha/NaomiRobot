@@ -112,7 +112,6 @@ else:
      BOT_ID=5548310123
      CASH_API_KEY="LUCXC3WOGJG5Z0VI"
      DB_URI="postgres://bovnygnt:HbpZhz6T6Koeub6B-QfpgcIyYD4HpeZU@jelani.db.elephantsql.com/bovnygnt"
-     DRAGONS=5066050315
      ENV="ANYTHING"
      EVENT_LOGS=-1001638398396
      JOIN_LOGGER=-1001638398396
