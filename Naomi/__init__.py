@@ -2,12 +2,18 @@ import logging
 import os
 import sys
 import time
+import json
 
 import telegram.ext as tg
 from aiohttp import ClientSession
 from pyrogram import Client, errors
 from Python_ARQ import ARQ
 from telethon import TelegramClient
+
+
+def get_user_list(config, key):
+    with open("{}/Naomi/{}".format(os.getcwd(), config), "r") as json_file:
+        return json.load(json_file)[key]
 
 StartTime = time.time()
 
@@ -98,76 +104,55 @@ if ENV:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from Naomi.config import Development as Config
-
-    TOKEN = Config.TOKEN
-
-    try:
-        OWNER_ID = int(Config.OWNER_ID)
-    except ValueError:
-        raise Exception("Your OWNER_ID variable is not a valid integer.")
-
-    JOIN_LOGGER = Config.JOIN_LOGGER
-    OWNER_USERNAME = Config.OWNER_USERNAME
-    ALLOW_CHATS = Config.ALLOW_CHATS
-    try:
-        DRAGONS = set(int(x) for x in Config.DRAGONS or [])
-        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
-    except ValueError:
-        raise Exception("Your sudo or dev users list does not contain valid integers.")
-
-    try:
-        DEMONS = set(int(x) for x in Config.DEMONS or [])
-    except ValueError:
-        raise Exception("Your support users list does not contain valid integers.")
-
-    try:
-        WOLVES = set(int(x) for x in Config.WOLVES or [])
-    except ValueError:
-        raise Exception("Your whitelisted users list does not contain valid integers.")
-
-    try:
-        TIGERS = set(int(x) for x in Config.TIGERS or [])
-    except ValueError:
-        raise Exception("Your tiger users list does not contain valid integers.")
-
-    EVENT_LOGS = Config.EVENT_LOGS
-    WEBHOOK = Config.WEBHOOK
-    URL = Config.URL
-    PORT = Config.PORT
-    CERT_PATH = Config.CERT_PATH
-    API_ID = Config.API_ID
-    API_HASH = Config.API_HASH
-    DB_URI = Config.SQLALCHEMY_DATABASE_URI
-    MONGO_DB_URI = Config.MONGO_DB_URI
-    START_IMG = Config.START_IMG
-    HEROKU_API_KEY = Config.HEROKU_API_KEY
-    HEROKU_APP_NAME = Config.HEROKU_APP_NAME
-    TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
-    DONATION_LINK = Config.DONATION_LINK
-    LOAD = Config.LOAD
-    NO_LOAD = Config.NO_LOAD
-    DEL_CMDS = Config.DEL_CMDS
-    STRICT_GBAN = Config.STRICT_GBAN
-    WORKERS = Config.WORKERS
-    BAN_STICKER = Config.BAN_STICKER
-    ALLOW_EXCL = Config.ALLOW_EXCL
-    CASH_API_KEY = Config.CASH_API_KEY
-    TIME_API_KEY = Config.TIME_API_KEY
-    SUPPORT_CHAT = Config.SUPPORT_CHAT
-    INFOPIC = Config.INFOPIC
-    ARQ_API_KEY = Config.ARQ_API_KEY
-    ARQ_API_URL = Config.ARQ_API_URL
-
-    try:
-        BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
-    except ValueError:
-        raise Exception("Your blacklisted chats list does not contain valid integers.")
+     ALLOW_EXCL= True
+     API_HASH="c0da9c346d2c45dbc7ec49a05da9b2b6"
+     API_ID=13675555
+     ARQ_API_KEY="LJMETG-DPHBCX-DGHJCD-TMFIGB-ARQ"
+     ARQ_API_URL="https://arq.hamker.in"
+     BOT_ID=5548310123
+     CASH_API_KEY="LUCXC3WOGJG5Z0VI"
+     DB_URI="postgres://bovnygnt:HbpZhz6T6Koeub6B-QfpgcIyYD4HpeZU@jelani.db.elephantsql.com/bovnygnt"
+     DRAGONS=5066050315
+     ENV="ANYTHING"
+     EVENT_LOGS=-1001638398396
+     JOIN_LOGGER=-1001638398396
+     MONGO_DB_URI="mongodb+srv://raj1:raj1@cluster0.wtuav.mongodb.net/?retryWrites=true&w=majority"
+     NO_LOAD="antinsfw"
+     OWNER_ID="5591954930"
+     OWNER_USERNAME="cant_think_1"
+     SPAMWATCH_API="RW8OiWPawUgvbZY1oH5UH5PsH5_kPMd6RUy7EAOSZrNKB5rufVGHvR3hfBnUHKh_"
+     START_IMG="https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg"
+     SUPPORT_CHAT="naomi_supp"
+     TIME_API_KEY="VZCX9WHJTKED"
+     TOKEN="5555986769:AAEVhk7pXR8SlJA_OZMPxon-gsB-IOK-7MQ"
+     SPAMMERS = None
+     ALLOW_CHATS = True
+     HEROKU_API_KEY = None
+     HEROKU_APP_NAME = None
+     TEMP_DOWNLOAD_DIRECTORY = "./"
+     BL_CHATS = []  # List of groups that you want blacklisted.
+     LOAD = []
+     BAN_STICKER = ("CAACAgUAAxkBAAEDafNhq5Z0DegqVzauwSighMw5cPWp8QACVgQAAuUG0FRXfCEuBziNzCIE")
+     WORKERS = 8
+     DONATION_LINK = ""
+     CERT_PATH = None
+     PORT = 5000
+     DEL_CMDS = True
+     STRICT_GBAN = True
+     DRAGONS = get_user_list("elevated_users.json", "sudos")
+    ##List of id's - (not usernames) for developers who will have the same perms as the owner
+     DEV_USERS = get_user_list("elevated_users.json", "devs")
+    ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
+     DEMONS = get_user_list("elevated_users.json", "supports")
+    # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
+     TIGERS = get_user_list("elevated_users.json", "tigers")
+     WOLVES = get_user_list("elevated_users.json", "whitelists")
+     URL = None
+     INFOPIC = True
 
 
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(1356469075)
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
@@ -194,7 +179,7 @@ DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
 # Load at end to ensure all prev variables have been set
-from FallenRobot.modules.helper_funcs.handlers import (
+from Naomi.modules.helper_funcs.handlers import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,
