@@ -136,6 +136,7 @@ else:
      DONATION_LINK = ""
      CERT_PATH = None
      PORT = 5000
+     WEBHOOK = False
      DEL_CMDS = True
      STRICT_GBAN = True
      DRAGONS = get_user_list("elevated_users.json", "sudos")
