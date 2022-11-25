@@ -1,1 +1,1 @@
-web: python3 -m Naomi
+worker: python3 -m Naomi
