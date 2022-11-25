@@ -144,7 +144,7 @@ else:
     CERT_PATH = Config.CERT_PATH
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
-    DB_URI = Config.DATABASE_URI
+    DB_URI = Config.DATABASE_URL
     MONGO_DB_URI = Config.MONGO_DB_URI
     START_IMG = Config.START_IMG
     HEROKU_API_KEY = Config.HEROKU_API_KEY
