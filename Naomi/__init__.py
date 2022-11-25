@@ -111,7 +111,7 @@ else:
      ARQ_API_URL="https://arq.hamker.in"
      BOT_ID=5548310123
      CASH_API_KEY="LUCXC3WOGJG5Z0VI"
-     DB_URI="postgres://bovnygnt:HbpZhz6T6Koeub6B-QfpgcIyYD4HpeZU@jelani.db.elephantsql.com/bovnygnt"
+     DB_URI="postgres://mqivcxqxbgejsm:de62039a0e705a3b7b12b15fa4d70ca493ca5313000a058f281976a14e7eea41@ec2-3-219-229-143.compute-1.amazonaws.com:5432/d4atecmlssb82m"
      ENV="ANYTHING"
      EVENT_LOGS=-1001638398396
      JOIN_LOGGER=-1001638398396
