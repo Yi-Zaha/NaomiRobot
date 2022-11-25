@@ -5,6 +5,7 @@ wget
 beautifulsoup4
 requests
 python-telegram-bot==12.8
+python-dotenv
 youtube_search_python
 SQLAlchemy==1.4.28
 PyDictionary

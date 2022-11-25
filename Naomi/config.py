@@ -1,6 +1,8 @@
 import json
 import os
+from dotenv import load_dotenv
 
+load_dotenv(".env")
 
 def get_user_list(config, key):
     with open("{}/Naomi/{}".format(os.getcwd(), config), "r") as json_file:
