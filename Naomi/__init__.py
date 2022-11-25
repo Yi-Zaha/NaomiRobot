@@ -171,7 +171,7 @@ DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+updater = tg.Updater(TOKEN, workers=8, use_context=True)
 telethn = TelegramClient("Naomi", API_ID, API_HASH)
 async def eor(msg: Message, **kwargs):
     func = (
