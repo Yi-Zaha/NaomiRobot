@@ -25,7 +25,7 @@ class Config(object):
     ENV = "ANYTHING"
     EVENT_LOGS = -1001638398396
     JOIN_LOGGER = -1001638398396
-    MONGO_DB_URI="mongodb+srv://raj1:raj1@cluster0.wtuav.mongodb.net/?retryWrites=true&w=majority"
+    MONGO_DB_URI= "mongodb+srv://reversesuchi_57:raj@cluster1.s8gcy.mongodb.net/?retryWrites=true&w=majority"
     OWNER_ID=5591954930
     OWNER_USERNAME="cant_think_1"
     SPAMWATCH_API="RW8OiWPawUgvbZY1oH5UH5PsH5_kPMd6RUy7EAOSZrNKB5rufVGHvR3hfBnUHKh_"
