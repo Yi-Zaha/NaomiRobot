@@ -123,7 +123,7 @@ else:
      START_IMG="https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg"
      SUPPORT_CHAT="naomi_supp"
      TIME_API_KEY="VZCX9WHJTKED"
-     TOKEN="5555986769:AAEVhk7pXR8SlJA_OZMPxon-gsB-IOK-7MQ"
+     TOKEN="5555986769:AAGDiWYaj8C8o52g515gNqPer9KuE7jcWvo"
      SPAMMERS = None
      ALLOW_CHATS = True
      HEROKU_API_KEY = None
@@ -135,7 +135,7 @@ else:
      WORKERS = 8
      DONATION_LINK = ""
      CERT_PATH = None
-     PORT = 5000
+     PORT = 8080
      WEBHOOK = False
      DEL_CMDS = True
      STRICT_GBAN = True
