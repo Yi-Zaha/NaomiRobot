@@ -123,7 +123,7 @@ else:
      START_IMG="https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg"
      SUPPORT_CHAT="naomi_supp"
      TIME_API_KEY="VZCX9WHJTKED"
-     TOKEN="5555986769:AAG-nNw82PHwBPlPZ5h55d3hnfHxzqc5JeI"
+     TOKEN="5412174097:AAEPkpfx1kjKqMjg82N6oK181ZzX_AQa-hg"
      SPAMMERS = None
      ALLOW_CHATS = True
      HEROKU_API_KEY = None
