@@ -135,7 +135,7 @@ else:
      WORKERS = 8
      DONATION_LINK = ""
      CERT_PATH = None
-     PORT = 8080
+     PORT = 5000
      WEBHOOK = False
      DEL_CMDS = True
      STRICT_GBAN = True
