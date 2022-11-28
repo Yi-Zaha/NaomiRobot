@@ -111,7 +111,7 @@ else:
      ARQ_API_URL="https://arq.hamker.in"
      BOT_ID=5548310123
      CASH_API_KEY="LUCXC3WOGJG5Z0VI"
-     DB_URI="postgres://mqivcxqxbgejsm:de62039a0e705a3b7b12b15fa4d70ca493ca5313000a058f281976a14e7eea41@ec2-3-219-229-143.compute-1.amazonaws.com:5432/d4atecmlssb82m"
+     DB_URI="postgres://bovnygnt:HbpZhz6T6Koeub6B-QfpgcIyYD4HpeZU@jelani.db.elephantsql.com/bovnygnt"
      ENV="ANYTHING"
      EVENT_LOGS=-1001638398396
      JOIN_LOGGER=-1001638398396
@@ -123,7 +123,7 @@ else:
      START_IMG="https://telegra.ph/file/755a979e1e5bfb6fc5c0b.jpg"
      SUPPORT_CHAT="naomi_supp"
      TIME_API_KEY="VZCX9WHJTKED"
-     TOKEN="5412174097:AAEPkpfx1kjKqMjg82N6oK181ZzX_AQa-hg"
+     TOKEN="5548310123:AAFD0VhhA0CIkn9v2Z24grg2bvIp_-_Zrs0"
      SPAMMERS = None
      ALLOW_CHATS = True
      HEROKU_API_KEY = None
