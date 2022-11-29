@@ -92,4 +92,4 @@ __help__ = """
 
 ADMIN_REPORT_HANDLER = MessageHandler(Filters.regex(r"(?i)@admin(s)?"), report)
 
-__mod_name__ = "Rᴇᴘᴏʀᴛs​"
+__mod_name__ = "🇷ᴇᴘᴏʀᴛs​"
