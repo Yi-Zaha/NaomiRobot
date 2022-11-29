@@ -98,9 +98,9 @@ async def cancel_spam(event):
         return await event.respond("__Stopped Mention.__")
 
 
-__mod_name__ = "ᴛᴀɢᴀʟʟ"
+__mod_name__ = "🇹ᴀɢ Aʟʟ"
 __help__ = """
 ──「 Only for Admins 」──
 
-❍ /tagall or @all '(reply to message or add another message) To mention all members in your group, without exception.'
+❍ /tagall '(reply to message or add another message) To mention all members in your group, without exception.'
 """
