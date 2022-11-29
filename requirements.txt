@@ -68,4 +68,3 @@ fontTools
 janda
 uvicorn[standard]
 fastapi
-git+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest
