@@ -1,4 +1,4 @@
-__mod_name__ = "ᴛᴏᴏʟꜱ"
+__mod_name__ = "🇹ᴏᴏʟꜱ"
 __help__ ="""
 *Available queries:* Country/Timezon/Weather
   ❍ /time <query>*:* Gives information about a timezone.
