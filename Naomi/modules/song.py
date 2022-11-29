@@ -3,6 +3,7 @@ import asyncio
 import requests
 import aiohttp
 import yt_dlp
+import ffmpeg
 
 from pyrogram import filters
 from youtube_search import YoutubeSearch
