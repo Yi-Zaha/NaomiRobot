@@ -68,4 +68,4 @@ fontTools
 janda
 uvicorn[standard]
 fastapi
-git+https://github.com/kkroening/ffmpeg-python
+ffmpeg-python
