@@ -166,7 +166,7 @@ __help__ = """
   »  /chatbot *:* Shows chatbot control panel
 """
 
-__mod_name__ = "ᴄʜᴀᴛʙᴏᴛ"
+__mod_name__ = "🇨ʜᴀᴛʙᴏᴛ"
 
 
 CHATBOTK_HANDLER = CommandHandler("chatbot", kuki)
