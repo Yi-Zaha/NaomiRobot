@@ -117,96 +117,7 @@ def spank(update, context):
     target = "spank"
     msg.reply_animation(nekos.img(target))
 
-ADD_NSFW_HANDLER = CommandHandler("addnsfw", add_nsfw)
-REMOVE_NSFW_HANDLER = CommandHandler("rmnsfw", rem_nsfw)
-NSFWWAIFU_HANDLER = CommandHandler(["nsfwwaifu", "nwaifu"], nsfwwaifu)
-BLOWJOB_HANDLER = CommandHandler(["blowjob", "bj"], blowjob)
-TRAP_HANDLER = CommandHandler("trap", trap)
-NSFWNEKO_HANDLER = CommandHandler(["nsfwneko", "nneko"], nsfwneko)
-SPANK_HANDLER = CommandHandler("spank", spank)
 
-dispatcher.add_handler(ADD_NSFW_HANDLER)
-dispatcher.add_handler(REMOVE_NSFW_HANDLER)
-dispatcher.add_handler(NSFWWAIFU_HANDLER)
-dispatcher.add_handler(BLOWJOB_HANDLER)
-dispatcher.add_handler(SPANK_HANDLER)
-dispatcher.add_handler(TRAP_HANDLER)
-dispatcher.add_handler(NSFWNEKO_HANDLER)
-
-__handlers__ = [
-    ADD_NSFW_HANDLER,
-    REMOVE_NSFW_HANDLER,
-    NSFWWAIFU_HANDLER,
-    SPANK_HANDLER,
-    BLOWJOB_HANDLER,
-    TRAP_HANDLER,
-    NSFWNEKO_HANDLER
-]
-
-
-
-__mod_name__ = "NSFW"
-
-__help__ = """
-❍ `/addnsfw` : To Activate NSFW commands.
-❍ `/rmnsfw` : To Deactivate NSFW commands.
-*NSFW commands:*
- `/ass`
- `/bdsm`
- `/cum` 
- `/creampie` 
- `/doijin`
- `/blowjob`
- `/bj`
- `/boobjob`
- `/vagina`
- `/uniform`
- `/foot`
- `/femdom`
- `/gangbang` 
- `/hentai`
- `/incest`
- `/ahegao`
- `/neko`
- `/gif`
- `/ero`
- `/cuckold`
- `/orgy`
- `/elves`
- `/pantsu`
- `/mobile`
- `/glasses`
- `/tentacles`
- `/tentacle`
- `/thighs`
- `/yuri`
- `/zettai`
- `/masturbation`
- `/public`
- `/wlewd`
- `/nekolewd`
- `/nekogif`
- `/henti`
- `/hass`
- `/boobs`
- `/paizuri`
- `/hyuri`
- `/hthigh`
- `/midriff`
- `/kitsune`
- `/tentacle`
- `/anal`
- `/hanal`
- `/hneko`
- `/nsfwwaifu`
- `/blowjob`
- `/nwaifu`
- `/bj`
- `/trap`
- `/nsfwneko`
- `/nneko`
- `/spank`
-"""
 nsfw_query = ["ass", "cum", "creampie", "doujin", "blowjob", "bj", "boobjob", "vagina", "uniform", "foot", "femdom", "gangbang", "hentai", "incest", "ahegao", "gif", "ero", "cuckold", "orgy", "elves", "pantsu", "mobile", "glasses", "tentacles", "tentacle", "thighs", "yuri", "zettai", "masturbation", "public", "wlewd", "nekolewd", "nekogif", "henti", "hass", "boobs", "paizuri", "hyuri", "hthigh", "midriff", "kitsune", "tentacle", "anal", "hanal", "hneko"]
 @pbot.on_message(filters.command(nsfw_query))
 async def ass(_, message):
@@ -315,4 +226,92 @@ async def ass(_, message):
             return await message.reply_photo(url)
     except:
         return await message.reply_text(f"ERROR!!! Contact @{SUPPORT_CHAT}")
+    
+    
+__mod_name__ = "NSFW"
 
+__help__ = """
+❍ `/addnsfw` : To Activate NSFW commands.
+❍ `/rmnsfw` : To Deactivate NSFW commands.
+*NSFW commands:*
+ `/ass`
+ `/bdsm`
+ `/cum` 
+ `/creampie` 
+ `/doijin`
+ `/blowjob`
+ `/bj`
+ `/boobjob`
+ `/vagina`
+ `/uniform`
+ `/foot`
+ `/femdom`
+ `/gangbang` 
+ `/hentai`
+ `/incest`
+ `/ahegao`
+ `/neko`
+ `/gif`
+ `/ero`
+ `/cuckold`
+ `/orgy`
+ `/elves`
+ `/pantsu`
+ `/mobile`
+ `/glasses`
+ `/tentacles`
+ `/tentacle`
+ `/thighs`
+ `/yuri`
+ `/zettai`
+ `/masturbation`
+ `/public`
+ `/wlewd`
+ `/nekolewd`
+ `/nekogif`
+ `/henti`
+ `/hass`
+ `/boobs`
+ `/paizuri`
+ `/hyuri`
+ `/hthigh`
+ `/midriff`
+ `/kitsune`
+ `/tentacle`
+ `/anal`
+ `/hanal`
+ `/hneko`
+ `/nsfwwaifu`
+ `/blowjob`
+ `/nwaifu`
+ `/bj`
+ `/trap`
+ `/nsfwneko`
+ `/nneko`
+ `/spank`
+"""
+ADD_NSFW_HANDLER = CommandHandler("addnsfw", add_nsfw)
+REMOVE_NSFW_HANDLER = CommandHandler("rmnsfw", rem_nsfw)
+NSFWWAIFU_HANDLER = CommandHandler(["nsfwwaifu", "nwaifu"], nsfwwaifu)
+BLOWJOB_HANDLER = CommandHandler(["blowjob", "bj"], blowjob)
+TRAP_HANDLER = CommandHandler("trap", trap)
+NSFWNEKO_HANDLER = CommandHandler(["nsfwneko", "nneko"], nsfwneko)
+SPANK_HANDLER = CommandHandler("spank", spank)
+
+dispatcher.add_handler(ADD_NSFW_HANDLER)
+dispatcher.add_handler(REMOVE_NSFW_HANDLER)
+dispatcher.add_handler(NSFWWAIFU_HANDLER)
+dispatcher.add_handler(BLOWJOB_HANDLER)
+dispatcher.add_handler(SPANK_HANDLER)
+dispatcher.add_handler(TRAP_HANDLER)
+dispatcher.add_handler(NSFWNEKO_HANDLER)
+
+__handlers__ = [
+    ADD_NSFW_HANDLER,
+    REMOVE_NSFW_HANDLER,
+    NSFWWAIFU_HANDLER,
+    SPANK_HANDLER,
+    BLOWJOB_HANDLER,
+    TRAP_HANDLER,
+    NSFWNEKO_HANDLER
+]
