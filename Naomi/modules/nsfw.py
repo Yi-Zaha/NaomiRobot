@@ -228,7 +228,7 @@ async def ass(_, message):
         return await message.reply_text(f"ERROR!!! Contact @{SUPPORT_CHAT}")
     
     
-__mod_name__ = "NSFW"
+__mod_name__ = "🇳sғᴡ"
 
 __help__ = """
 ❍ `/addnsfw` : To Activate NSFW commands.
