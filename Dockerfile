@@ -64,8 +64,8 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/FallenRobot
-RUN git clone https://github.com/Rajbhaiya/NaomiRobot /root/NaomiRobot
+# Copy Python Requirements to /root/NaomiRobot
+RUN git clone https://github.com/tyburd/NaomiRobot /root/NaomiRobot
 WORKDIR /root/NaomiRobot
 
 #Copy config file to /root/NaomiRobot/Naomi
