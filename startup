@@ -1,7 +1,7 @@
 
 cd /app
-rm -rf NaomiRobot
-git clone https://github.com/tyburd/NaomiRobot
-cd NaomiRobot
+rm -rf naomibot
+git clone https://github.com/tyburd/NaomiRobot naomibot
+cd naomibot
 pip install --quiet -r requirements.txt
 uvicorn api:app --host=0.0.0.0 --port=${PORT:-5000} & python3 -m Naomi
