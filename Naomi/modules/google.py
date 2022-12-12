@@ -1,28 +1,18 @@
-from bs4 import BeautifulSoup
-import urllib
-from Naomi import telethn as tbot
 import glob
 import io
 import os
 import re
-import aiohttp
+import urllib
 import urllib.request
-from urllib.parse import urlencode
+
+import bs4
 import requests
+from bing_image_downloader import downloader
 from bs4 import BeautifulSoup
 from PIL import Image
 from search_engine_parser import GoogleSearch
 
-import bs4
-import html2text
-from bing_image_downloader import downloader
-from telethon import *
-from telethon.tl import functions
-from telethon.tl import types
-from telethon.tl.types import *
-
-from Naomi import *
-
+from Naimu import telethn as tbot
 from Naomi.events import register
 
 opener = urllib.request.build_opener()
@@ -31,7 +21,6 @@ opener.addheaders = [("User-agent", useragent)]
 
 
 @register(pattern="^/google (.*)")
-@register(pattern="^/search (.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -92,7 +81,7 @@ useragent = "Mozilla/5.0 (Linux; Android 11; SM-M017F Build/PPR1.180610.011; wv)
 opener.addheaders = [("User-agent", useragent)]
 
 
-@register(pattern=r"^/reverse(?: |$)(\d*)")
+@register(pattern=r"^/reverse|^/pp|^/grs(?: |$)(\d*)")
 async def okgoogle(img):
     """For .reverse command, Google search images and stickers."""
     if os.path.isfile("okgoogle.png"):
@@ -218,7 +207,7 @@ async def apk(e):
         page = requests.get(
             "https://play.google.com/store/search?q=" + final_name + "&c=apps"
         )
-        lnk = str(page.status_code)
+        str(page.status_code)
         soup = bs4.BeautifulSoup(page.content, "lxml", from_encoding="utf-8")
         results = soup.findAll("div", "ZmHEEd")
         app_name = (
@@ -277,14 +266,11 @@ async def apk(e):
         await e.reply("Exception Occured:- " + str(err))
 
 
-__mod_name__ ="🇬ᴏᴏɢʟᴇ"
+__mod_name__ = "🇬ᴏᴏɢʟᴇ"
+
 __help__ = """
  ❍ /google <text>*:* Perform a google search
  ❍ /img <text>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
  ❍ /app <appname>*:* Searches for an app in Play Store and returns its details.
- ❍ /reverse: Does a reverse image search of the media which it was replied to.
- ❍ /naomi <query>*:* Naomi answers the query
-   Sends you the gps location of the given query...
- ❍ /gps <location>*:* Get gps location.
-  💡Ex: `Anonymous where is India?`
-"""
+ ❍ /reverse |pp |grs: Does a reverse image search of the media which it was replied to.
+ """
