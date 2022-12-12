@@ -8,6 +8,7 @@ from aiohttp import ClientSession
 from pyrogram import Client, errors
 from Python_ARQ import ARQ
 from telethon import TelegramClient
+from dotenv import load_dotenv
 
 StartTime = time.time()
 
