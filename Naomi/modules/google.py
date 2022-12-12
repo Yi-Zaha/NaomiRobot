@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from search_engine_parser import GoogleSearch
 
-from Naimu import telethn as tbot
+from Naomi import telethn as tbot
 from Naomi.events import register
 
 opener = urllib.request.build_opener()
