@@ -35,7 +35,6 @@ from Naomi.modules.helper_funcs.chat_status import user_admin, user_admin_no_rep
 from Naomi import dispatcher, updater, SUPPORT_CHAT
 from Naomi.modules.log_channel import gloggable
 
-
 @run_async
 @user_admin_no_reply
 @gloggable
@@ -98,13 +97,15 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
 @user_admin
 @gloggable
 def kuki(update: Update, context: CallbackContext):
-    user = update.effective_user
+    update.effective_user
     message = update.effective_message
     msg = "• ᴄʜᴏᴏsᴇ ᴀɴ ᴏᴩᴛɪᴏɴ ᴛᴏ ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ"
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data="add_chat({})")],
-            [InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data="rm_chat({})")],
+            [
+                InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data="add_chat({})"),
+                InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data="rm_chat({})"),
+            ],
         ]
     )
     message.reply_text(
@@ -166,7 +167,7 @@ __help__ = """
   »  /chatbot *:* Shows chatbot control panel
 """
 
-__mod_name__ = "🇨ʜᴀᴛʙᴏᴛ"
+__mod_name__ = "Cʜᴀᴛʙᴏᴛ"
 
 
 CHATBOTK_HANDLER = CommandHandler("chatbot", kuki)
