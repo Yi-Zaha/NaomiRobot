@@ -78,8 +78,8 @@ def restart(update: Update, context: CallbackContext):
         "Starting a new instance and shutting down this one"
     )
 
-    os.system("restart.bat")
-    os.execv("start.bat", sys.argv)
+    os.system("git pull -f -q")
+    os.execl(sys.executable, sys.executable, "-m", "Naomi")
 
 
 LEAVE_HANDLER = CommandHandler("leave", leave)
