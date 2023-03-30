@@ -1,7 +1,4 @@
-
-cd Naomi
-rm -rf Naomi
 git clone https://github.com/tyburd/naomirobot
 cd naomirobot
-pip install --quiet -r requirements.txt
+pip install --quiet -U -r requirements.txt
 python3 -m Naomi
