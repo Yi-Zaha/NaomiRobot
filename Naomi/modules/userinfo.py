@@ -27,7 +27,7 @@ from Naomi.__main__ import STATS, TOKEN, USER_INFO
 import Naomi.modules.sql.userinfo_sql as sql
 from Naomi.modules.disable import DisableAbleCommandHandler
 from Naomi.modules.sql.global_bans_sql import is_user_gbanned
-from Naomi.modules.sql.afk_sql import is_afk, check_afk_status
+from Naomi.modules.sql.afk_sql1 import is_afk, check_afk_status
 from Naomi.modules.sql.users_sql import get_user_num_chats
 from Naomi.modules.helper_funcs.chat_status import sudo_plus
 from Naomi.modules.helper_funcs.extraction import extract_user
