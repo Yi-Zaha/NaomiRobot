@@ -29,7 +29,7 @@ from Naomi.modules.helper_funcs.string_handling import (
     markdown_parser,
 )
 from Naomi.modules.log_channel import loggable
-from Naomi.modules.sql.global_bans_sql import is_user_gbanned
+from Naomi.modules.sql1.global_bans_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
