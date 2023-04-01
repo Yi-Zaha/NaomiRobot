@@ -21,7 +21,7 @@ from Naomi.modules.helper_funcs.chat_status import (
 )
 from Naomi.modules.log_channel import loggable
 from Naomi.modules.connection import connected
-from Naomi.modules.sql.approve_sql import is_approved
+from Naomi.modules.sql1.approve_sql import is_approved
 from Naomi.modules.helper_funcs.alternate import send_message, typing_action
 
 ad = AlphabetDetector()
