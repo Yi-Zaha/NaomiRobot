@@ -5,7 +5,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
 from telegram.utils.helpers import mention_html
 
-import Naomi.modules.sql.approve_sql as sql
+import Naomi.modules.sql1.approve_sql as sql
 from Naomi import DRAGONS, dispatcher
 from Naomi.modules.disable import DisableAbleCommandHandler
 from Naomi.modules.helper_funcs.chat_status import user_admin
