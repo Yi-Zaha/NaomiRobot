@@ -5,7 +5,7 @@ from pyrogram import filters
 import nekos
 from Naomi.utils.hmfull.src import hmfull
 from Naomi import dispatcher, pbot, SUPPORT_CHAT
-import Naomi.modules.sql.nsfw_sql as sql
+import Naomi.modules.sql1.nsfw_sql as sql
 from Naomi.modules.log_channel import gloggable
 from telegram import Update
 from telegram.error import BadRequest, RetryAfter, Unauthorized
