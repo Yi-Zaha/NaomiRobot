@@ -12,7 +12,7 @@ from Naomi.modules.helper_funcs.chat_status import (
     user_admin_no_reply,
 )
 from Naomi.modules.log_channel import loggable
-from Naomi.modules.sql import antiflood_sql as sql
+from Naomi.modules.sql1 import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -26,7 +26,7 @@ from telegram.utils.helpers import mention_html, escape_markdown
 from Naomi.modules.helper_funcs.string_handling import extract_time
 from Naomi.modules.connection import connected
 from Naomi.modules.helper_funcs.alternate import send_message
-from Naomi.modules.sql.approve_sql import is_approved
+from Naomi.modules.sql1.approve_sql import is_approved
 
 FLOOD_GROUP = 3
 
