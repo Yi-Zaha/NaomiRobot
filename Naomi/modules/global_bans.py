@@ -14,7 +14,7 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-import Naomi.modules.sql.global_bans_sql as sql
+import Naomi.modules.sql1.global_bans_sql as sql
 from Naomi.modules.sql.users_sql import get_user_com_chats
 from Naomi import (
     DEV_USERS,
