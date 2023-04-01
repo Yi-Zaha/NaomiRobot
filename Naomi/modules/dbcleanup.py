@@ -1,6 +1,6 @@
 from time import sleep
 
-import Naomi.modules.sql.global_bans_sql as gban_sql
+import Naomi.modules.sql1.global_bans_sql as gban_sql
 import Naomi.modules.sql.users_sql as user_sql
 from Naomi import DEV_USERS, OWNER_ID, dispatcher
 from Naomi.modules.helper_funcs.chat_status import dev_plus
