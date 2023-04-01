@@ -43,8 +43,8 @@ from Naomi.modules.helper_funcs.filters import CustomFilters
 from Naomi.modules.helper_funcs.misc import split_message
 from Naomi.modules.helper_funcs.string_handling import split_quotes
 from Naomi.modules.log_channel import loggable
-from Naomi.modules.sql import warns_sql as sql
-from Naomi.modules.sql.approve_sql import is_approved
+from Naomi.modules.sql1 import warns_sql as sql
+from Naomi.modules.sql1.approve_sql import is_approved
 
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
