@@ -45,7 +45,7 @@ async def _(event):
                 ms_two = (end - start).seconds
                 os.remove(downloaded_file_name)
                 await h.edit(
-                    "Uploaded to https://telegra.ph/{})".format(media_urls[0]),
+                    "Uploaded to https://telegra.ph/.replace('telehraph.ph', 'graph.org'){})".format(media_urls[0]),
                     link_preview=True,
                 )
         elif input_str == "t":
@@ -57,7 +57,7 @@ async def _(event):
             page_content = r_message.message
             if r_message.media:
                 if page_content != "":
-                    title_of_page = page_content
+                    title_of_page = user_object.first_name  # + " " + user_object.last_name + "By @Naomi_Robot"
                 downloaded_file_name = await tbot.download_media(
                     r_message, TMP_DOWNLOAD_DIRECTORY
                 )
