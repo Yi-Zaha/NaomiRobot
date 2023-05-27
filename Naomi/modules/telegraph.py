@@ -8,9 +8,9 @@ from PIL import Image
 from datetime import datetime
 from telegraph import Telegraph, upload_file, exceptions
 
-Anonymous = "kagut"
+Naomi = "kagut"
 telegraph = Telegraph()
-r = telegraph.create_account(short_name=Anonymous)
+r = telegraph.create_account(short_name=Naomi)
 auth_url = r["auth_url"]
 
 
@@ -45,19 +45,19 @@ async def _(event):
                 ms_two = (end - start).seconds
                 os.remove(downloaded_file_name)
                 await h.edit(
-                    "Uploaded to https://telegra.ph/.replace('telehraph.ph', 'graph.org'){})".format(media_urls[0]),
+                    "Uploaded to https://telegra.ph/{})".format(media_urls[0]),
                     link_preview=True,
                 )
         elif input_str == "t":
             user_object = await tbot.get_entity(r_message.sender_id)
-            title_of_page = user_object.first_name  # + " " + user_object.last_name + "By @Naomi_Robot"
+            title_of_page = user_object.first_name + " " + "By @Naomi_Robot"
             # apparently, all Users do not have last_name field
             if optional_title:
                 title_of_page = optional_title
             page_content = r_message.message
             if r_message.media:
                 if page_content != "":
-                    title_of_page = user_object.first_name  # + " " + user_object.last_name + "By @Naomi_Robot"
+                    title_of_page = page_content
                 downloaded_file_name = await tbot.download_media(
                     r_message, TMP_DOWNLOAD_DIRECTORY
                 )
