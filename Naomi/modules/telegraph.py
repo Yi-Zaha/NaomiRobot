@@ -50,7 +50,7 @@ async def _(event):
                 )
         elif input_str == "t":
             user_object = await tbot.get_entity(r_message.sender_id)
-            title_of_page = user_object.first_name + " " + "By @Naomi_Robot"
+            title_of_page = user_object.first_name + " " + 'By <a href="https://t.me/Naomi_Robot">Nᴀᴏᴍɪ Rᴏʙᴏᴛ</a>' + '\n\n <a href="https://t.me/Hanime_Universe">JOIN MAIN CHANNEL</a>'
             # apparently, all Users do not have last_name field
             if optional_title:
                 title_of_page = optional_title
