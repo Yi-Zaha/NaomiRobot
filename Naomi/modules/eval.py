@@ -80,7 +80,10 @@ def do(func, bot, update):
 
     stdout = io.StringIO()
 
-    to_compile = f'def func():\n{textwrap.indent(body, "    ")}'
+    to_compile = (
+        f"def func(): "
+        + "".join(f"\n {l}" for l in body.split("\n"))
+    )
 
     try:
         exec(to_compile, env)
