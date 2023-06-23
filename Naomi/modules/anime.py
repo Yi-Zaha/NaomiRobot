@@ -3,7 +3,7 @@ import html
 import textwrap
 
 import bs4
-import jikanpy
+import jikanpy-v4 as jikanpy
 import requests
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
