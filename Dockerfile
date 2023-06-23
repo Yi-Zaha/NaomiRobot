@@ -74,7 +74,7 @@ COPY ./Naomi/config.py ./Naomi/config.py* /root/NaomiRobot/Naomi/
 ENV PATH="/home/bot/bin:$PATH"
 
 # Install requirements
-RUN RUN python3 -m pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Starting Worker
 CMD ["bash", "startup"]
