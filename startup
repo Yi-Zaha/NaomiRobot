@@ -1,3 +1,4 @@
-git pull -fq
+echo "Running...."
+git pull -f -q 
 pip install --quiet -U -r requirements.txt
 python3 -m Naomi
