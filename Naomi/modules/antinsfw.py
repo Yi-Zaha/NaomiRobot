@@ -7,7 +7,7 @@ from Naomi import pbot, arq
 from Naomi.utils.errors import capture_err
 from Naomi.utils.permissions import adminsOnly
 from Naomi.helper_extra.dbfun import is_nsfw_on, nsfw_off, nsfw_on
-from Naomi.modules.sql import nsfw_sql
+from Naomi.modules.sql1 import nsfw_sql
 from Naomi.utils.filter_groups import nsfw_detect_group
 
 async def get_file_id_from_message(message):
