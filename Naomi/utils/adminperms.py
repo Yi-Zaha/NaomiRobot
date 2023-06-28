@@ -8,8 +8,8 @@ from telegram import ChatMember
 async def member_permissions(chat_id: int, user_id: int):
     perms = []
     member = await app.get_chat_member(chat_id, user_id)
-    if member.can_send_messages:
-        perms.append("can_send_messages")
+    if member.can_post_messages:
+        perms.append("can_post_messages")
     if member.can_edit_messages:
         perms.append("can_edit_messages")
     if member.can_delete_messages:
