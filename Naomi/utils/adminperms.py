@@ -1,15 +1,14 @@
 import asyncio
 from pyrogram import filters
-from pyrogram.types import ChatPermissions, Message
+from pyrogram.types import ChatPermissions, Message, ChatMember
 from Naomi import pbot as app
-from telegram import ChatMember
 
 
 async def member_permissions(chat_id: int, user_id: int):
     perms = []
     member = await app.get_chat_member(chat_id, user_id)
-    if member.can_post_messages:
-        perms.append("can_post_messages")
+    if member.can_send_messages:
+        perms.append("can_send_messages")
     if member.can_edit_messages:
         perms.append("can_edit_messages")
     if member.can_delete_messages:
