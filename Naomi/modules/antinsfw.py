@@ -141,7 +141,7 @@ async def nsfw_scan_command(_, message):
 
 
 @pbot.on_message(filters.command("antinsfw") & ~filters.private)
-@adminsOnly
+@adminsOnly("can_change_info")
 async def nsfw_enable_disable(_, message):
     if len(message.command) != 2:
         await message.reply_text(
