@@ -2,7 +2,7 @@ from threading import RLock
 from time import time
 
 from Naomi import LOGGER
-from Naomi.mongodb import MongoDB
+from Naomi.modules.mongodb import MongoDB
 
 INSERTION_LOCK = RLock()
 
