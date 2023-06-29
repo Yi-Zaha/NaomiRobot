@@ -577,7 +577,7 @@ __help__ = """
  ❍ /animequotes *:* Get random Anime qoute.
  ❍ /manga <manga>*:* returns information about the manga.
  ❍ /user <user>*:* returns information about a MyAnimeList user.
- ❍ /letest *:* to know ongoing anime schedule.
+ ❍ /latest *:* to know ongoing anime schedule.
  ❍ /kaizoku <anime>*:* search an anime on animekaizoku.com
  ❍ /kayo <anime>*:* search an anime on animekayo.com
  ❍ /airing <anime>*:* returns anime airing info.
