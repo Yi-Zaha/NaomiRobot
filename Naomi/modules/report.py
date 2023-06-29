@@ -243,10 +243,10 @@ Note that the report commands do not work when admins use them; or when used to 
 admins don't need to report, or be reported!
 """
 REPORT_HANDLER = CommandHandler(
-    "report", report, filters=Filters.chat_type.groups, run_async=True
+    "report", report
 )
 SETTING_HANDLER = CommandHandler(
-    "reports", report_setting, pass_args=True, run_async=True
+    "reports", report_setting, pass_args=True
 )
 ADMIN_REPORT_HANDLER = MessageHandler(Filters.regex("(?i)@admin(s)?"), report)
 REPORT_BUTTON_HANDLER = CallbackQueryHandler(report_buttons, pattern=r"report_")
