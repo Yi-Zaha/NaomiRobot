@@ -147,8 +147,9 @@ def check_afk(update, context, user_id, fst_name, userc_id):
                 html.escape(fst_name), html.escape(user.reason)
             )
             update.effective_message.reply_text(res, parse_mode="html")
+            time.sleep(5)
             try:
-                res.delete(5)
+                Naomi.delete()
             except BadRequest:
                 return
 
