@@ -6,7 +6,7 @@ from pymongo.errors import PyMongoError
 from Naomi import LOGGER
 
 DB_URI = "mongodb+srv://raj:raj@cluster0.wtuav.mongodb.net/?retryWrites=true&w=majority"
-DB_NAMW = "raj"
+DB_NAME = "raj"
 try:
     Powers_db_client = MongoClient(DB_URI)
 except PyMongoError as f:
