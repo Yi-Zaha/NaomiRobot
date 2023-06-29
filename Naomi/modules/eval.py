@@ -51,7 +51,7 @@ def send(msg, bot, update):
 def evaluate(update: Update, context: CallbackContext):
   try:
         cmd = event.text.markdown.split(" ", maxsplit=1)[1]
-    except IndexError:
+    except Exception as e:
         return await event.reply("`Give something to execute...`")
     e = await event.reply("`Processing ...`")
     reply_to_id = event.reply_to_message_id or event.id
