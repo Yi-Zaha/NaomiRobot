@@ -175,7 +175,7 @@ DEV_USERS.add(OWNER_ID)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("Naomi", API_ID, API_HASH)
 
-pbot = Client("Naomi", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+pbot = Client("NaomiRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 aiohttpsession = ClientSession()
 
