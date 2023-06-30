@@ -56,7 +56,7 @@ async def get_file_id_from_message(message):
 )
 @capture_err
 async def detect_nsfw(_, message):
-    if not await sql.is_nsfw(message.chat.id):
+    if not sql.is_nsfw(message.chat.id):
         return
     if not message.from_user:
         return
