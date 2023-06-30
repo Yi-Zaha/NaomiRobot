@@ -17,8 +17,10 @@ def time_to_seconds(time):
 
 @pbot.on_message(filters.command(["song", "music"]))
 def song(client, message):
-
-    message.delete()
+    try:
+        message.delete()
+    except:
+        pass
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     chutiya = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
