@@ -56,6 +56,8 @@ async def get_file_id_from_message(message):
 )
 @capture_err
 async def detect_nsfw(_, message):
+    status = message.text.split(None, 1)[1].strip()
+    status = status.lower()
     chat_id = message.chat.id
     if not await sql.is_nsfw(chat.id):
         return
