@@ -6,9 +6,9 @@ from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from Naomi.confing import get_int_key, get_str_key
 
-MONGO_DB_URI="mongodb+srv://raj:raj@cluster0.wtuav.mongodb.net/?retryWrites=true&w=majority"
+MONGO_DB_URI="mongodb+srv://f2l:f2l@cluster0.fjjge1y.mongodb.net/?retryWrites=true&w=majority"
 MONGO_PORT = 27017
-MONGO_DB = "raj"
+MONGO_DB = "f2l"
 
 
 client = MongoClient()
