@@ -68,7 +68,7 @@ def do(func, update, context):  # skipcq
 
     os.chdir(os.getcwd())
     with open(
-        os.path.join(os.getcwd(), "zeldris/modules/helper_funcs/temp.txt"),
+        os.path.join(os.getcwd(), "Naomi/modules/helper_funcs/temp.txt"),
         "w",
     ) as temp:
         temp.write(body)
