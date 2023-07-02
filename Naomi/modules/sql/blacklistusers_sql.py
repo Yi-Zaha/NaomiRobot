@@ -1,12 +1,12 @@
 import threading
 
 from Naomi.modules.sql import BASE, SESSION
-from sqlalchemy import Column, String, UnicodeText
+from sqlalchemy import Column, String, UnicodeText, BigInteger
 
 
 class BlacklistUsers(BASE):
     __tablename__ = "blacklistusers"
-    user_id = Column(String(14), primary_key=True)
+    user_id = Column(BigInteger, primary_key=True)
     reason = Column(UnicodeText)
 
     def __init__(self, user_id, reason=None):
@@ -22,9 +22,9 @@ BLACKLIST_USERS = set()
 
 def blacklist_user(user_id, reason=None):
     with BLACKLIST_LOCK:
-        user = SESSION.query(BlacklistUsers).get(str(user_id))
+        user = SESSION.query(BlacklistUsers).get(user_id)
         if not user:
-            user = BlacklistUsers(str(user_id), reason)
+            user = BlacklistUsers(user_id, reason)
         else:
             user.reason = reason
 
@@ -35,7 +35,7 @@ def blacklist_user(user_id, reason=None):
 
 def unblacklist_user(user_id):
     with BLACKLIST_LOCK:
-        user = SESSION.query(BlacklistUsers).get(str(user_id))
+        user = SESSION.query(BlacklistUsers).get(user_id)
         if user:
             SESSION.delete(user)
 
@@ -44,7 +44,7 @@ def unblacklist_user(user_id):
 
 
 def get_reason(user_id):
-    user = SESSION.query(BlacklistUsers).get(str(user_id))
+    user = SESSION.query(BlacklistUsers).get(user_id)
     rep = ""
     if user:
         rep = user.reason
