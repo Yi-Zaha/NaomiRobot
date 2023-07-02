@@ -6,11 +6,11 @@ from sqlalchemy import Boolean, Column, UnicodeText
 
 class CleanerBlueTextChatSettings(BASE):
     __tablename__ = "cleaner_bluetext_chat_setting"
-    chat_id = Column(UnicodeText, primary_key=True)
+    chat_id = Column(String(14), primary_key=True)
     is_enable = Column(Boolean, default=False)
 
     def __init__(self, chat_id, is_enable):
-        self.chat_id = chat_id
+        self.chat_id = str(chat_id)
         self.is_enable = is_enable
 
     def __repr__(self):
@@ -19,11 +19,11 @@ class CleanerBlueTextChatSettings(BASE):
 
 class CleanerBlueTextChat(BASE):
     __tablename__ = "cleaner_bluetext_chat_ignore_commands"
-    chat_id = Column(UnicodeText, primary_key=True)
+    chat_id = Column(String(14), primary_key=True)
     command = Column(UnicodeText, primary_key=True)
 
     def __init__(self, chat_id, command):
-        self.chat_id = chat_id
+        self.chat_id = str(chat_id)
         self.command = command
 
 
@@ -89,7 +89,7 @@ def chat_ignore_command(chat_id, ignore):
         return False
 
 
-def chat_unignore_command(chat_id, unignore):
+def chat_unignore_command(str(chat_id), unignore):
     unignore = unignore.lower()
     with CLEANER_CHAT_LOCK:
         unignored = SESSION.query(CleanerBlueTextChat).get((str(chat_id), unignore))
@@ -145,7 +145,7 @@ def global_unignore_command(command):
         return False
 
 
-def is_command_ignored(chat_id, command):
+def is_command_ignored(str(chat_id), command):
     if command.lower() in GLOBAL_IGNORE_COMMANDS:
         return True
 
@@ -156,7 +156,7 @@ def is_command_ignored(chat_id, command):
     return False
 
 
-def is_enabled(chat_id):
+def is_enabled(str(chat_id)):
     if str(chat_id) in CLEANER_CHATS:
         settings = CLEANER_CHATS.get(str(chat_id)).get("setting")
         return settings
@@ -164,7 +164,7 @@ def is_enabled(chat_id):
     return False
 
 
-def get_all_ignored(chat_id):
+def get_all_ignored(str(chat_id)):
     if str(chat_id) in CLEANER_CHATS:
         LOCAL_IGNORE_COMMANDS = CLEANER_CHATS.get(str(chat_id)).get("commands")
     else:
@@ -186,15 +186,15 @@ def __load_cleaner_list():
 
     try:
         for x in SESSION.query(CleanerBlueTextChatSettings).all():
-            CLEANER_CHATS.setdefault(x.chat_id, {"setting": False, "commands": set()})
-            CLEANER_CHATS[x.chat_id]["setting"] = x.is_enable
+            CLEANER_CHATS.setdefault(x.str(chat_id), {"setting": False, "commands": set()})
+            CLEANER_CHATS[x.str(chat_id)]["setting"] = x.is_enable
     finally:
         SESSION.close()
 
     try:
         for x in SESSION.query(CleanerBlueTextChat).all():
-            CLEANER_CHATS.setdefault(x.chat_id, {"setting": False, "commands": set()})
-            CLEANER_CHATS[x.chat_id]["commands"].add(x.command)
+            CLEANER_CHATS.setdefault(x.str(chat_id), {"setting": False, "commands": set()})
+            CLEANER_CHATS[x.str(chat_id)]["commands"].add(x.command)
     finally:
         SESSION.close()
 
