@@ -15,6 +15,7 @@ def namespace_of(chat, update, context):
     if chat not in namespaces:
         namespaces[chat] = {
             "__builtins__": globals()["__builtins__"],
+            "__name__": "__main__",
             "update": update,
             "context": context,
         }
