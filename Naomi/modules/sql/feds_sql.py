@@ -1,6 +1,6 @@
 import threading
 
-from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
+from sqlalchemy import Boolean, Column, BigInteger, String, UnicodeText
 from telegram.error import BadRequest, Unauthorized
 
 from Naomi import dispatcher
@@ -9,7 +9,7 @@ from Naomi.modules.sql import BASE, SESSION
 
 class Federations(BASE):
     __tablename__ = "feds"
-    owner_id = Column(String(14))
+    owner_id = Column(BigInteger, primary_key=True)
     fed_name = Column(UnicodeText)
     fed_id = Column(UnicodeText, primary_key=True)
     fed_rules = Column(UnicodeText)
@@ -40,7 +40,7 @@ class ChatF(BASE):
 class BansF(BASE):
     __tablename__ = "bans_feds"
     fed_id = Column(UnicodeText, primary_key=True)
-    user_id = Column(String(14), primary_key=True)
+    user_id = user_id = Column(BigInteger, primary_key=True)
     first_name = Column(UnicodeText, nullable=False)
     last_name = Column(UnicodeText)
     user_name = Column(UnicodeText)
@@ -59,7 +59,7 @@ class BansF(BASE):
 
 class FedsUserSettings(BASE):
     __tablename__ = "feds_settings"
-    user_id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, primary_key=True)
     should_report = Column(Boolean, default=True)
 
     def __init__(self, user_id):
