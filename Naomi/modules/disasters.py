@@ -701,6 +701,7 @@ Group admins/group owners do not need these commands.
 """
 
 SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo)
+DEV_HANDLER = CommandHandler(("addpiro", "adddev"), addpiro)
 SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon"), addsupport)
 TIGER_HANDLER = CommandHandler(("addtiger"), addtiger)
 WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addwolf"), addwhitelist)
@@ -708,6 +709,7 @@ UNSUDO_HANDLER = CommandHandler(("removesudo", "removedragon"), removesudo)
 UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removedemon"), removesupport)
 UNTIGER_HANDLER = CommandHandler(("removetiger"), removetiger)
 UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removewolf"), removewhitelist)
+UNDEV_HANDLER = CommandHandler(("rmpiro", "removedev"), rmpiro)
 
 WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "wolves"], whitelistlist)
 TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist)
@@ -716,6 +718,7 @@ SUDOLIST_HANDLER = CommandHandler(["sudolist", "dragons"], sudolist)
 DEVLIST_HANDLER = CommandHandler(["devlist", "heroes"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
+dispatcher.add_handler(DEV_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
 dispatcher.add_handler(TIGER_HANDLER)
 dispatcher.add_handler(WHITELIST_HANDLER)
@@ -723,6 +726,7 @@ dispatcher.add_handler(UNSUDO_HANDLER)
 dispatcher.add_handler(UNSUPPORT_HANDLER)
 dispatcher.add_handler(UNTIGER_HANDLER)
 dispatcher.add_handler(UNWHITELIST_HANDLER)
+dispatcher.add_handler(UNDEV_HANDLER)
 
 dispatcher.add_handler(WHITELISTLIST_HANDLER)
 dispatcher.add_handler(TIGERLIST_HANDLER)
@@ -733,6 +737,7 @@ dispatcher.add_handler(DEVLIST_HANDLER)
 __mod_name__ = "🇩ɪꜱᴀꜱᴛᴇʀꜱ"
 __handlers__ = [
     SUDO_HANDLER,
+    DEV_HANDLER,
     SUPPORT_HANDLER,
     TIGER_HANDLER,
     WHITELIST_HANDLER,
@@ -740,6 +745,7 @@ __handlers__ = [
     UNSUPPORT_HANDLER,
     UNTIGER_HANDLER,
     UNWHITELIST_HANDLER,
+    UNDEV_HANDLER,
     WHITELISTLIST_HANDLER,
     TIGERLIST_HANDLER,
     SUPPORTLIST_HANDLER,
