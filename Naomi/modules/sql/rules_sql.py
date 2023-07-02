@@ -10,7 +10,7 @@ class Rules(BASE):
     rules = Column(UnicodeText, default="")
 
     def __init__(self, chat_id):
-        self.chat_id = chat_id
+        self.chat_id = str(chat_id)
 
     def __repr__(self):
         return "<Chat {} rules: {}>".format(self.chat_id, self.rules)
