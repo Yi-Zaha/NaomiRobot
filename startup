@@ -1,15 +1,4 @@
-#!/bin/bash
-
-timeout --preserve-status 24h bash -c '
-  echo "Running..."
-  git pull -f -q 
-  pip install --quiet -U -r requirements.txt
-  python3 -m Naomi
-'
-
-if [ $? -eq 124 ]; then
-  echo "Script timed out after 24 hours."
-  exit 0
-else
-  exit 1
-fi
+echo "Running..."
+git pull -f -q 
+pip install --quiet -U -r requirements.txt
+python3 -m Naomi
