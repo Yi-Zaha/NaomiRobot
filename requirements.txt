@@ -19,7 +19,7 @@ geopy
 nltk
 psutil
 aiohttp>=2.2.5
-Pillow
+Pillow==9.5.0
 CurrencyConverter
 jikanpy~=4.3.2
 speedtest-cli
