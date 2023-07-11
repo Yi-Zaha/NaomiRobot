@@ -293,7 +293,6 @@ async def lego(event):
             os.remove(fname)
     except Exception as e:
         print(e)
-        await message.reply_text(e)
 
 __mod_name__ = "🇱ᴏɢᴏ​"
 
