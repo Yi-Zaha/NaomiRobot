@@ -269,7 +269,7 @@ async def lego(event):
         fnt = glob.glob("./Naomi/resources/fonts/*")
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
-        w, h = draw.text(text, font=font)
+        w, h = draw.textsize(text, font=font)
         h += int(h * 0.21)
         image_width, image_height = img.size
         draw.text(
