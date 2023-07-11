@@ -68,11 +68,6 @@ RUN pip3 install --upgrade pip setuptools
 RUN git clone https://github.com/tyburd/NaomiRobot /root/NaomiRobot
 WORKDIR /root/NaomiRobot
 
-#Copy config file to /root/NaomiRobot/Naomi
-COPY ./Naomi/config.py ./Naomi/config.py* /root/NaomiRobot/Naomi/
-
-ENV PATH="/home/bot/bin:$PATH"
-
 # Install requirements
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
