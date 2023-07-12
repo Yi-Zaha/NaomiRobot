@@ -11,7 +11,7 @@ if DB_URI and DB_URI.startswith("postgres://"):
 
 
 def start() -> scoped_session:
-    engine = create_engine(DB_URI, client_encoding="utf8", pool_size=20, max_overflow=10, pool_recycle=3600)
+    engine = create_engine(DB_URI, client_encoding="utf8", pool_size=4, max_overflow=0)
     BASE.metadata.bind = engine
     BASE.metadata.create_all(engine)
     return scoped_session(sessionmaker(bind=engine, autoflush=False))
