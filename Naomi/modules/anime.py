@@ -337,9 +337,10 @@ def manga(update: Update, context: CallbackContext):
         msg = msg[:-2]
         info = json["siteUrl"]
         buttons = [[InlineKeyboardButton("More Info", url=info)]]
-        bimage = json.get("bannerImage", False)
+        bimage = json.get("bannerImage")
         image = f"https://img.anili.st/media/{json.get('id')}"
         msg += f"\n *➳ Descripation:*_{json.get('description', None)}_"
+        msg = msg.replace('<br>', '').replace('<i>', '').replace('</i>', '')
         if image:
             try:
                 update.effective_message.reply_photo(
