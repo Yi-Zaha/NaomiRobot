@@ -237,10 +237,10 @@ def anime(update: Update, context: CallbackContext):
             ]
         else:
             buttons = [[InlineKeyboardButton("🔖 More Info 🔖", url=info)]]
-        if image:
+        if title_img:
             try:
                 update.effective_message.reply_photo(
-                    photo=title_image,
+                    photo=title_img,
                     caption=msg,
                     parse_mode=ParseMode.MARKDOWN,
                     reply_markup=InlineKeyboardMarkup(buttons),
