@@ -224,7 +224,10 @@ def anime(update: Update, context: CallbackContext):
             .replace("<br>", "")
         )
         msg += shorten(description, info)
-        image = json.get("coverImage", None)
+        siteid = json.get('aniid')
+        bannerimg = json.get("bannerImage") or ""
+        coverimg = json.het("coverImage")("large") or ""
+        title_img = f"https://img.anili.st/media/{siteid}"
         if trailer:
             buttons = [
                 [
@@ -237,7 +240,7 @@ def anime(update: Update, context: CallbackContext):
         if image:
             try:
                 update.effective_message.reply_photo(
-                    photo=image,
+                    photo=title_image,
                     caption=msg,
                     parse_mode=ParseMode.MARKDOWN,
                     reply_markup=InlineKeyboardMarkup(buttons),
