@@ -224,9 +224,9 @@ def anime(update: Update, context: CallbackContext):
             .replace("<br>", "")
         )
         msg += shorten(description, info)
-        siteid = json.get('aniid')
+        siteid = json.get('id')
         bannerimg = json.get("bannerImage") or ""
-        coverimg = json.get("coverImage")("large") or ""
+        coverimg = json.get("coverImage") or ""
         title_img = f"https://img.anili.st/media/{siteid}"
         if trailer:
             buttons = [
