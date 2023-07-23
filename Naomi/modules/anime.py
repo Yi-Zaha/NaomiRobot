@@ -339,7 +339,7 @@ def manga(update: Update, context: CallbackContext):
         buttons = [[InlineKeyboardButton("More Info", url=info)]]
         bimage = json.get("bannerImage", False)
         image = f"https://img.anili.st/media/{json.get('id')}"
-        msg += f"\n *➳ Descripation:* _{bs4.BeautifulSoup(json.get('description', None), features='html.parser').text}_""
+        msg += f"\n *➳ Descripation:* _{bs4.BeautifulSoup(json.get('description', None), features='html.parser').text}_"
         msg = msg.replace('<br>', '').replace('<i>', '').replace('</i>', '')
         if image:
             try:
