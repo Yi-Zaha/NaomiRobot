@@ -343,11 +343,11 @@ def manga(update: Update, context: CallbackContext):
         msg = msg.replace('<br>', '').replace('<i>', '').replace('</i>', '')
         if image:
             try:
-                update.effective_message.reply_photo(photo = image, caption = msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons))
+                update.effective_message.reply_photo(photo = image, caption = msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons),)
             except:
                 msg += f" [〽️]({image})"
-                update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons))
-        else: update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons))
+                update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons),)
+        else: update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons),)
 
 
 @run_async
