@@ -305,7 +305,8 @@ def manga(update: Update, context: CallbackContext):
     search = search[1]
     variables = {"search": search}
     json = requests.post(
-        url, json={'query': manga_query, 'variables': variables}).json()['data'].get('Media', None)
+        url, json={"query": manga_query, "variables": variables}
+    ).json()
     msg = ""
     if "errors" in json.keys():
         update.effective_message.reply_text("Manga not found")
