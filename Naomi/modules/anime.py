@@ -339,29 +339,15 @@ def manga(update: Update, context: CallbackContext):
         buttons = [[InlineKeyboardButton("More Info", url=info)]]
         bimage = json.get("bannerImage", False)
         image = f"https://img.anili.st/media/{json.get('id')}"
-        msg += f"\n *➳ Descripation:* _{bs4.BeautifulSoup(json.get('description', None), features='html.parser').text}_"
+        msg += f"\n\n_{json.get('description', None)}_"
         msg = msg.replace('<br>', '').replace('<i>', '').replace('</i>', '')
         if image:
             try:
-                update.effective_message.reply_photo(
-                    photo=image,
-                    caption=msg,
-                    parse_mode=ParseMode.MARKDOWN,
-                    reply_markup=InlineKeyboardMarkup(buttons),
-                )
+                update.effective_message.reply_photo(photo = image, caption = msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons))
             except:
                 msg += f" [〽️]({image})"
-                update.effective_message.reply_text(
-                    msg,
-                    parse_mode=ParseMode.MARKDOWN,
-                    reply_markup=InlineKeyboardMarkup(buttons),
-                )
-        else:
-            update.effective_message.reply_text(
-                msg,
-                parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(buttons),
-            )
+                update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons))
+        else: update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardButton(buttons))
 
 
 @run_async
