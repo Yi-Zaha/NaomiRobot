@@ -25,7 +25,7 @@ def shorten(description, info="anilist.co"):
         description = description[0:500] + "...."
         msg += f"\n➳ *Description:* _{description}_[Read More]({info})"
     else:
-        msg += f"\n*➳* *Description*:_{description}_"
+        msg += f"\n➳ *Description:*_{description}_"
     return msg
 
 
